@@ -1,0 +1,276 @@
+/*html{
+	background-color: #f2f2f2;
+}*/
+
+body{
+	margin: 0px;
+	padding: 0px;
+	font-family: 'Arial', sans-serif;
+}
+
+nav{
+	background-color: #202d35;
+	padding: 5px 0px 5px 0px;
+	text-align: center;
+} 
+
+nav a{
+	margin: 0px;
+	color: #fff;
+	text-decoration: none;
+} 
+
+nav img{
+	width: 25px;
+	height: 25px;
+}
+
+.fa-bars {
+	position: fixed;
+   	left: -350px;
+}
+
+.fa_icons {
+    float: right;
+    color: #fff;
+	margin: 1.5mm 0mm 1.5mm 0mm;
+	width: 10mm;
+}
+
+
+
+.fa_icons:hover {
+	color: #2a677c;
+}
+
+/*.container{
+	margin: 40px;
+	display: inline;
+}*/
+
+#sidebar{
+	background-color: #fff;
+	width: 25%; /* ginchange ko sya to 25% para mas easy ang pagassign sang width. oks lang? -V*/
+	height: 100%;
+	position: fixed;
+	/*border: 1px solid #202d35;*/
+	float: left;
+	/*border-radius: 0px 5px;*/
+	/*overflow-y: scroll;*/
+	margin: 1px 0px 0px 1px; 
+	box-shadow: 0 0 25px 0 rgba(19, 35, 47, 0.9);
+}
+
+.user{
+	height: 100px;
+	text-align: center;
+	background-color: #0e3c54;
+	/*border: 2px solid #0e3c54;
+*/	/*border-radius: 3px;*/
+	margin: 3% 3% 0 3%;
+	position: relative;
+}
+
+.user img{
+	height: 86px; 
+    width: 90px;
+    float: left;
+    margin: 5px;
+}
+
+.user>a{
+	font-size: 11px;
+	color: #fff;
+	position: absolute;
+	top: 70px;
+	left: 22px;
+	background-color: rgba(19, 35, 47, 0.4);
+}
+
+.fa-sign-out{
+	float: right;
+    color: #fff;
+	margin: 1.5mm 0mm 0mm 0mm;
+	width: 5mm;}
+
+.info {
+	padding: 10%;
+	text-align: center;
+}
+
+.info p{
+	padding: 0px;
+	margin: 0px;
+	font-size: 110%;
+	color: #f2f2f2;
+}
+
+.fa-plus{
+	float: left;
+	margin: 2%;
+}
+
+.fa-ellipsis-h{
+	float: right;
+	margin: 2%;
+}
+
+.details{
+	margin: 3%;
+	padding: 0px;
+}
+
+.details>ul{
+	margin: 0;
+	padding: 1px;
+	background-color: #0e3c54;
+	height: 100%;
+	/*overflow-y: auto;
+*/}
+
+li{ 
+	list-style: none;
+	text-align: center;
+	
+}
+
+li#theClasses{
+	padding-bottom: 3%; 
+}
+
+.details>ul>li{
+	padding: 4% 0;
+	/*border-bottom: 5px solid #01705c;*/
+	border-radius: 3px;
+	margin: 2%;
+	background-color: #fff;
+}
+
+li a{
+	color: black;
+	font-size: 125%;
+}
+
+
+#subjectID, #workID{
+	padding: 0px;
+	/*border: 3px solid black;*/
+	margin-top: 5%;
+}
+
+#subjectID li, #workID li{
+	padding: 3%;
+}
+
+#subjectID li a, #workID li a{
+	font-size: 100%;
+	padding: 2%;
+	color: #01705c;
+	/*border-bottom: 5px solid #01705c;*/
+}
+
+li#newClass{
+	font-size: 70%;
+	border-top: 1px solid black;
+	padding: 5px 0 0 0;
+	margin-top: 10px; 
+}
+
+li#newClass>a{
+	color: black;
+	border: none;
+	padding: 2%;
+}
+
+li#newClass>a:hover{
+	color: #01705c;
+}
+
+.hvr-underline-from-center {
+  /*display: inline-block;*/
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px transparent;
+  position: relative;
+  overflow: hidden;
+}
+.hvr-underline-from-center:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 100%;
+  right: 100%;
+  bottom: 0;
+  /*background: #01705c;*/
+  background: #b3c3d3;
+  height: 4px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+.hvr-underline-from-center:hover:before, .hvr-underline-from-center:focus:before, .hvr-underline-from-center:active:before {
+  left: 0;
+  right: 0;
+}
+
+
+
+
+#body{ 
+	height: calc(100% - 4.8mm);
+	width: calc(100% - 340px);
+	padding-left: 1%; 
+	right: 0;
+	position: fixed;
+}
+/*.modal-open{
+	visibility: hidden;
+}*/
+
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+    /* For tablet: */
+
+    #sidebar{
+		width: 310px;
+	}
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    #body{
+    	width: 100%; 
+    }
+
+    .navDrpDwn{
+    	width: 100%;
+    	height: 93.5%;
+    	background-color: white;
+    }
+
+    #sidebar{
+    	width: 310px;
+    	left: -350px;
+    	transition: all 500ms linear;
+	}
+
+    #sidebar.active{
+    	left: 0px;
+    }
+
+    #toDoBar.active{
+    	left: 0px;
+    }
+
+    .fa-bars {
+    	float: left;
+    	color: #fff;
+    	position: absolute;
+    	left: 0px;
+		margin: 1.5mm 0mm 1.5mm 0mm;
+		width: 10mm;
+	}
+}
