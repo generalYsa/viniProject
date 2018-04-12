@@ -71,7 +71,7 @@
                                     </div>
                                 </li>
                                 <!-- <div id="student_space"> -->
-                                <li class="hvr-underline-from-center"><a href="#">Messages</a></li>
+                                <li class="hvr-underline-from-center"><a href="/chat">Messages</a></li>
                             </ul>
                         </div>
                     <!-- NAVIGATION -->
