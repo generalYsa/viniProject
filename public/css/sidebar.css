@@ -124,9 +124,9 @@ nav img{
 	margin: 0;
 	padding: 1px;
 	background-color: #0e3c54;
-	height: 100%;
-	/*overflow-y: auto;
-*/}
+	height: 76%;
+	overflow-y: auto;
+}
 
 li{ 
 	list-style: none;
@@ -154,8 +154,15 @@ li a{
 
 #subjectID, #workID{
 	padding: 0px;
+	
 	/*border: 3px solid black;*/
 	margin-top: 5%;
+	
+}
+
+#subjectID>div{
+	max-height: 55%;
+	overflow-y: auto; 
 }
 
 #subjectID li, #workID li{
