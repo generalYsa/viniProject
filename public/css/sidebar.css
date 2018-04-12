@@ -233,6 +233,7 @@ li#newClass>a:hover{
 	padding-left: 1%; 
 	right: 0;
 	position: fixed;
+	margin-top: 38px;
 }
 /*.modal-open{
 	visibility: hidden;
