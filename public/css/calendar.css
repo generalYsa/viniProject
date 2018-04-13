@@ -1,0 +1,93 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+#body {
+	margin: auto;
+	margin-top: 10px;
+}
+
+.calendarMonth {
+	width: 100%;
+	position: relative;
+	overflow: auto;
+	text-align: center;
+}	
+
+.calendarDays {
+	width: 100%;
+}
+
+table {
+	width: 100%;
+}
+
+tr > th {
+	width: 14.28%;
+}
+
+tr > td {
+	width: 14.28%;
+	border: 1px solid black;
+	text-align: center;
+	border-radius: 5px;
+}
+
+td:hover {
+	background-color: #B39DDB;
+}
+
+@media only screen and (max-width: 768px) {
+	
+	table {
+		font-size: 8px;
+	}
+	
+	#month {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	tr > th {
+		width: 20px;
+		overflow: hidden;
+	}
+
+	tr > td {
+		height: 40px;
+	}
+}
+
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+
+	table {
+		font-size: 10px;
+	}
+	
+	#month {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+	
+	tr > td {
+		height: 60px;
+	}
+		
+}
+
+@media only screen and (min-width: 1025px) {
+
+	#month {
+		padding-left: 100px;
+		padding-right: 100px;
+	}
+	
+	table {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+	tr > td {
+		height: 80px;
+	}
+}
