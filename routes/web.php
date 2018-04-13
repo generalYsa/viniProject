@@ -19,13 +19,23 @@ Route::get('/chat', function () {
     return view('chat');
 });
 
+Route::get('/recordForm', function() {
+	return view('recordForm');
+});
+
+Route::get('/requirements', function() {
+	return view('requirements');
+});
+
+Route::get('/viewFiles', function() {
+	return view('viewFiles');
+});
+
+Route::get('/calendar', function() {
+	return view('calendar');
+});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

@@ -1,0 +1,130 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+#formContainer {
+	width: 95%;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	overflow-x: auto;
+	margin: auto;
+	margin-top: 15px;
+}
+
+.HeaderLabelContainer, .FieldNameContainer, .FieldValueContainer{
+	display: inline-block;
+	margin: 7px 0px;
+}
+
+.LabelAndFieldContainer {
+	padding-left: 15px;
+}
+
+/* Initial Details of the Form */
+#initialDetails {
+	margin-bottom: 15px;
+}
+
+#activityName {
+	width: 15%;
+}
+
+#activityValue {
+	width: 30%;
+}
+
+#activityValue > select {
+	width: 80%;
+	height: 30px;
+	border: 0.5px solid black;
+}
+
+#activityValue > button {
+	height: 30px;
+	width: 30px;
+	border: 0px;
+	background-color: #2a677c;
+	color: white;
+	margin: 0px;
+}
+
+#maxScore {
+	width: 10%;
+}
+
+#maxScoreValue {
+	width: 12%;
+}
+
+#maxScoreValue > input[type="number"] {
+	width: 40%;
+}
+
+.RequirementType {
+	margin: 10px 0px;
+}
+
+.RequirementType > input {
+	width: 16%;
+	height: 30px;
+	border: 0px;
+}
+
+.RequirementType > input#selected {
+	background-color: #B39DDB;
+	color: white;
+}
+/* Initial Details of the Form */
+
+/* Record Header and Body of the Form */
+#recordHeader {
+	border: 1px solid black;
+	margin-bottom: 3px;
+}
+
+.Record {
+	border-bottom: 1px solid black;
+}
+
+.Record:hover {
+	background-color: #2a677c;
+	color: white;
+}
+
+#studentName, .FieldNameContainer {
+	width: 30%;
+}
+
+#grade, .FieldValueContainer {
+	width: 49%;
+}
+
+.FieldValueContainer > input {
+	height: 40px;
+	padding-left: 15px;
+	width: 50px;
+	border: 1px solid black;
+}
+/* Record Header and Body of the Form */
+
+/* Buttons or Control Panel of the Form */
+.FormButtonsContainer {
+	margin-top: 20px;
+}
+
+.FormButtonsContainer > input, .FormButtonsContainer > button {
+	float: right;
+	width: 100px;
+	height: 30px;
+	margin-left: 20px;
+	background-color: #2a677c;
+	color: white;
+	border: 0px;
+}
+
+.FormButtonsContainer > input:hover, .FormButtonsContainer > button:hover {
+	background-color: #B39DDB;
+	color: white;
+}
+/* Buttons or Control Panel of the Form */

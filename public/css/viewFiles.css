@@ -1,0 +1,83 @@
+* {
+	font-family: 'Roboto', sans-serif;
+}
+
+#body {
+	margin: auto;
+	margin-top: 15px;
+}
+
+#pageContainer {
+	width: 95%;
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	overflow-x: auto;
+	margin: 10px auto auto auto;
+}
+
+.HeaderLabelContainer, .NameContainer, .ButtonContainer{
+	display: inline-block;
+	margin: 7px 0px;
+}
+
+/* Header and Body of the Page */
+#header {
+	border: 1px solid black;
+	margin-bottom: 3px;
+	padding-left: 15px;
+}
+
+.StudentContainer {
+	border-bottom: 1px solid black;
+}
+
+.StudentContainer:hover {
+	background-color: #2a677c;
+	color: white;
+}
+
+.NameContainer {
+	width: 50%;
+}
+
+.NameContainer > label {
+	height: 40px;
+	vertical-align: middle;
+	padding-left: 10px;
+}
+
+.ButtonContainer {
+	width: 49%;
+	height: 40px;
+	vertical-align: middle;
+}
+
+.ButtonContainer > button {
+	height: 40px;
+	border: 0px;
+	float: right;
+	vertical-align: middle;
+}
+/* Header and Body of the Page */
+
+/* Control Panel of the Page */
+.NavigationContainer {
+	margin-top: 20px;
+}
+
+.NavigationContainer > button {
+	float: right;
+	width: 200px;
+	height: 30px;
+	margin-left: 20px;
+	background-color: #2a677c;
+	color: white;
+	border: 0px;
+}
+
+.NavigationContainer > button:hover {
+	background-color: #B39DDB;
+	color: white;
+}
+/* Control Panel of the Page */
