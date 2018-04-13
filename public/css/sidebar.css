@@ -229,7 +229,7 @@ li#newClass>a:hover{
 
 #body{ 
 	height: calc(100% - 4.8mm);
-	width: calc(100% - 340px);
+	width: calc(100% - 26%);
 	padding-left: 1%; 
 	right: 0;
 	position: fixed;
