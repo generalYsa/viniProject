@@ -50,7 +50,7 @@
 
 			                <!-- CHATMATE -->
 				                @forelse($chat as $chatMate)
-					                <a href='chat.php?chatID=chatIDhere'>
+					                <a href='/chat/{{ $chatMate->id }}'>
 					                    <div class="ChatSideBar-body">
 					                                        
 						                  	<!-- PROFILE PICTURE -->
@@ -121,47 +121,57 @@
 		              </div>
 		            <!-- HEADING ON THE RIGHT -->
 
+		            
+
 		            <!-- CONVERSATION -->
 		              <div class="message" id="conversation">
-		                <!-- MESSAGE (user is sender) -->
-		                  <div class="message-body"> 
-		                    <div class="message-main-sender">
-		                      <div class="sender">
-		                        <!-- MESSAGE -->
-		                          <p class="message-text">
-		                            Message here
-		                          </p>
-		                        <!-- MESSAGE -->
-		                        
-		                        <!-- TIME -->
-		                          <span class="message-time pull-right">
-		                            time
-		                          </span>
-		                        <!-- TIME -->
-		                      </div>
-		                    </div>
-		                  </div>
-		                <!-- MESSAGE (user is sender) -->   
+		              	@if(Request::is('chat/*'))
+		              	@forelse($messages as $message)
 
-		                <!-- MESSAGE (user is receiver) -->
-		                    <div class="message-body">
-		                      <div class="message-main-receiver">
-		                        <div class="receiver">
-		                          <!-- MESSAGE -->
-		                            <p class="message-text">
-		                              Message hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage 
-		                            </p>
-		                          <!-- MESSAGE -->
+		              	@if($message->senderID == 1)
+			                <!-- MESSAGE (user is sender) -->
+			                  <div class="message-body"> 
+			                    <div class="message-main-sender">
+			                      <div class="sender">
+			                        <!-- MESSAGE -->
+			                          <p class="message-text">
+			                            {{$message->message}}
+			                          </p>
+			                        <!-- MESSAGE -->
+			                        
+			                        <!-- TIME -->
+			                          <span class="message-time pull-right">
+			                            {{$message->created_at->diffForHumans()}}
+			                          </span>
+			                        <!-- TIME -->
+			                      </div>
+			                    </div>
+			                  </div>
+			                <!-- MESSAGE (user is sender) -->   
+			            @else
+			                <!-- MESSAGE (user is receiver) -->
+			                    <div class="message-body">
+			                      <div class="message-main-receiver">
+			                        <div class="receiver">
+			                          <!-- MESSAGE -->
+			                            <p class="message-text">
+			                              {{$message->message}}
+			                            </p>
+			                          <!-- MESSAGE -->
 
-		                          <!-- TIME -->
-		                            <span class="message-time pull-right">
-		                              time
-		                            </span>
-		                          <!-- TIME -->
-		                        </div>
-		                      </div>
-		                    </div>
-		                <!-- MESSAGE (user is receiver) -->
+			                          <!-- TIME -->
+			                            <span class="message-time pull-right">
+			                              {{$message->created_at->diffForHumans()}}
+			                            </span>
+			                          <!-- TIME -->
+			                        </div>
+			                      </div>
+			                    </div>
+			                <!-- MESSAGE (user is receiver) -->
+			            @endif
+			        @empty
+			        @endforelse
+			        @endif
 		              </div>
 		            <!-- CONVERSATION -->
 

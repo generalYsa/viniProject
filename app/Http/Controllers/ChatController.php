@@ -5,11 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Chat;
 use App\Student;
+use App\Messages;
 use Auth;
 use DB;
 
 class ChatController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -79,7 +81,10 @@ class ChatController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = 1;
+        $chat= Chat::GetChatMate($user);
+        $messages = Messages::where('chatID', $id)->orderBy('created_at')->get();
+        return view('chat', compact('messages', 'chat'));
     }
 
     /**
