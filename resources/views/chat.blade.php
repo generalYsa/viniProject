@@ -46,59 +46,40 @@
 		              <!-- CHATMATES SIDEBAR  -->
 		                <div class="sideBar">                             
 		                 
-		                 
-		                  <a href='chat.php?chatID=chatIDhere'><!-- CHATMATE -->
-		                    <div class="ChatSideBar-body"> <!-- chatMate body -->
-		                      
-		                      <!-- PROFILE PICTURE -->
-		                        <div class="sideBar-avatar">
-		                          <div class="avatar-icon">
-		                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
-		                          </div>
-		                        </div>
-		                      <!-- PROFILE PICTURE -->
-		                      
-		                      <div class="sideBar-info pull-left">                              
-		                        <!-- NAME OF CHATMATE -->
-		                          <div class="sideBar-name elipsis ">
-		                            Vaughn Malachi Franco Venturas
-		                          </div>
-		                        <!-- NAME OF CHATMATE -->
-		                    
-		                        <!-- TIME -->
 
-		                            <span class="sideBar-time pull-left">Feb. 2, 2018</span>
-		                        <!-- TIME -->
-		                      </div>
 
-		                    </div>  <!-- chatMate body -->
-		                  </a> <!-- CHATMATE -->
-		                
-		                  <a href='chat.php?chatID=chatIDhere'><!-- CHATMATE -->
-		                    <div class="ChatSideBar-body"> <!-- chatMate body -->
-		                      
-		                      <!-- PROFILE PICTURE -->
-		                        <div class="sideBar-avatar">
-		                          <div class="avatar-icon">
-		                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
-		                          </div>
-		                        </div>
-		                      <!-- PROFILE PICTURE -->
-		                      
-		                      <div class="sideBar-info pull-left">                              
-		                        <!-- NAME OF CHATMATE -->
-		                          <div class="sideBar-name elipsis ">
-		                            NameNameNameNameNameNameNameNameNameName
-		                          </div>
-		                        <!-- NAME OF CHATMATE -->
-		                    
-		                        <!-- TIME -->
-		                            <span class="sideBar-time pull-left">12:00PM</span>
-		                        <!-- TIME -->
-		                      </div>
-
-		                    </div>  <!-- chatMate body -->
-		                  </a> <!-- CHATMATE -->
+			                <!-- CHATMATE -->
+				                @forelse($chat as $chatMate)
+					                <a href='chat.php?chatID=chatIDhere'>
+					                    <div class="ChatSideBar-body">
+					                                        
+						                  	<!-- PROFILE PICTURE -->
+						                        <div class="sideBar-avatar">
+						                          <div class="avatar-icon">
+						                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+						                          </div>
+						                        </div>
+					                     	<!-- PROFILE PICTURE -->
+						                      
+						                    <!-- INFO -->
+						                    	<div class="sideBar-info pull-left">                              
+							                        <!-- NAME OF CHATMATE -->
+							                        	<div class="sideBar-name elipsis ">
+							                            	{{ $chatMate->chatMates['name'] }}
+							                          	</div>
+							                        <!-- NAME OF CHATMATE -->
+							                    
+							                        <!-- TIME -->
+							                            <span class="sideBar-time pull-left">{{ $chatMate->updated_at->diffForHumans()}}</span>
+							                        <!-- TIME -->
+						                      	</div>
+						                    <!-- INFO -->
+					                    </div>
+					                </a>   
+				                @empty
+					            @endforelse
+			                <!-- CHATMATE -->
+		                  
 
 		                  
 		                </div>
