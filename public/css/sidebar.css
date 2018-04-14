@@ -6,6 +6,7 @@ body{
 	margin: 0px;
 	padding: 0px;
 	font-family: 'Arial', sans-serif;
+	overflow-x:hidden; 
 }
 
 nav{
@@ -176,6 +177,10 @@ li a{
 	/*border-bottom: 5px solid #01705c;*/
 }
 
+.hvr-underline-from-center>a{
+	text-decoration: none;
+}
+
 li#newClass{
 	font-size: 70%;
 	border-top: 1px solid black;
@@ -227,7 +232,7 @@ li#newClass>a:hover{
 
 
 
-#body{ 
+#body, #modalBody{ 
 	height: calc(100% - 4.8mm);
 	width: calc(100% - 26%);
 	padding-left: 1%; 
@@ -235,6 +240,9 @@ li#newClass>a:hover{
 	position: fixed;
 	margin-top: 38px;
 }
+
+
+
 /*.modal-open{
 	visibility: hidden;
 }*/
@@ -244,6 +252,10 @@ li#newClass>a:hover{
 
     #sidebar{
 		width: 310px;
+	}
+
+	#body{
+	 	width: calc(100% - 320px);
 	}
 }
 

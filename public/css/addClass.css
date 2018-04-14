@@ -2,22 +2,20 @@
    font-family: 'Ubuntu', sans-serif;
 }*/
 
-a:link, a:visited{
-   text-decoration: none;
-}
 
-.addModal{
+
+/*.addModal{
    background-color: rgba(0,0,0, .8);
    width: 100%;
    height: 100vh;
    position: absolute;
    top: -38;
    left: 2;
-   /*z-index: 10;*/
+   //z-index: 10;
    opacity: 0;
    visibility: hidden;
    transition: all .5s;
-}
+}*/
 
 .addModal_content{
    width: 40%;
@@ -64,7 +62,7 @@ a:link, a:visited{
    margin: 2em;
 }*/
 
-input[type="text"]{
+.modalInput{
    width: 100%;
    height: 30px;
    border: 0.5px solid black;
@@ -86,7 +84,7 @@ button.submit{
    left: 75%;*/
 }
 
-p{
+.addModal_content< form < p{
    text-align: center;
    font-size: 25px;
    margin: 0;

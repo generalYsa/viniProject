@@ -6,9 +6,9 @@
         <link href="{{ asset('css/ToDo_Notif.css') }}"  rel="stylesheet">
         <link href="{{ asset('css/addClass.css') }}" rel="stylesheet">
         <link href="{{ asset('css/editClass.css') }}" rel="stylesheet">
-        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu|Bree+Serif" rel="stylesheet"> -->
+        
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu|Bree+Serif" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
@@ -176,15 +176,17 @@
                     </a>
             </div>
         <!-- TO DO BAR -->
+
+
         <!-- BODY / RIGHT SIDE PANEL -->
-            <div id="body">
+          <!--   <div id="modalBody"> -->
                 <!-- ADD CLASS MODAL -->
-                <div class="addModal" id="modal">
+                <div class="modalBody" id="modal">
                     <div class="addModal_content">
                         <a href="#" class="closeModal">&times;</a>
                         <h2 class="addModalHeading">Add Class</h2>
                         <form action="#">
-                            <input placeholder="Enter Class Name" type="text" name="className"><br><br>
+                            <input class = "modalInput" placeholder="Enter Class Name" type="text" name="className"><br><br>
                             <p>Code: dhu1ia</p>
                             <button class="submit" type="submit" value="Submit">Submit</button>
                         </form>
@@ -193,12 +195,12 @@
                 <!-- ADD CLASS MODAL -->
 
                 <!-- DROP CLASS MODAL -->
-                <div class="editModal" id="unmodal">
+                <div class="modalBody" id="unmodal">
                     <div class="editModal_content">
                         <a href="#" class="closeModal">&times;</a>
                         <h2 class="editModalHeading2">Edit Class</h2>
                         <form action="#">
-                            <input placeholder="Edit Class Name" type="text" value="Class Name" name="className"><br><br>
+                            <input class = "modalInput" placeholder="Edit Class Name" type="text" value="Class Name" name="className"><br><br>
                             <button class="drop" type="submit">Drop</button>
                             <button class="cancel" type="reset">Cancel</button>
                             <button class="save" type="submit">Save</button>
@@ -206,7 +208,7 @@
                     </div>
                 </div>
                 <!-- DROP CLASS MODAL -->
-            </div>
+            <!-- </div> -->
         <!-- BODY / RIGHT SIDE PANEL -->
     </body>
     <script src= "{{asset('js/main.js')}}" ></script>
