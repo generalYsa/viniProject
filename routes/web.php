@@ -39,6 +39,10 @@ Route::get('/studentList', function() {
 	return view('studentList');
 });
 
+Route::get('/editPicture', function() {
+	return view('editPicture');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
