@@ -39,16 +39,6 @@ Route::get('/studentList', function() {
 	return view('studentList');
 });
 
-Route::get('/#modal', function() {
-	return view('layouts.app');
-});
-
-Route::get('/#unmodal', function() {
-	return view('layouts.editClass');
-});
-
-
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

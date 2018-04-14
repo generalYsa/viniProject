@@ -1,27 +1,27 @@
-body{
+/*body{
    font-family: 'Ubuntu', sans-serif;
-}
+}*/
 
 a:link, a:visited{
    text-decoration: none;
 }
 
-.modal{
+.editModal{
    background-color: rgba(0,0,0, .8);
    width: 100%;
    height: 100vh;
    position: absolute;
    top: -38;
-   left: 0;
+   left: 2;
    /*z-index: 10;*/
    opacity: 0;
    visibility: hidden;
    transition: all .5s;
 }
 
-.modal_content{
-   width: 25%;
-   height: 2%;
+.editModal_content{
+   width: 40%;
+   height: 25%;
    background-color: #fff;
    position: absolute;
    top: 50%;
@@ -32,6 +32,7 @@ a:link, a:visited{
    visibility: hidden;
    transition: all .5s;
    border: 3px solid #2a677c;
+   padding: 15px;
 }
 
 #unmodal:target{
@@ -39,7 +40,7 @@ a:link, a:visited{
    visibility: visible;
 }
 
-#unmodal:target .modal_content{
+#unmodal:target .editModal_content{
    opacity: 1;
    visibility: visible;
 }
@@ -52,14 +53,14 @@ a:link, a:visited{
    right: .5em;
 }
 
-.modalHeading{
+.editModalHeading{
    color: #2a677c;
    text-align: center;
    margin: 1em;
    font-size: 25px;
 }
 
-.modalHeading2{
+.editModalHeading2{
    color: #2a677c;
    text-align: center;
    margin: 1% 0% 0% 0%;

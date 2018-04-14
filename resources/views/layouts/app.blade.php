@@ -4,6 +4,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{{ asset('css/sideBar.css') }}"  rel="stylesheet">
         <link href="{{ asset('css/ToDo_Notif.css') }}"  rel="stylesheet">
+        <link href="{{ asset('css/addClass.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/editClass.css') }}" rel="stylesheet">
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu|Bree+Serif" rel="stylesheet"> -->
@@ -60,10 +62,10 @@
                                                 <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
                                                 <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
                                                 <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <!-- @extends('layouts.editClass') --> 
+                                                
                                             </div>                                             
                                             <li id="newClass"><a href="#modal" class="modal-open">+ Add Class</a></li>
-                                            @extends('layouts.addClass')                                       
+                                                                             
                                         </ul>
                                         <!-- [NOTE] this should be editied according to the type of user-->
                                         <ul id="workID">
@@ -174,6 +176,38 @@
                     </a>
             </div>
         <!-- TO DO BAR -->
+        <!-- BODY / RIGHT SIDE PANEL -->
+            <div id="body">
+                <!-- ADD CLASS MODAL -->
+                <div class="addModal" id="modal">
+                    <div class="addModal_content">
+                        <a href="#" class="closeModal">&times;</a>
+                        <h2 class="addModalHeading">Add Class</h2>
+                        <form action="#">
+                            <input placeholder="Enter Class Name" type="text" name="className"><br><br>
+                            <p>Code: dhu1ia</p>
+                            <button class="submit" type="submit" value="Submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- ADD CLASS MODAL -->
+
+                <!-- DROP CLASS MODAL -->
+                <div class="editModal" id="unmodal">
+                    <div class="editModal_content">
+                        <a href="#" class="closeModal">&times;</a>
+                        <h2 class="editModalHeading2">Edit Class</h2>
+                        <form action="#">
+                            <input placeholder="Edit Class Name" type="text" value="Class Name" name="className"><br><br>
+                            <button class="drop" type="submit">Drop</button>
+                            <button class="cancel" type="reset">Cancel</button>
+                            <button class="save" type="submit">Save</button>
+                        </form>                     
+                    </div>
+                </div>
+                <!-- DROP CLASS MODAL -->
+            </div>
+        <!-- BODY / RIGHT SIDE PANEL -->
     </body>
     <script src= "{{asset('js/main.js')}}" ></script>
 </html>
