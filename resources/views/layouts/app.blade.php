@@ -33,7 +33,7 @@
                         <div class="user">
                             <i class="fa fa-sign-out"></i>      
                             <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">  
-                            <a href="editPicture.html">Edit Picture</a> 
+                            <a href="/editPicture">Edit Picture</a> 
                             <div class="info">                  
                                 <p>Teacher Ganda</p>
                                 <p>20xx-xxxxx</p>
