@@ -1,0 +1,35 @@
+.changePhoto{
+	border: 3px solid black;
+	width: 57%;
+	height: 50%;
+	position: relative;
+	left: 22%; 
+	top: 24%;
+	box-shadow: 0 0 25px 0 rgba(19, 35, 47, 0.4);
+}
+
+.changePhoto img{
+	height: 190px; 
+    width: 190px;
+    position: absolute;
+    left: 33%;
+    top: 8%;
+}
+
+.changePhoto form{
+	width: 80%;
+	position: absolute;
+	top: 75%;
+	left: 35%;
+}
+
+.changePhoto input[type="submit"]{
+	position: absolute;
+	left: 6%;
+	margin-top: 15px;
+	width: 20%;
+	height: 30px;
+	border: 2px solid #2a677c;
+	border-radius: 3px;
+	background-color: #b3c3d3;
+}
