@@ -16,7 +16,7 @@ class CreateClassTable extends Migration
         Schema::create('class', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('profNum');
+            $table->integer('profID');
             $table->string('code', 5)->unique();
         });
     }
