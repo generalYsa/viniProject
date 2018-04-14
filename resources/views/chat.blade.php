@@ -169,26 +169,34 @@
 			                    </div>
 			                <!-- MESSAGE (user is receiver) -->
 			            @endif
+
+
 			        @empty
 			        @endforelse
+			        	
 			        @endif
 		              </div>
 		            <!-- CONVERSATION -->
 
 		            <!-- SEND -->
 		              <div class="reply">
-		                <form method= 'GET' action="?chatID=<chatIDhere>  ">
-		                  
+		              	
+		                
+		                <form method='POST' action='/chat'>
+		                  @csrf
 		                  <!-- chatID -->
-		                  <input type="hidden" name="chatID" value="idhere">
+		                  <input type="hidden" name="chatID" value="{{$message->chatID}}">
+
+		                  <!-- senderID -->
+		                  <input type="hidden" name="senderID" value="1"> <!-- change value to Auth::user()->id -->
 		                  
 		                  <!-- TEXTAREA FOR MESSAGE -->
 		                  <div class="reply-main">
-		                    <textarea class="form-control" name = "message"  ></textarea>
+		                    <textarea class="form-control" name="message" ></textarea>
 		                  </div>
 		                  
 		                  <!-- SEND BUTTON -->
-		                    <button  type="submit" name="send" class="reply-send"><i class="fa fa-send fa-2x" aria-hidden="true"></i></button>
+		                    <button  type="submit" class="reply-send"><i class="fa fa-send fa-2x" aria-hidden="true"></i></button>
 		                
 		                </form>
 		              </div>

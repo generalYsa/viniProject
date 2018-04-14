@@ -20,7 +20,7 @@ class ChatController extends Controller
     public function index()
     {
         // $user = Auth::id();
-        $user=1;
+        $user = 1;
         // $chat = Chat::
                     
         //                 where('user2', $user)
@@ -70,8 +70,13 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Messages::create($request->all());
+        return back();
     }
+
+
+    // public function storeMsg(Request $request, $id){
+    // }
 
     /**
      * Display the specified resource.
@@ -83,7 +88,7 @@ class ChatController extends Controller
     {
         $user = 1;
         $chat= Chat::GetChatMate($user);
-        $messages = Messages::where('chatID', $id)->orderBy('created_at')->get();
+        $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
         return view('chat', compact('messages', 'chat'));
     }
 
