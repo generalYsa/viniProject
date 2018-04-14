@@ -1,0 +1,39 @@
+/*html{
+	height: 100%;	 
+}
+*/
+
+table{
+	width: 100%;
+	text-align: center;
+}
+
+#students{
+	float: right;
+	width: 50%;
+	height: 100%;
+	overflow-y: auto;
+	margin: 8% 27% 5% 0%;
+}
+
+table, th, td {
+	border: 2px solid #fff;
+	border-collapse: collapse;
+}
+
+th{
+	background-color: #2a677c;
+	color: #fff;
+	padding: 9px; 
+}
+
+td{
+	padding: 9px; 
+	background-color: #b3c3d3;
+}
+
+button{
+	background-color: #202d35;
+	border: none;
+	color: #fff;
+}

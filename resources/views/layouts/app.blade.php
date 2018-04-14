@@ -48,25 +48,27 @@
                                     <div id="chenes">
                                         <ul id="subjectID">
                                             <div>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            </div>
-                                            <li id="newClass"><a href="#modal" class="modal-open">+ Add Class</a></li>                                      
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
+                                                <!-- @extends('layouts.editClass') --> 
+                                            </div>                                             
+                                            <li id="newClass"><a href="#modal" class="modal-open">+ Add Class</a></li>
+                                            @extends('layouts.addClass')                                       
                                         </ul>
                                         <!-- [NOTE] this should be editied according to the type of user-->
                                         <ul id="workID">
                                             <li class="hvr-underline-from-center"><a href="#">Record Grades</a></li>
-                                            <li class="hvr-underline-from-center"><a href="student_list.html">Students</a></li>
+                                            <li class="hvr-underline-from-center"><a href="/studentList">Students</a></li>
                                         </ul>                           
                                     </div>
                                 </li>
