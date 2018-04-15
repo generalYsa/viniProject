@@ -125,6 +125,7 @@
 
 		            <!-- CONVERSATION -->
 		              <div class="message" id="conversation">
+		              	{{$message=null}}
 		              	@if(Request::is('chat/*'))
 		              	@forelse($messages as $message)
 
@@ -184,9 +185,10 @@
 		                
 		                <form method='POST' action='/chat'>
 		                  @csrf
-		                  <!-- chatID -->
-		                  <input type="hidden" name="chatID" value="{{$message->chatID}}">
-
+		                  @if($message!=null)
+		                  	<!-- chatID -->
+		                  	<input type="hidden" name="chatID" value="{{$message->chatID}}">
+		                  @endif
 		                  <!-- senderID -->
 		                  <input type="hidden" name="senderID" value="1"> <!-- change value to Auth::user()->id -->
 		                  

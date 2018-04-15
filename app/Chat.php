@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Chat extends Model
 {
 		public function chatMates(){	
-			return $this->belongsTo('App\Student', 'chatMate');
+			return $this->belongsTo('App\User', 'chatMate');
 		}
 
 		public function scopeGetChatMate($query, $userID){
