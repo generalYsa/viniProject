@@ -19,8 +19,13 @@ Route::get('/chat', function () {
     return view('chat');
 });
 
+<<<<<<< HEAD
+Route::get('/studySets', function () {
+    return view('studySets');
+=======
 Route::get('/recordForm', function() {
 	return view('recordForm');
+>>>>>>> f07bb6c4c610c026ef139857fccc9d6e616865c3
 });
 
 Route::get('/requirements', function() {
