@@ -258,6 +258,22 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `files`
+-- <!> Added by Kent Rio on 15/04/2018 10:15 PM <!>
+-- <!> Mock data is still unavailable <!>
+--
+
+CREATE TABLE `files` (
+	`id` int(10) UNSIGNED NOT NULL,
+	`post_id` int(10) NOT NULL,
+	`user_id` int(10) NOT NULL,
+	`document` blob NOT NULL,
+	`uploaded_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
 --
 -- Dumping data for table `users`
 --
