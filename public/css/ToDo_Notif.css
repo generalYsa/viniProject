@@ -16,20 +16,20 @@
 
 #notifBar{
 	right: 1.3mm;
-	top: -100%;
+	visibility: hidden;
 }
 
 #notifBar.active{
-	top: 10mm;
+	visibility: visible;
 }
 
 #toDoBar{
 	right: 8mm;
-	top: -100%;
+	visibility: hidden;
 }
 
 #toDoBar.active{
-	top: 10mm;
+	visibility: visible;
 }
 
 

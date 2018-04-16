@@ -4,12 +4,23 @@ function toggleSidebar(){
 
 function toggleNotif(){
 	document.getElementById("notifBar").classList.toggle('active');
+	
+
+	// if toDoBar is visible, it will be hidden
+		var toDo = document.getElementById("toDoBar");
+		if(window.getComputedStyle(toDo, null).getPropertyValue("visibility") === "visible"){
+			toDo.classList.toggle('active')
+		}
 }
 
 function toggleToDo(){
 	document.getElementById("toDoBar").classList.toggle('active');
-	console.log("");
-	// document.getElementById("notifBar").style.top = "-100%";
+	
+	// if notifBar is visible, it will be hidden
+		var notifBar = document.getElementById("notifBar");
+		if(window.getComputedStyle(notifBar, null).getPropertyValue("visibility") == "visible"){
+			notifBar.classList.toggle('active')
+		}
 }
 
 // function addClass(){

@@ -1,0 +1,62 @@
+#body {
+	margin: auto;
+	margin-top: 15px;
+}
+
+#courseTitleContainer {
+	text-align: center;
+	padding: 10px 0px;
+	margin: 10px;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+#tableContainer {
+	border: 1px solid black;
+	border-radius: 10px;
+	padding: 10px;
+	overflow-x: auto;
+	margin: 10px;
+}
+
+table {
+	width: 100%;
+}
+
+th {
+	border: 1px solid black;
+}
+
+.RecordRow:hover {
+	background-color: #B39DDB;
+	color: white;
+}
+
+#StudentNameHeader, .StudentNameValue {
+	width: 30%;
+}
+
+.RequirementNameHeader, .RequirementValue {
+	width: 11%;
+}
+
+.RequirementValue {
+	text-align: center;
+}
+
+.StudentNameValue {
+	padding-left: 20px;
+}
+
+#navigationContainer {
+	padding: 10px;
+	margin: 10px;
+	float: right;
+}
+
+#navigationContainer > button {
+	height: 40px;
+	background-color: #b3c3d3;
+	border: 0px;
+	padding: 0px 10px;
+}

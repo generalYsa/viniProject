@@ -46,59 +46,40 @@
 		              <!-- CHATMATES SIDEBAR  -->
 		                <div class="sideBar">                             
 		                 
-		                 
-		                  <a href='chat.php?chatID=chatIDhere'><!-- CHATMATE -->
-		                    <div class="ChatSideBar-body"> <!-- chatMate body -->
-		                      
-		                      <!-- PROFILE PICTURE -->
-		                        <div class="sideBar-avatar">
-		                          <div class="avatar-icon">
-		                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
-		                          </div>
-		                        </div>
-		                      <!-- PROFILE PICTURE -->
-		                      
-		                      <div class="sideBar-info pull-left">                              
-		                        <!-- NAME OF CHATMATE -->
-		                          <div class="sideBar-name elipsis ">
-		                            Vaughn Malachi Franco Venturas
-		                          </div>
-		                        <!-- NAME OF CHATMATE -->
-		                    
-		                        <!-- TIME -->
 
-		                            <span class="sideBar-time pull-left">Feb. 2, 2018</span>
-		                        <!-- TIME -->
-		                      </div>
 
-		                    </div>  <!-- chatMate body -->
-		                  </a> <!-- CHATMATE -->
-		                
-		                  <a href='chat.php?chatID=chatIDhere'><!-- CHATMATE -->
-		                    <div class="ChatSideBar-body"> <!-- chatMate body -->
-		                      
-		                      <!-- PROFILE PICTURE -->
-		                        <div class="sideBar-avatar">
-		                          <div class="avatar-icon">
-		                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
-		                          </div>
-		                        </div>
-		                      <!-- PROFILE PICTURE -->
-		                      
-		                      <div class="sideBar-info pull-left">                              
-		                        <!-- NAME OF CHATMATE -->
-		                          <div class="sideBar-name elipsis ">
-		                            NameNameNameNameNameNameNameNameNameName
-		                          </div>
-		                        <!-- NAME OF CHATMATE -->
-		                    
-		                        <!-- TIME -->
-		                            <span class="sideBar-time pull-left">12:00PM</span>
-		                        <!-- TIME -->
-		                      </div>
-
-		                    </div>  <!-- chatMate body -->
-		                  </a> <!-- CHATMATE -->
+			                <!-- CHATMATE -->
+				                @forelse($chat as $chatMate)
+					                <a href='/chat/{{ $chatMate->id }}'>
+					                    <div class="ChatSideBar-body">
+					                                        
+						                  	<!-- PROFILE PICTURE -->
+						                        <div class="sideBar-avatar">
+						                          <div class="avatar-icon">
+						                            <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
+						                          </div>
+						                        </div>
+					                     	<!-- PROFILE PICTURE -->
+						                      
+						                    <!-- INFO -->
+						                    	<div class="sideBar-info pull-left">                              
+							                        <!-- NAME OF CHATMATE -->
+							                        	<div class="sideBar-name elipsis ">
+							                            	{{ $chatMate->chatMates['name'] }}
+							                          	</div>
+							                        <!-- NAME OF CHATMATE -->
+							                    
+							                        <!-- TIME -->
+							                            <span class="sideBar-time pull-left">{{ $chatMate->updated_at->diffForHumans()}}</span>
+							                        <!-- TIME -->
+						                      	</div>
+						                    <!-- INFO -->
+					                    </div>
+					                </a>   
+				                @empty
+					            @endforelse
+			                <!-- CHATMATE -->
+		                  
 
 		                  
 		                </div>
@@ -140,64 +121,84 @@
 		              </div>
 		            <!-- HEADING ON THE RIGHT -->
 
+		            
+
 		            <!-- CONVERSATION -->
 		              <div class="message" id="conversation">
-		                <!-- MESSAGE (user is sender) -->
-		                  <div class="message-body"> 
-		                    <div class="message-main-sender">
-		                      <div class="sender">
-		                        <!-- MESSAGE -->
-		                          <p class="message-text">
-		                            Message here
-		                          </p>
-		                        <!-- MESSAGE -->
-		                        
-		                        <!-- TIME -->
-		                          <span class="message-time pull-right">
-		                            time
-		                          </span>
-		                        <!-- TIME -->
-		                      </div>
-		                    </div>
-		                  </div>
-		                <!-- MESSAGE (user is sender) -->   
+		              	{{$message=null}}
+		              	@if(Request::is('chat/*'))
+		              	@forelse($messages as $message)
 
-		                <!-- MESSAGE (user is receiver) -->
-		                    <div class="message-body">
-		                      <div class="message-main-receiver">
-		                        <div class="receiver">
-		                          <!-- MESSAGE -->
-		                            <p class="message-text">
-		                              Message hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage hereMessage 
-		                            </p>
-		                          <!-- MESSAGE -->
+		              	@if($message->senderID == 1)
+			                <!-- MESSAGE (user is sender) -->
+			                  <div class="message-body"> 
+			                    <div class="message-main-sender">
+			                      <div class="sender">
+			                        <!-- MESSAGE -->
+			                          <p class="message-text">
+			                            {{$message->message}}
+			                          </p>
+			                        <!-- MESSAGE -->
+			                        
+			                        <!-- TIME -->
+			                          <span class="message-time pull-right">
+			                            {{$message->created_at->diffForHumans()}}
+			                          </span>
+			                        <!-- TIME -->
+			                      </div>
+			                    </div>
+			                  </div>
+			                <!-- MESSAGE (user is sender) -->   
+			            @else
+			                <!-- MESSAGE (user is receiver) -->
+			                    <div class="message-body">
+			                      <div class="message-main-receiver">
+			                        <div class="receiver">
+			                          <!-- MESSAGE -->
+			                            <p class="message-text">
+			                              {{$message->message}}
+			                            </p>
+			                          <!-- MESSAGE -->
 
-		                          <!-- TIME -->
-		                            <span class="message-time pull-right">
-		                              time
-		                            </span>
-		                          <!-- TIME -->
-		                        </div>
-		                      </div>
-		                    </div>
-		                <!-- MESSAGE (user is receiver) -->
+			                          <!-- TIME -->
+			                            <span class="message-time pull-right">
+			                              {{$message->created_at->diffForHumans()}}
+			                            </span>
+			                          <!-- TIME -->
+			                        </div>
+			                      </div>
+			                    </div>
+			                <!-- MESSAGE (user is receiver) -->
+			            @endif
+
+
+			        @empty
+			        @endforelse
+			        	
+			        @endif
 		              </div>
 		            <!-- CONVERSATION -->
 
 		            <!-- SEND -->
 		              <div class="reply">
-		                <form method= 'GET' action="?chatID=<chatIDhere>  ">
-		                  
-		                  <!-- chatID -->
-		                  <input type="hidden" name="chatID" value="idhere">
+		              	
+		                
+		                <form method='POST' action='/chat'>
+		                  @csrf
+		                  @if($message!=null)
+		                  	<!-- chatID -->
+		                  	<input type="hidden" name="chatID" value="{{$message->chatID}}">
+		                  @endif
+		                  <!-- senderID -->
+		                  <input type="hidden" name="senderID" value="1"> <!-- change value to Auth::user()->id -->
 		                  
 		                  <!-- TEXTAREA FOR MESSAGE -->
 		                  <div class="reply-main">
-		                    <textarea class="form-control" name = "message"  ></textarea>
+		                    <textarea class="form-control" name="message" ></textarea>
 		                  </div>
 		                  
 		                  <!-- SEND BUTTON -->
-		                    <button  type="submit" name="send" class="reply-send"><i class="fa fa-send fa-2x" aria-hidden="true"></i></button>
+		                    <button  type="submit" class="reply-send"><i class="fa fa-send fa-2x" aria-hidden="true"></i></button>
 		                
 		                </form>
 		              </div>

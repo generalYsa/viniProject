@@ -1,0 +1,149 @@
+/*body{
+   font-family: 'Ubuntu', sans-serif;
+}*/
+
+
+
+.modalBody{
+   background-color: rgba(0,0,0, .8);
+   height: calc(100% - 4.8mm);
+   width: calc(100% - 25%);
+   position: fixed;
+   right: 0;
+   /*z-index: 10;*/
+   opacity: 0;
+   visibility: hidden;
+   transition: all .5s;
+}
+
+.editModal_content{
+   width: 40%;
+   height: 25%;
+   background-color: #fff;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   border-radius: 1em;
+   opacity: 0;
+   visibility: hidden;
+   transition: all .5s;
+   border: 3px solid #2a677c;
+   padding: 15px;
+}
+
+#unmodal:target{
+   opacity: 1;
+   visibility: visible;
+}
+
+#unmodal:target .editModal_content{
+   opacity: 1;
+   visibility: visible;
+}
+
+.closeModal{
+   color: #363636;
+   font-size: 2em;
+   position: absolute;
+   top: .1em;
+   right: .5em;
+}
+
+.editModalHeading{
+   color: #2a677c;
+   text-align: center;
+   margin: 1em;
+   font-size: 25px;
+}
+
+.editModalHeading2{
+   color: #2a677c;
+   text-align: center;
+   margin: 1% 0% 0% 0%;
+   font-size: 25px;
+}
+
+/*.modal-open{
+   display: inline-block;
+   color: dodgerblue;
+   margin: 2em;
+}*/
+
+/*input[type="text"]{
+   width: 100%;
+   height: 40px;
+   margin: 6% 5% 0% 0%;
+   border: 0.5px solid black;
+   border-radius: 3px;
+   font-size: 25px;
+   text-align: center;
+}*/
+
+button{
+   display: inline;
+}
+
+button.yes{
+   /*float: left;*/
+   width: 30%;
+   height: 40px;
+   border: 2px solid #2a677c;
+   border-radius: 3px;
+   background-color: #b3c3d3;
+   margin: 3%;
+}
+
+button.no{
+   float: right;
+   width: 30%;
+   height: 40px;
+   border: 2px solid #2a677c;
+   border-radius: 3px;
+   background-color: #b3c3d3;
+   margin: 3%;
+}
+
+button.drop{
+   /*float: left;*/
+   width: 20%;
+   height: 40px;
+   border: 2px solid #2a677c;
+   border-radius: 3px;
+   background-color: #b3c3d3;
+   margin: 3%;
+}
+
+button.save{
+   float: right;
+   width: 20%;
+   height: 40px;
+   border: 2px solid #2a677c;
+   border-radius: 3px;
+   background-color: #b3c3d3;
+   margin: 3%;
+}
+
+button.cancel{
+   float: right;
+   width: 20%;
+   height: 40px;
+   border: 2px solid #2a677c;
+   border-radius: 3px;
+   background-color: #b3c3d3;
+   margin: 3%;
+}
+
+
+@media only screen and (min-width: 769px) and (max-width: 1024px){
+   .modalBody{
+      width: calc(100% - 320px);
+   }
+}
+
+@media only screen and (max-width: 768px) {
+   .modalBody{
+      width: 100%;
+   }
+
+}
