@@ -50,9 +50,12 @@
 
 			                <!-- CHATMATE -->
 				                @forelse($chat as $chatMate)
-					                <a href='/chat/{{ $chatMate->id }}'>
-					                    <div class="ChatSideBar-body">
-					                                        
+					                
+
+					                <form method="post" action="/chat"> 
+
+					                	<input type="hidden" name="chatID" value="{{$chatMate->id}}">
+					                    <button type='submit' class="ChatSideBar-body">
 						                  	<!-- PROFILE PICTURE -->
 						                        <div class="sideBar-avatar">
 						                          <div class="avatar-icon">
@@ -74,8 +77,9 @@
 							                        <!-- TIME -->
 						                      	</div>
 						                    <!-- INFO -->
-					                    </div>
-					                </a>   
+					                    </button>
+					                <!-- </a>    -->
+					            	</form>
 				                @empty
 					            @endforelse
 			                <!-- CHATMATE -->

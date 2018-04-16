@@ -46,5 +46,5 @@ Route::get('/editPicture', function() {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-// Route::post('/chat/{id}', 'ChatController@storeMsg')->name('storeMsg')->where('id', '[0-9]+');
+//Route::post('/chat/{id}', 'ChatController@storeMsg')->name('storeMsg')->where('id', '[0-9]+');
 Route::resource('/chat', 'ChatController');

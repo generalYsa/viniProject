@@ -84,8 +84,9 @@ class ChatController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show(Request $request)
+    {   
+        $id = $request->chatID;
         $user = 1;
         $chat= Chat::GetChatMate($user);
         $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
