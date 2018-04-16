@@ -1,0 +1,80 @@
+body {
+  /*background: #eceef1;*/
+  font-family: "Slabo 27px", serif;
+  /*color: #333a45;*/
+}
+span{
+  font-family: 'Open Sans', sans-serif;
+  color: #FFF;
+}
+.wrapper {
+  margin: 5em auto;
+  background-color: #0e3c54;
+  border-radius: 10px;
+}
+#choices{ 
+  overflow: hidden;
+}
+#choices>.fa{
+  padding: 2%;
+}
+#choices>.fa:hover{
+  color: #0e3c54;
+}
+.cards { 
+  padding: 15px;
+  display: flex;
+  flex-flow: row wrap;
+  overflow: hidden;
+  margin: 20px;
+}
+.card {
+  margin: 15px;
+  width: calc((100% / 2) - 40px);
+  transition: all 0.2s ease-in-out;
+}
+@media screen and (max-width: 991px) {
+  .card {
+    width: calc((100% / 2) - 30px);
+  }
+}
+@media screen and (max-width: 767px) {
+  .card {
+    width: 100%;
+  }
+}
+.card:hover .card__inner {
+  background-color: #1abc9c;
+  transform: scale(1.05);
+}
+.card__inner {
+  width: 90%;
+  padding: 30px;
+  position: relative;
+  cursor: pointer;
+  background-color: #949fb0;
+  color: #eceef1;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+  border-radius: 15px;
+}
+.card__inner:after {
+  transition: all 0.3s ease-in-out;
+}
+/*.card__inner .fa {
+  width: 100%;
+  margin-top: 0.25em;
+}*/
+
+/*@media screen and (min-width: 992px) {
+  .card:nth-of-type(3n + 4) {
+    clear: left;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .card:nth-of-type(2n + 3) {
+    clear: left;
+  }
+}*/

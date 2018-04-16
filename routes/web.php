@@ -19,6 +19,9 @@ Route::get('/chat', function () {
     return view('chat');
 });
 
+Route::get('/studySets', function () {
+    return view('studySets');
+});
 
 Auth::routes();
 

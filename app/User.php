@@ -26,4 +26,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    function scopeVerifyLoginStudent($query, $id, $password){
+        return $query->where('user_id', $id)
+                    ->where('password', Hash::make($password))
+                    ->where('status', 's')
+                    ->get();
+
+    }
+    function scopeVerifyLoginTeacher($query, $id, $password){
+        return $query->where('user_id', $id)
+                    ->where('password', Hash::make($password))
+                     ->where('status', 't')
+                    ->get();
+
+    }
 }
