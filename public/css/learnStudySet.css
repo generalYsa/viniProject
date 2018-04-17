@@ -32,6 +32,8 @@ h2{
 }
 .container section label {
   position: absolute;
+/*  display: inline-block;*/
+  cursor: pointer;
   font-size: 1.5em;
   bottom: 0;
 }
@@ -49,33 +51,14 @@ h2{
   text-align: center;
 }
 #term{
-  height: 40%;
+  height: 25%;
   background-color: #2a677c;
+  padding-top: 10%;
+  margin-bottom: 5%;
 }
 #description{
-  height: 40%;
+  height: 25%;
+  padding-top: 10%;
   background-color: #b3c3d3;
   display: block;
-}
-#answer{
-  height: 25%;
-  width: 80%;
-  border: none;
-  text-align: left;
-}
-#answer:focus{
-  border: 3px solid #1abc9c;
-}
-#submit{
-  margin-top: 5%;
-  border: none;
-  width: 25%;
-  padding: 2%;
-  background-color: #2a677c;
-  color: #fff;
-}
-#submit:hover{
-  background-color: #fff;
-  border: 1px solid #2a677c;
-  color: #2a677c;
 }
