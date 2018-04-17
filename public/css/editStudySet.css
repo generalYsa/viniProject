@@ -27,6 +27,9 @@ span{
 #choices{
   margin-top: 10px;
 }
+#choices>.fa:hover{
+  color: #0e3c54;
+}
 #check{
   margin-left: 79%;
   margin-top: -0.2%;

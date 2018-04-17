@@ -1,4 +1,4 @@
-<title>Edit Study Sets</title>
+<title>vini | Edit Study Sets</title>
 <link href="{{ asset('css/editStudySet.css') }}" rel="stylesheet">
 
 @extends('layouts.app') 

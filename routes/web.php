@@ -21,6 +21,9 @@ Route::get('/chat', function () {
 Route::get('/studySets', function () {
     return view('studySets');
 });
+Route::get('/playStudySet', function () {
+    return view('playStudySet');
+});
 Route::get('/editStudySet', function () {
     return view('editStudySet');
 });
