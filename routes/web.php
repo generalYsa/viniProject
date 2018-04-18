@@ -18,25 +18,6 @@
 
 Auth::routes();
 
-Route::get('/chat', function () {
-    return view('chat');
-});
-Route::get('/studySets', function () {
-    return view('studySets');
-});
-Route::get('/learnStudySet', function () {
-    return view('learnStudySet');
-});
-Route::get('/playStudySet', function () {
-    return view('playStudySet');
-});
-Route::get('/editStudySet', function () {
-    return view('editStudySet');
-});
-Route::get('/recordForm', function() {
-	return view('recordForm');
-});
-
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/home', 'HomeController@index')->name('home');
 	Route::resource('/chat', 'ChatController');
@@ -70,10 +51,26 @@ Route::group(['middleware' => ['auth']], function() {
 		return view('editPicture');
 	});
 
-	// Route::get('/welcome', function() {
-	// 	return view('layouts.app');
-	// });
-});
+	Route::get('/learnStudySet', function () {
+    return view('learnStudySet');
+	});
+
+	Route::get('/playStudySet', function () {
+	    return view('playStudySet');
+	});
+
+	Route::get('/editStudySet', function () {
+	    return view('editStudySet');
+	});
+
+	Route::get('/recordForm', function() {
+		return view('recordForm');
+	});
+	
+		// Route::get('/welcome', function() {
+		// 	return view('layouts.app');
+		// });
+	});
 
 Route::get('/', '\App\Http\Controllers\Auth\LoginController@showLoginForm');
 Route::post('login', '\App\Http\Controllers\Auth\LoginController@login');
