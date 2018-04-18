@@ -79,7 +79,7 @@ nav img{
     margin: 5px;
 }
 
-.user>a{
+.user #editPic{
 	font-size: 11px;
 	color: #fff;
 	position: absolute;
@@ -88,7 +88,7 @@ nav img{
 	background-color: rgba(19, 35, 47, 0.4);
 }
 
-.fa-sign-out{
+.user #logoutIcon{
 	float: right;
     color: #fff;
 	margin: 1.5mm 0mm 0mm 0mm;
