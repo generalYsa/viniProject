@@ -5,22 +5,49 @@ span{
   font-family: 'Open Sans', sans-serif;
   color: #FFF;
 }
+#underTerm{
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 15px;
+  margin: 0;
+  margin-left: -78%;
+}
+#underDes{
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+  font-size: 15px;
+  margin: 0;
+  margin-left: -63%;
+}
 .wrapper {
   margin: 5em auto;
-  background-color: #0e3c54;
+  background-color: #b3c3d3;
   border-radius: 10px;
 }
-#choices{ 
-  overflow: hidden;
-  color: #fff;
-}
-#choices>.fa{
-  padding: 2%;
+#choices{
+  margin-top: 10px;
 }
 #choices>.fa:hover{
   color: #0e3c54;
 }
-.cards { 
+#check{
+  margin-left: 79%;
+  margin-top: -0.2%;
+  margin-bottom: -10%;
+}
+#wrong{
+  float: right;
+  margin-left: 36%;
+}
+#editTerm{
+  width: 90%;
+  padding: 20px 35px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.cards {
   padding: 15px;
   display: flex;
   flex-flow: row wrap;
@@ -51,9 +78,10 @@ span{
   padding: 30px;
   position: relative;
   cursor: pointer;
-  background-color: #949fb0;
+  background-color: #0e3c54;/*#949fb0;*/
   color: #eceef1;
   font-size: 1.5em;
+  text-transform: uppercase;
   text-align: center;
   transition: all 0.2s ease-in-out;
   border-radius: 15px;
@@ -61,18 +89,3 @@ span{
 .card__inner:after {
   transition: all 0.3s ease-in-out;
 }
-/*.card__inner .fa {
-  width: 100%;
-  margin-top: 0.25em;
-}*/
-
-/*@media screen and (min-width: 992px) {
-  .card:nth-of-type(3n + 4) {
-    clear: left;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  .card:nth-of-type(2n + 3) {
-    clear: left;
-  }
-}*/
