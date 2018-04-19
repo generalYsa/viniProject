@@ -6,6 +6,7 @@
 <!-- BODY / RIGHT SIDE PANEL -->
 		<!-- EDIT STUDY SET -->
 			<div id="body">
+				<div id="subject"><span>CMSC 129</span></div>
 				<div class="wrapper">
 				  <div class="cards">
 
