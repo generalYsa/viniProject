@@ -1,13 +1,13 @@
 #body{
 	overflow: auto;
 }
-p,label,button{
+/*p,label,button{
 	color: white;
 	font-family: agency fb;
-}
+}*/
 #subject{
-  font-family: 'Open Sans', sans-serif;
-  font-size: 35px;
+/*  font-family: 'Open Sans', sans-serif;*/
+	font-size: 35px;
   text-transform: uppercase;
   letter-spacing: 4px;
   color: #fff;
@@ -28,13 +28,15 @@ p,label,button{
 }
 #topRP>img{
 	margin: 0.3% 0 0 2%;
-	height: 90%;
-	width: 8.5%;
+	height: 39px;
+	width: 44px;
 }
 #topRP>#name{
+	color: #fff;
 	margin: -5% 0 0 13%;
 }
 #topRP>#date{
+	color: #fff;
 	margin: -3% 0 0 80%;
 }
 #topRP{
@@ -157,13 +159,13 @@ p,label,button{
 	border-color: #ee77aa;
 }
 #userName{
-	width: 82.5%;
+	width: 82%;
 }
 #description{
-	width: 75%;
+	width: 75.5%;
 }
 #eventDate{
-	width: 84%;
+	width: 83%;
 }
 #activityDate{
 	width: 79%;
