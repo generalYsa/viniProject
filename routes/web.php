@@ -11,6 +11,7 @@
 |
 */
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -93,6 +94,7 @@
 // Route::post('/home', 'ChatControl@store')->name('insertMessage');
 // Route::resource('/chat', 'ChatController');
 
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
@@ -150,8 +152,11 @@ Route::group(['middleware' => ['auth']], function() {
 		// Route::get('/welcome', function() {
 		// 	return view('layouts.app');
 		// });
+
+	Route::get('/chat/getSentMessage', 'ChatController@index');
 	});
 
+Route::get('/chat/getSentMessage', 'ChatController@getSentMessage');
 Route::get('/', '\App\Http\Controllers\Auth\LoginController@showLoginForm');
 Route::post('login', '\App\Http\Controllers\Auth\LoginController@login');
 

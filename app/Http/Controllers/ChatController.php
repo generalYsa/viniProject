@@ -8,6 +8,8 @@ use App\Student;
 use App\Messages;
 use Auth;
 use DB;
+use Response;
+
 use DateTime;
 
 class ChatController extends Controller
@@ -21,8 +23,8 @@ class ChatController extends Controller
     public function index()
     {
         // $user = Auth::id();
-        $user = 1;
-        $chat= Chat::GetChatMate($user);
+        $user = Auth::id();
+        $chat= Chat::GetChatMate();
         $id = $chat->first()->id;
         $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
         return view('/chat', compact('chat', 'messages', 'id'));
@@ -67,8 +69,8 @@ class ChatController extends Controller
      */
     public function show($id)
     {
-        $user = 1;
-        $chat= Chat::GetChatMate($user);
+        $user = Auth::id();
+        $chat= Chat::GetChatMate();
         $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
         return view('chat', compact('messages', 'chat', 'id'));
     }
@@ -105,5 +107,16 @@ class ChatController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+
+    public function getSentMessage(){
+        $sent =  Messages::GetSentMessage();
+        return Response::json($sent);
+        // return json([
+        //     'message' => $sent->message,
+        //     'created_at' => $sent->created_at->diffForHumans(),
+        // ]);
     }
 }
