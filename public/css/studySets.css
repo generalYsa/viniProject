@@ -1,31 +1,44 @@
-body {
-  font-family: "Slabo 27px", serif;
-}
-span{
+/*#body {
+  overflow: auto;
+}*/
+.subject{
   font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
   color: #FFF;
+  background-color: #0e3c54;
+  border-radius: 4px;
+      white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .wrapper {
-  margin: 5em auto;
-  background-color: #0e3c54;
-  border-radius: 10px;
+ /* margin: 5em auto;*/
+  margin: 3%;
+ /* background-color: #0e3c54;*/
+ border: 5px solid #0e3c54;
+ height: 80%;
+ overflow: auto;
+ padding: 2% 3%;
+/*  border-radius: 10px;*/
 }
 #choices{ 
   overflow: hidden;
-  color: #fff;
+  color: #0e3c54;
+  margin-top: 2%;
 }
 #choices>.fa{
-  padding: 2%;
+  padding: 3% 5%;
 }
 #choices>.fa:hover{
-  color: #0e3c54;
+  color: #ffd025;
 }
 .cards { 
-  padding: 15px;
+/*  padding: 1%;*/
   display: flex;
   flex-flow: row wrap;
-  overflow: hidden;
-  margin: 20px;
+  overflow: auto;
+/*  margin: 20px;*/
 }
 .card {
   margin: 15px;
@@ -44,19 +57,23 @@ span{
 }
 .card:hover .card__inner {
   background-color: #1abc9c;
+  border: 4px solid #1abc9c;
   transform: scale(1.05);
 }
 .card__inner {
   width: 90%;
-  padding: 30px;
+  padding: 4%;
   position: relative;
-  cursor: pointer;
-  background-color: #949fb0;
+/*  cursor: pointer;*/
+/*  background-color: #949fb0;*/
+  border-top: 4px solid #2a677c;
+  border-bottom: 4px solid #2a677c;
   color: #eceef1;
   font-size: 1.5em;
   text-align: center;
   transition: all 0.2s ease-in-out;
-  border-radius: 15px;
+  height: 60px;
+/*  border-radius: 15px;*/
 }
 .card__inner:after {
   transition: all 0.3s ease-in-out;

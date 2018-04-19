@@ -14,7 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
-
+Route::get('/timeline', function () {
+    return view('timeline');
+});
 Route::get('/chat', function () {
     return view('chat');
 });
