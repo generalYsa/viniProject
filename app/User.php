@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'IDnum', 'password', 'userType',
     ];
 
     /**
@@ -27,18 +27,41 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    function scopeVerifyLoginStudent($query, $id, $password){
-        return $query->where('user_id', $id)
-                    ->where('password', Hash::make($password))
-                    ->where('status', 's')
-                    ->get();
+    // public function userType(){   
+    //     $userType = DB::table('users')->select('userType')->get();
+    //     return $userType; 
+    //         $userType = DB::table('users')->where('userType', 't')->value('userType');
+    // }
 
-    }
-    function scopeVerifyLoginTeacher($query, $id, $password){
-        return $query->where('user_id', $id)
-                    ->where('password', Hash::make($password))
-                     ->where('status', 't')
-                    ->get();
+    // public function chatMates(){    
+    //         return $this->belongsTo('App\User', 'chatMate');
+    //     }
 
-    }
+    // public function scopeaStudent(){
+    //     $aStudent = User::table('users')->where('userType', 's')->get();
+    //     return $aStudent;
+    // }
+
+    // public function scopeaTeacher(){
+    //     $aTeacher = User::table('users')->where('userType', 't')->get();
+    //     return $aTeacher;
+    // }
+
+    // protected $table = 'users';
+
+
+    // function scopeVerifyLoginStudent($query, $id, $password){
+    //     return $query->where('user_id', $id)
+    //                 ->where('password', Hash::make($password))
+    //                 ->where('status', 's')
+    //                 ->get();
+
+    // }
+    // function scopeVerifyLoginTeacher($query, $id, $password){
+    //     return $query->where('user_id', $id)
+    //                 ->where('password', Hash::make($password))
+    //                  ->where('status', 't')
+    //                 ->get();
+
+    // }
 }

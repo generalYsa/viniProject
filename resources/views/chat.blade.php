@@ -1,5 +1,5 @@
       
-<title>Chat</title>
+<title>vini | Chat</title>
 <link href="{{ asset('css/chat.css') }}" rel="stylesheet">
 
 <meta name="_token" content="{!! csrf_token() !!}" />
