@@ -153,10 +153,40 @@ li a{
 }
 
 
+
+#classDropDown {
+	display: none;
+}
+
+#subjectID{
+	display: none;
+}
+
+#workID{
+	display: none;
+}
+
+
+#classDropDown.active{
+	display: block;
+}
+
+#subjectID.active{
+	display: block;
+}
+
+#workID.active{
+	display: block;
+}
+
 #subjectID, #workID{
 	padding: 0px;
+	margin-top: 5%;
 	
-	/*border: 3px solid black;*/
+}
+
+#subjectID, #workID{
+	padding: 0px;
 	margin-top: 5%;
 	
 }

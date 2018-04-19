@@ -57,8 +57,12 @@
                                 <!-- CALENDAR BUTTON -->
                                 <li class="hvr-underline-from-center"><a href="#">Calendar</a></li>
                                 <!-- CLASSES BUTTON -->
-                                <li id="theClasses" class="hvr-underline-from-center"><i id="plus_icon" class="fa fa-plus"></i><a href="#">Classes</a><i id="ellipsis_icon" class="fa fa-ellipsis-h"></i>
-                                    <div id="chenes">
+                                <li id="theClasses" class="hvr-underline-from-center">
+                                        <i id="plus_icon" class="fa fa-plus" onclick="toggleSubject()"></i>
+                                        <a href="#">Classes</a>
+                                        <i id="ellipsis_icon" class="fa fa-ellipsis-h" onclick="toggleWork()"></i>
+
+                                    <div id="classDropDown">
                                         <ul id="subjectID">
                                             <div>
                                                 <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
