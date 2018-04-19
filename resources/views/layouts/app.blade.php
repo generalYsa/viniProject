@@ -34,12 +34,20 @@
             <div id="sidebar">
                     <!-- USER INFO -->
                         <div class="user">
-                            <i class="fa fa-sign-out"></i>      
-                            <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">  
-                            <a href="/editPicture">Edit Picture</a> 
-                            <div class="info">                  
-                                <p>Teacher Ganda</p>
-                                <p>20xx-xxxxx</p>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logoutIcon').submit();">
+                                <i class="fa fa-sign-out fa_icons"></i>
+                            </a>
+                            <form id="logoutIcon" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+
+                            <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">                          
+                            <a id="editPic" href="/editPicture">Edit Picture</a> 
+                            <div class="info"> 
+                                <p>{{ Auth::user()->name }}</p>
+                                <p>{{ Auth::user()->IDnum }}</p>
                             </div>
                         </div>
                     <!-- USER INFO -->
@@ -72,8 +80,15 @@
                                         </ul>
                                         <!-- [NOTE] this should be editied according to the type of user-->
                                         <ul id="workID">
+                                        
+                                        @if (Auth::user()->userType=='s')
+                                            <li class="hvr-underline-from-center"><a href="#">Grades</a></li>
+                                            <li class="hvr-underline-from-center"><a href="#">Study Set</a></li>
+                                        @elseif (Auth::user()->userType=='t')
                                             <li class="hvr-underline-from-center"><a href="#">Record Grades</a></li>
-                                            <li class="hvr-underline-from-center"><a href="/studentList">Students</a></li>
+                                            <li class="hvr-underline-from-center"><a href="/studentList">Students</a></li> 
+                                             
+                                        @endif                                           
                                         </ul>                           
                                     </div>
                                 </li>

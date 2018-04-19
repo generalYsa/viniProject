@@ -1,4 +1,4 @@
- <!doctype html>
+<!doctype html>
 <html>
 <head>
     <title>VINI | Login</title>
@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/login.css">
 </head>
     <body>
+
         <!-- NAVIGATION BAR -->
             <nav>
                 <a href="#"><img src="images\logogray2.png"></a>
@@ -15,7 +16,6 @@
 
         <!-- FORM -->
         <div class="form">
-
             <!-- LOGIN TYPE -->
             <ul class="tab-group">
                 <li class="tab active"><a href="#student">Student</a></li>
@@ -24,52 +24,64 @@
             <!-- /LOGIN TYPE -->
           
             <div class="tab-content">
+                
                 <!-- STUDENT LOGIN -->
-                <div id="student">          
-                    <form action="" method="post">
+                <div id="student">                               
+                    <form method="post" action="{{ route('login') }}">
+                        {{ csrf_field() }}
+                        <!-- <input type="hidden" name="userType" value="s"> -->
+                         @if ($errors->has('IDnum') || $errors->has('password'))                           
+                            <div class="alert alert-danger">
+                                <strong>{{ $errors->first('IDnum') }}</strong>
+                            </div>
+                        @endif
                         <!-- STUDENT NUMBER -->
-                        <div class="field-wrap">
-                            <form method="POST" action="{{ route('login') }}">
-                                @csrf
-                                <label>Student Number<span class="req">*</span></label>
-                                <input type="text"required autocomplete="off" class="form-group{{ $errors->has('studentNum') ? 'is-invalid' : ''}}" value="{{ old ('studentNum') }}" />
-                            </form>
-                        </div>
+                        <div class="field-wrap{{ $errors->has('IDnum') ? ' has-error ' : '' }}">
+                            <label>Student Number<span class="req">*</span></label>
+                            <input type="text" name="IDnum" value="{{ old('IDnum') }}" required autocomplete="off" name="IDnum"/>
+                        </div>                      
                         <!-- /STUDENT NUMBER -->
 
                         <!-- STUDENT PASSWORD -->
-                        <div class="field-wrap">
+                        <div class="field-wrap{{ $errors->has('password') ? ' has-error ' : '' }}">
                             <label>Password<span class="req">*</span></label>
-                            <input type="password"required autocomplete="off" class="form-group{{ $errors->has('password') ? 'is-invalid' : ''}}" value="{{ old ('password') }}" />
-                        </div>
-                        <!-- /STUDENT PASSWORD -->
+                            <input type="password" required autocomplete="off" name="password" />
+                        </div>   
+                        <!-- /STUDENT PASSWORD -->                
 
-                        <button class="button button-block"/>Log In</button>
-                        <p class="forgot"><a href="#">Forgot Password?</a></p>
+                        <!-- <input type="submit" name="login" value="Login"/> -->
+                        <button type="submit" class="button button-block"/>Log In</button>
+                        <p class="forgot"><a href="{{ route('password.request') }}">Forgot Password?</a></p>
                     </form>
                 </div>
                 <!-- /STUDENT LOGIN -->
 
                 <!-- TEACHER LOGIN -->
                 <div id="teacher">  
-                    <form action="/" method="post">
-
+                    <form method="post" action="{{ route('login') }}">  
+                        {{ csrf_field() }}
+                        <!-- <input type="hidden" name="userType" value="t"> -->
+                         @if ($errors->has('IDnum') || $errors->has('password'))                           
+                            <div class="alert alert-danger">
+                                <strong>{{ $errors->first('IDnum') }}</strong>
+                            </div>
+                        @endif                     
                         <!-- PROF ID -->
-                        <div class="field-wrap">
+                        <div class="field-wrap{{ $errors->has('IDnum') ? ' has-error ' : '' }}">
                             <label>Prof ID<span class="req">*</span></label>
-                           <input type="text"required autocomplete="off"/>
+                            <input type="text" name="IDnum" value="{{ old('IDnum') }}" required autocomplete="off" name="IDnum"/>
                         </div>
                         <!-- /PROF ID -->
 
                         <!-- PROF PASSWORD -->
-                        <div class="field-wrap">
+                        <div class="field-wrap{{ $errors->has('password') ? ' has-error ' : '' }}">
                             <label>Password<span class="req">*</span></label>
-                            <input type="password"required autocomplete="off"/>
+                            <input type="password" required autocomplete="off" name="password" />
                         </div>
                         <!-- /PROF PASSWORD -->
 
-                        <button class="button button-block"/><a href="app.blade.php">Log In</a></button>
-                        <p class="forgot"><a href="#">Forgot Password?</a></p>
+                        <button type="submit" class="button button-block"/>Log In</button>
+                        <p class="forgot"><a href="{{ route('password.request') }}">Forgot Password?</a></p>
                     </form>
                 </div> 
                 <!-- /TEACHER LOGIN -->

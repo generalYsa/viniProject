@@ -8,6 +8,7 @@ use App\Student;
 use App\Messages;
 use Auth;
 use DB;
+use DateTime;
 
 class ChatController extends Controller
 {
@@ -21,34 +22,10 @@ class ChatController extends Controller
     {
         // $user = Auth::id();
         $user = 1;
-        // $chat = Chat::
-                    
-        //                 where('user2', $user)
-        //                 ->orWhere('user1', $user)
-        //                 ->get();
-        // print_r($chat);
-
-        // $chat = DB::select(`student.name`,`chat.id`,`chat.date`)
-        // ->from(`chat`)
-        // ->from(`student`)
-        // ->where(DB::raw(`( chat.user1 = $user OR chat.user2 = $user )` ))
-        // ->where(DB::raw(`( ( (chat.user1 = student.id) or (chat.user2 = student.id) ) AND student.id != $user )` ))
-        // ->orderBy(`date`, `DESC`)
-        // ->orderBy(`student.name`, `ASC`)
-        // ->get();
-
-        // $chat = DB::
-        // from(`chat`)
-        // ->from(`student`)
-        // // ->where(DB::raw(`( chat.user1 = $user OR chat.user2 = $user )` ))
-        // ->get();
-
-        // echo "<pre>";
-        // print_r($chat);
-        // return view('chat', compact('chat'));
-
         $chat= Chat::GetChatMate($user);
-        return view('chat', compact('chat'));
+        $id = $chat->first()->id;
+        $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
+        return view('/chat', compact('chat', 'messages', 'id'));
 
     }
 
@@ -70,8 +47,12 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-        Messages::create($request->all());
-        return back();
+        $message = Messages::create($request->all());
+
+         return [
+            'message' => $message->message,
+            'created_at' => $message->created_at->diffForHumans(),
+        ];
     }
 
 
@@ -89,7 +70,7 @@ class ChatController extends Controller
         $user = 1;
         $chat= Chat::GetChatMate($user);
         $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
-        return view('chat', compact('messages', 'chat'));
+        return view('chat', compact('messages', 'chat', 'id'));
     }
 
     /**

@@ -1,4 +1,4 @@
-<title><!-- INSERT TITLE HERE --></title>
+<title>VINI</title>
 
 <!-- 
     [NOTE] this is the format for inserting a css file. Just change the <filename> with your css file.   
