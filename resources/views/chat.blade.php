@@ -7,8 +7,8 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/chatAjax.js"></script>
 
-@extends('layouts.app') 
-              
+
+@extends('layouts.app')            
 
 	<!-- BODY / RIGHT SIDE PANEL -->        
 		<div id="body">
