@@ -28,7 +28,7 @@
                 <!-- STUDENT LOGIN -->
                 <div id="student">                               
                     <form method="post" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+                        @csrf
                         <!-- <input type="hidden" name="userType" value="s"> -->
                          @if ($errors->has('IDnum') || $errors->has('password'))                           
                             <div class="alert alert-danger">
