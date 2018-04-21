@@ -46,8 +46,9 @@
                             <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">                          
                             <a id="editPic" href="/editPicture">Edit Picture</a> 
                             <div class="info"> 
-                                <p>{{ Auth::user()->name }}</p>
-                                <p>{{ Auth::user()->IDnum }}</p>
+								<!-- BEFORE: Auth::user()->'name' and <!-- BEFORE: Auth::user()->'IDnum'-->-->
+                                <p>{{ Auth::user()['name'] }}</p>
+                                <p>{{ Auth::user()['IDnum'] }}</p>
                             </div>
                         </div>
                     <!-- USER INFO -->
@@ -85,10 +86,11 @@
                                         <!-- [NOTE] this should be editied according to the type of user-->
                                         <ul id="workID">
                                         
-                                        @if (Auth::user()->userType=='s')
+										<!-- BEFORE: Auth::user()->'userType'-->
+                                        @if (Auth::user()['userType'] =='s')
                                             <li class="hvr-underline-from-center"><a href="#">Grades</a></li>
                                             <li class="hvr-underline-from-center"><a href="#">Study Set</a></li>
-                                        @elseif (Auth::user()->userType=='t')
+                                        @elseif (Auth::user()['userType'] =='t')
                                             <li class="hvr-underline-from-center"><a href="#">Record Grades</a></li>
                                             <li class="hvr-underline-from-center"><a href="/studentList">Students</a></li> 
                                              
