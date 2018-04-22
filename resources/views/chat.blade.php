@@ -134,7 +134,7 @@
 		              	
 		              	@forelse($messages as $message)
 
-		              	@if($message->senderID == 1)
+		              	@if($message->senderID == Auth::id())
 			                <!-- MESSAGE (user is sender) -->
 			                  <div class="message-body"> 
 			                    <div class="message-main-sender">
@@ -191,11 +191,11 @@
 		                <form type='POST'>
 		                  @csrf
 		              
-		                  	<!-- chatID -->
-		                  	<input type="hidden" id="chatID" value="{{$id}}">
+	                  	<!-- chatID -->
+	                  	<input type="hidden" id="chatID" value="{{$id}}">
 		                  
 		                  <!-- senderID -->
-		                  <input type="hidden" id="senderID" value="1"> <!-- change value to Auth::user()->id -->
+		                  <input type="hidden" id="senderID" value= {{ Auth::id() }}> <!-- change value to Auth::user()->id -->
 		                  
 		                  <!-- TEXTAREA FOR MESSAGE -->
 		                  <div class="reply-main">
