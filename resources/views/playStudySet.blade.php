@@ -4,8 +4,8 @@
 @extends('layouts.app') 
 <!-- BODY / RIGHT SIDE PANEL -->	
 			<div id="body">
+				<div id="subject"><span>CMSC 132</span></div>
 				<div class="container">
-					<h2>CMSC 125</h2>
 				  <input id="rad1" type="radio" name="rad" checked>
 
 				  <section>

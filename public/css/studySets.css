@@ -93,3 +93,10 @@
     clear: left;
   }
 }*/
+/*DELETE MODAL*/
+#choices>button{
+  display: block;
+/*  width: 200px;
+  margin-top: 200px;
+  margin-left: 160px;*/
+}
