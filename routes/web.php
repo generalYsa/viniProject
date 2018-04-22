@@ -152,6 +152,11 @@ Route::group(['middleware' => ['auth']], function() {
 		return view('toDo');
 	});
 	
+
+	Route::get('/timeline', function() {
+		return view('timeline');
+	});
+	
 		// Route::get('/welcome', function() {
 		// 	return view('layouts.app');
 		// });
