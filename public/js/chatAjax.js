@@ -1,5 +1,5 @@
 $(document).ready(function(){  
-    retrieveData();
+    //retrieveData();
 
     $("#send").click(function (e) {
         $.ajaxSetup({
