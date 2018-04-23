@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePostTable extends Migration
+class CreateEventsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreatePostTable extends Migration
      */
     public function up()
     {
-        Schema::create('post', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('classID');
             $table->integer('author'); //studentNum or profNum
-            $table->text('content');
-            $table->string('file');
-            $table->dateTime('date');
+            $table->text('name');
+            $table->text('description');
+            $table->date('date');
+            $table->string('file')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -30,6 +32,6 @@ class CreatePostTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('post');
+        Schema::dropIfExists('events');
     }
 }

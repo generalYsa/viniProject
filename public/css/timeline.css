@@ -1,6 +1,9 @@
 #body{
 	overflow: auto;
 }
+form{
+	margin: 0px;
+}
 /*p,label,button{
 	color: white;
 	font-family: agency fb;
@@ -20,71 +23,67 @@
   border: 2px solid #1abc9c;
   padding: 1% 3%;
 }
-#post, #postFile, #postSubmit, #postStudent{
-	margin: 5% 0 5% 22%;
-	width: 58%;
-	height: 25%;
-	background-color: #ecf4f0;
+
+.postHeader>img{
+	margin: 3px 6px;
+	height: 35px;
+	width: 35px;
+	float: left;
 }
-#topRP>img{
-	margin: 0.3% 0 0 2%;
-	height: 39px;
-	width: 44px;
-}
-#topRP>#name{
+.postHeader>.name{
+	font-size: 100%;
 	color: #fff;
-	margin: -5% 0 0 13%;
+	margin: 13px 6px;
+	float: left;
 }
-#topRP>#date{
+.postHeader>#date{
+	font-size: 100%;
 	color: #fff;
-	margin: -3% 0 0 80%;
+	float: right;
+	margin: 13px 10px;
+	/*margin: -3% 0 0 80%;*/
 }
-#topRP{
-	height: 25%; 
+.postHeader{
+	width: 100%;
+	height: 43px; 
 	background-color: #0e3c54;
 	overflow: hidden;
 }
-#message, #pfmessage, #psmessage{
-	color: #0e3c54;
-	margin: 5% 5% 5% 5%;
-	font-size: 20px;
-	height: 100px;
-}
+
+
+
 #fileContent{
 	float: left;
-	width: 10%;
-	height: 5%;
+	width: 65px;
 }
 #fileContent>a>.fa{
-	margin: 25px 0 0 50px;
+	margin: 10px 5px;
 	color: #0e3c54;
 }
 #fileContent>a>.fa:hover{
 	color: #1abc9c;
 }
-#pfContent,#psContent{
-	float: right;
-	width: 75%;
-	height: 100%;
+
+.postContent{
+	width: 100%;
+	margin: auto;
 }
-#deadline{
-	color: #ff3333;
-	margin: -20% 0 0 5%;
-}
-#psContent>label{
-	margin: -3% 0 0 75%;
+
+.postContent>label, .submitBtn{
+	margin: 0px 0px 5px 20px;
+	float: left;
 	border: 0;
-	padding: 1.5% 1.5% 1.5% 1.5%;
+	padding: 1%;
 	color: #0e3c54;
 	background-color: #1abc9c;
 	font-size: 16px;
 	border-radius: 4px;
 	font-weight: bold;
 }
-#psContent>input{
-	visibility: hidden;
+.postContent>input, #submit{
+	display: none;
 }
-#psContent>label:hover{
+.postContent>label:hover{
 	background-color: #ffd025;
 }
 #normalForm{
@@ -97,25 +96,22 @@
 #normalForm>textarea:focus{
 	outline-color: #ffd025; 
 }
-.bottomRP{
+.postFooter{
 	background-color: #0e3c54;  
-	height: 20%;
+	height: 33px;
 }
-.bottomRP>input{
+.postFooter>input{
 	visibility: hidden;
 }
 #upload:hover{
 	background-color: #ffd025;
 }
-#upload{
-	color: #0e3c54;
-	background-color: #fff;
-	font-size: 16px;
-	font-weight: bold;
-	padding: 2px;
-	border-radius: 2px;
-}
-#postBut{
+
+
+#postBut{float:right;}
+#upoad{float:left;}
+
+#postBut, #upload{
 	border:0;
 	color: #0e3c54;
 	background-color: #fff;
@@ -123,17 +119,24 @@
 	font-weight: bold;
 	padding: 2px;
 	border-radius: 2px;
-	margin: 5px 0 0 5px;
+	margin: 5px 10px;
+	width: 50px;
 }
+
+#filename{
+	margin: 5px;
+	color: white;
+}
+
 #postBut:hover{
 	background-color: #ffd025;
 }
-#topRP>button{
+.postHeader>button{
 	border:0;
 	color: #553344;
 	background-color: #FFFFFF;  
 }
-#topRP>button:active{
+.postHeader>button:active{
 	background-color: #b3c3d3;
 }
 #eventForm>input, #activityForm>input:focus{
@@ -143,38 +146,33 @@
 	color: #0e3c54;
 	font-family: agency fb;
 	font-size: 120%;
-	height: 100px;
-	margin: 3% 0 -5% 5%;
+	height: auto;
+	padding: 15px 35px;
 }
-#activityForm>input{
+#activityForm>input, #activityForm>select, #activityForm>textarea, #eventForm>input{
 	border: none;
-	margin: 2% 0 1.4% 1%;
-	color: #0e3c54;
-	border-color: #0e3c54;
+    margin: 3px;
+    color: #0e3c54;
+    border-color: #0e3c54;
+    float: right;
+    height: auto;
+    width: calc(100% - 80px);
 }
-#eventForm>input{
+/*#eventForm>input{
 	border: none;
 	margin: 1.2% 0 -1% 1%;
 	color: #0e3c54;
 	border-color: #ee77aa;
-}
-#userName{
-	width: 82%;
-}
-#description{
-	width: 75.5%;
-}
-#eventDate{
-	width: 83%;
-}
-#activityDate{
-	width: 79%;
-}
+}*/
+
 #buttonChoices>button{
+	font-family: 'Arial', sans-serif;
 	border: none;
 	background-color: #1abc9c;
+	height: 25px;
+	padding: auto;
 	color: #0e3c54;
-	font-family: agency fb;
+	font-family: 'Arial', sans-serif;
 	border-radius: 2px;
 	margin-bottom: 2px;
 }
@@ -184,9 +182,88 @@
 }
 #buttonChoices{
 	float: right;
-	margin: -3% 4%;
+	margin: 9px;
 }
 #buttonChoices>button:focus{
 	outline: none;
 	background-color:#ffd025; 
+}
+
+
+.postsBody{
+	height: 160px;
+	background-color: #ecf4f0;
+	margin: auto;
+    margin-bottom: 40px;
+    width: 60%;
+}
+
+textarea {
+    resize: none;
+}
+
+
+
+.postContainer{
+    min-height:100px;
+    overflow: auto;
+    width:60%;
+    border:2px solid #0e3c54;
+    margin: auto;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+.activityName{
+	font-size: 18px;
+	font-weight: bold;
+	width: 90%;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.19);
+}
+
+
+.activityDescription{
+	text-align: right;
+	font-size:12px;
+	color: rgba(0, 0, 0, 0.6);
+	width: 90%;
+}
+
+.activityDeadline{
+	font-size:15px;
+	color: red;
+	float: right;
+}
+
+.activityFile{
+	text-decoration: none;
+	text-align: left;
+	font-size: 15px;
+	color: #0e3c54;
+	width: 50%;
+	float: left;
+}
+
+.postContent>div{
+	width: 90%;
+	margin: auto;	
+}
+
+.postBody{
+	display:inline-block; 
+	min-height: 70px;
+	width:100%;
+	padding-bottom: 15px;
+	/*border-bottom: 1px solid #0e3c54;*/
+	margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 1024px){
+    
+    .postContainer{
+		width: 80%;
+	}
+
 }
