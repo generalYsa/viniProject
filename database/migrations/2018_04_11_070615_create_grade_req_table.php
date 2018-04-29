@@ -19,7 +19,6 @@ class CreateGradeReqTable extends Migration
             $table->integer('percentage');
             $table->integer('classID');
             $table->integer('profID');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
