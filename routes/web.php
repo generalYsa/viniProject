@@ -19,8 +19,13 @@
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/home', 'HomeController@index')->name('home');
+    // Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/home', 'HomeController');
 	Route::resource('/chat', 'ChatController');
+	// Route::get('/chat', 'ChatController@theClass');
+	Route::post('/update', 'HomeController@update');
+	Route::post('/store', 'HomeController@store');
+	Route::post('/getID/{id}', 'HomeController@getID');
 	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 	Route::get('/studySets', function () {

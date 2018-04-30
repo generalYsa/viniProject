@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Chat;
 use App\Student;
 use App\Messages;
+use App\Classes;
 use Auth;
 use DB;
 
@@ -125,4 +126,10 @@ class ChatController extends Controller
     {
         //
     }
+
+    // public function theClass()
+    // {
+    //     $classes = Classes::GetClasses(Auth::user()->id);
+    //     return view('chat', compact('classes'));
+    // }
 }

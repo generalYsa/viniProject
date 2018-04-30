@@ -33,12 +33,12 @@
    border: 2px solid #2a677c;
 }
 
-#modal:target{
+#addClass:target{
    opacity: 1;
    visibility: visible;
 }
 
-#modal:target .addModal_content{
+#addClass:target .addModal_content{
    opacity: 1;
    visibility: visible;
 }
@@ -64,31 +64,31 @@
 
 .modalInput{
    width: 100%;
-   height: 30px;
+   height: 45px;
    border: 0.5px solid black;
-   border-radius: 3px;
-   font-size: 25px;
+   border-radius: 2px;
+   font-size: 20px;
    text-align: center;
+   margin: 2px;
 }
-
-
 
 button.submit{
    float: right;
    width: 20%;
    height: 30px;
-   border: 2px solid #2a677c;
-   border-radius: 3px;
+   border: 1px solid #2a677c;
+   border-radius: 2px;
    background-color: #b3c3d3;
+   margin-top: 2px;
    /*position: fixed;
    left: 75%;*/
 }
 
-.addModal_content< form < p{
+/*.addModal_content>form>p{
    text-align: center;
    font-size: 25px;
    margin: 0;
-}
+}*/
 
 @media only screen and (max-width: 768px) {
    /* For mobile: */

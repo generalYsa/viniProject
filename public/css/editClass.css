@@ -32,12 +32,12 @@
    padding: 15px;
 }
 
-#unmodal:target{
+#editClass:target{
    opacity: 1;
    visibility: visible;
 }
 
-#unmodal:target .editModal_content{
+#editClass:target .editModal_content{
    opacity: 1;
    visibility: visible;
 }
