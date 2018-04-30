@@ -3,19 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Chat;
-use App\Student;
-use App\Messages;
-use App\Classes;
-use Auth;
-use DB;
-use Response;
 
-use DateTime;
+use App\Posts;
+use App\Events;
+use App\Activity;
 
-class ChatController extends Controller
+class TimelineController  extends Controller
 {
-
     /**
      * Display a listing of the resource.
      *
@@ -23,13 +17,12 @@ class ChatController extends Controller
      */
     public function index()
     {
-        // $user = Auth::id();
-        $user = Auth::id();
-        $chat= Chat::GetChatMate();
-        $id = $chat->first()->id;
-        $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
-        return view('/chat', compact('chat', 'messages', 'id'));
+        $activities = Activity::GetActivity(1); 
+        $events = Events::GetEvents(1);
+        $posts = Posts::GetPosts(1);
+        $timelineFeed = $activities->merge($events)->merge($posts)->sortByDesc('updated_at');
 
+        return view('timeline', compact('timelineFeed'));
     }
 
     /**
@@ -50,17 +43,8 @@ class ChatController extends Controller
      */
     public function store(Request $request)
     {
-        $message = Messages::create($request->all());
-
-         return [
-            'message' => $message->message,
-            'created_at' => $message->created_at->diffForHumans(),
-        ];
+        //
     }
-
-
-    // public function storeMsg(Request $request, $id){
-    // }
 
     /**
      * Display the specified resource.
@@ -70,10 +54,7 @@ class ChatController extends Controller
      */
     public function show($id)
     {
-        $user = Auth::id();
-        $chat= Chat::GetChatMate();
-        $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
-        return view('chat', compact('messages', 'chat', 'id'));
+        //
     }
 
     /**
@@ -110,22 +91,18 @@ class ChatController extends Controller
         //
     }
 
-<<<<<<< HEAD
-    // public function theClass()
-    // {
-    //     $classes = Classes::GetClasses(Auth::user()->id);
-    //     return view('chat', compact('classes'));
-    // }
-=======
-
-
-    public function getSentMessage(){
-        $sent =  Messages::GetSentMessage();
-        return Response::json($sent);
-        // return json([
-        //     'message' => $sent->message,
-        //     'created_at' => $sent->created_at->diffForHumans(),
-        // ]);
+    // for inserting Posts in DB
+    public function savePost(Request $request){
+        return Posts::create($request->all());
     }
->>>>>>> 23e05b0cddc6d09cd20c1e31e7fd802b3b40751a
+
+    // for inserting Posts in DB
+    public function saveEvent(Request $request){
+        return Events::create($request->all());
+    }
+
+    // for inserting Activity in DB
+    public function saveActivity(Request $request){
+        return Activity::create($request->all());
+    }
 }

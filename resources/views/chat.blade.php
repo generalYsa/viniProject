@@ -2,8 +2,13 @@
 <title>vini | Chat</title>
 <link href="{{ asset('css/chat.css') }}" rel="stylesheet">
 
-@extends('layouts.app') 
-              
+<meta name="_token" content="{!! csrf_token() !!}" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/chatAjax.js"></script>
+
+
+@extends('layouts.app')            
 
 	<!-- BODY / RIGHT SIDE PANEL -->        
 		<div id="body">
@@ -50,7 +55,7 @@
 
 			                <!-- CHATMATE -->
 				                @forelse($chat as $chatMate)
-					                <a href='/chat/{{ $chatMate->id }}'>
+					                <a href="{{ action('ChatController@show',[$chatMate->id])}}">
 					                    <div class="ChatSideBar-body">
 					                                        
 						                  	<!-- PROFILE PICTURE -->
@@ -125,11 +130,11 @@
 
 		            <!-- CONVERSATION -->
 		              <div class="message" id="conversation">
-		              	{{$message=null}}
-		              	@if(Request::is('chat/*'))
+		              	
+		              	
 		              	@forelse($messages as $message)
 
-		              	@if($message->senderID == 1)
+		              	@if($message->senderID == Auth::id())
 			                <!-- MESSAGE (user is sender) -->
 			                  <div class="message-body"> 
 			                    <div class="message-main-sender">
@@ -175,7 +180,7 @@
 			        @empty
 			        @endforelse
 			        	
-			        @endif
+			        
 		              </div>
 		            <!-- CONVERSATION -->
 
@@ -183,24 +188,25 @@
 		              <div class="reply">
 		              	
 		                
-		                <form method='POST' action='/chat'>
+		                <form type='POST'>
 		                  @csrf
-		                  @if($message!=null)
-		                  	<!-- chatID -->
-		                  	<input type="hidden" name="chatID" value="{{$message->chatID}}">
-		                  @endif
+		              
+	                  	<!-- chatID -->
+	                  	<input type="hidden" id="chatID" value="{{$id}}">
+		                  
 		                  <!-- senderID -->
-		                  <input type="hidden" name="senderID" value="1"> <!-- change value to Auth::user()->id -->
+		                  <input type="hidden" id="senderID" value= {{ Auth::id() }}> <!-- change value to Auth::user()->id -->
 		                  
 		                  <!-- TEXTAREA FOR MESSAGE -->
 		                  <div class="reply-main">
-		                    <textarea class="form-control" name="message" ></textarea>
+		                    <textarea class="form-control" id="message" ></textarea>
 		                  </div>
 		                  
-		                  <!-- SEND BUTTON -->
-		                    <button  type="submit" class="reply-send"><i class="fa fa-send fa-2x" aria-hidden="true"></i></button>
 		                
-		                </form>
+		                  <!-- SEND BUTTON -->
+		                    <button class="reply-send" id="send"><i class="fa fa-send fa-2x" aria-hidden="true"></i></button>
+		                 </form>
+		               
 		              </div>
 		            <!-- SEND -->             
 		          </div>
@@ -213,4 +219,3 @@
 
         
     
-

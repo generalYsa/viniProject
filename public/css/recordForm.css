@@ -24,54 +24,95 @@
 /* Initial Details of the Form */
 #initialDetails {
 	margin-bottom: 15px;
+	width: 100%;
 }
 
-#activityName {
-	width: 15%;
+#header {
+	width: 100%;
+	text-align: center;
+	margin: auto;
 }
 
-#activityValue {
-	width: 30%;
+#header > * {
 }
 
-#activityValue > select {
-	width: 80%;
-	height: 30px;
-	border: 0.5px solid black;
+#header > .dropdown {
+	width: 50%;
 }
 
-#activityValue > button {
-	height: 30px;
-	width: 30px;
+#header > input[type="number"] {
+	padding: 12px;
+}
+
+#addActivityButton {
+	padding: 12px;
 	border: 0px;
-	background-color: #2a677c;
+	background-color: #3498DB;
 	color: white;
-	margin: 0px;
 }
 
-#maxScore {
-	width: 10%;
+.dropbtn {
+    background-color: #3498DB;
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+	width: 100%;
 }
 
-#maxScoreValue {
-	width: 12%;
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus, #addActivityButton:hover {
+    background-color: #2980B9;
 }
 
-#maxScoreValue > input[type="number"] {
-	width: 40%;
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+	display:block;
 }
 
 .RequirementType {
 	margin: 10px 0px;
+	text-align: center;
 }
 
-.RequirementType > input {
-	width: 16%;
+.RequirementType > label {
+	padding: 10px 25px;
+}
+
+.RequirementType > button {
+	width: 11%;
 	height: 30px;
 	border: 0px;
 }
 
-.RequirementType > input#selected {
+.RequirementType > button#selected {
 	background-color: #B39DDB;
 	color: white;
 }
@@ -97,13 +138,13 @@
 }
 
 #grade, .FieldValueContainer {
-	width: 49%;
+	width: 33%;
 }
 
 .FieldValueContainer > input {
 	height: 40px;
-	padding-left: 15px;
-	width: 50px;
+	width: 25%;
+	padding-left: 5px;
 	border: 1px solid black;
 }
 /* Record Header and Body of the Form */
@@ -128,3 +169,8 @@
 	color: white;
 }
 /* Buttons or Control Panel of the Form */
+
+/* Dropdown */
+
+/* Dropdown Button */
+ 

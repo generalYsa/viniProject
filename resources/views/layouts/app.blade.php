@@ -6,10 +6,13 @@
         <link href="{{ asset('css/ToDo_Notif.css') }}"  rel="stylesheet">
         <link href="{{ asset('css/addClass.css') }}" rel="stylesheet">
         <link href="{{ asset('css/editClass.css') }}" rel="stylesheet">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         
         <link href="https://fonts.googleapis.com/css?family=Ubuntu|Bree+Serif" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+
     </head>
     <body>
         <!-- NAVIGATION BAR -->
@@ -43,8 +46,9 @@
                             <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">                          
                             <a id="editPic" href="/editPicture">Edit Picture</a> 
                             <div class="info"> 
-                                <p>{{ Auth::user()->name }}</p>
-                                <p>{{ Auth::user()->IDnum }}</p>
+								<!-- BEFORE: Auth::user()->'name' and BEFORE: Auth::user()->'IDnum'-->
+                                <p>{{ Auth::user()['name'] }}</p>
+                                <p>{{ Auth::user()['IDnum'] }}</p>
                             </div>
                         </div>
                     <!-- USER INFO -->
@@ -54,8 +58,12 @@
                                 <!-- CALENDAR BUTTON -->
                                 <li class="hvr-underline-from-center"><a href="#">Calendar</a></li>
                                 <!-- CLASSES BUTTON -->
-                                <li id="theClasses" class="hvr-underline-from-center"><i id="plus_icon" class="fa fa-plus"></i><a href="#">Classes</a><i id="ellipsis_icon" class="fa fa-ellipsis-h"></i>
-                                    <div id="chenes">
+                                <li id="theClasses" class="hvr-underline-from-center">
+                                        <i id="plus_icon" class="fa fa-plus" onclick="toggleSubject()"></i>
+                                        <a href="#">Classes</a>
+                                        <i id="ellipsis_icon" class="fa fa-ellipsis-h" onclick="toggleWork()"></i>
+
+                                    <div id="classDropDown">
                                         <ul id="subjectID">
                                             <div>
                                                 @if(count($classes) > 0)
@@ -73,9 +81,14 @@
                                         </ul>
                                         <ul id="workID">                                        
                                         @if (Auth::user()->userType=='s')
+                                        <!-- [NOTE] this should be editied according to the type of user-->
+                                        <ul id="workID">
+                                        
+										<!-- BEFORE: Auth::user()->'userType'-->
+                                        @if (Auth::user()['userType'] =='s')
                                             <li class="hvr-underline-from-center"><a href="#">Grades</a></li>
                                             <li class="hvr-underline-from-center"><a href="#">Study Set</a></li>
-                                        @elseif (Auth::user()->userType=='t')
+                                        @elseif (Auth::user()['userType'] =='t')
                                             <li class="hvr-underline-from-center"><a href="#">Record Grades</a></li>
                                             <li class="hvr-underline-from-center"><a href="/studentList">Students</a></li>                                              
                                         @endif                                           

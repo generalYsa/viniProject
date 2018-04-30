@@ -23,6 +23,46 @@ function toggleToDo(){
 		}
 }
 
+
+
+function toggleClass(){
+	document.getElementById("classDropDown").classList.toggle('active');
+}
+
+function toggleSubject(){
+	
+
+	var work = document.getElementById("workID");
+	if(window.getComputedStyle(work, null).getPropertyValue("display") === "block"){
+			toggleWork();
+	}
+
+	toggleClass();
+	document.getElementById("subjectID").classList.toggle('active');
+}
+
+
+function toggleWork(){
+	var subject = document.getElementById("subjectID");
+	if(window.getComputedStyle(subject, null).getPropertyValue("display") === "block"){
+			toggleSubject();
+	}
+
+	toggleClass();
+	document.getElementById("workID").classList.toggle('active');
+}
+
+
+
+// function toggleSubject(){
+// 	document.getElementById("classDropDown").classList.toggle('active');
+// 	// document.getElementById("subjectID").classList.toggle('active');
+// }
+
+
+
+
+
 // function addClass(){
 // 	document.getElementById('id01').style.display='block';
 // }
@@ -36,32 +76,32 @@ function toggleToDo(){
 // 	document.getElementById("stud").classList.toggle('active');
 // }
 
-$(document).ready(function(){
-	$("#chenes").hide();
+// $(document).ready(function(){
+// 	$("#chenes").hide();
 
-	$("#plus_icon").click(function(){
-		$("#chenes").show();
-		if($("#workID").show()){
-			$("#workID").hide();
-		}
-	});
+// 	$("#plus_icon").click(function(){
+// 		$("#chenes").show();
+// 		if($("#workID").show()){
+// 			$("#workID").hide();
+// 		}
+// 	});
 
-	$("#ellipsis_icon").click(function(){
-		$("#chenes").show();
-		if($("subjectID").show()){
-			$("#subjectID").hide();
-		}
-	});
+// 	$("#ellipsis_icon").click(function(){
+// 		$("#chenes").show();
+// 		if($("subjectID").show()){
+// 			$("#subjectID").hide();
+// 		}
+// 	});
 
-	$("#quiz").hide();
-	$("#exam").hide();
+// 	$("#quiz").hide();
+// 	$("#exam").hide();
 
-	$("#pointer1").click(function(){
-		$("#quiz").show();
-		if($("#exam").show()){
-			$("#exam").hide();
-		}
-	});
+// 	$("#pointer1").click(function(){
+// 		$("#quiz").show();
+// 		if($("#exam").show()){
+// 			$("#exam").hide();
+// 		}
+// 	});
 
 
 
@@ -71,7 +111,21 @@ $(document).ready(function(){
 	// 	$(".form").show();
 	// 	}
 	// });
-});
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // $(document).ready(function(){
 // 	$("#quiz").hide();

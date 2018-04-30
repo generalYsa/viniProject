@@ -1,0 +1,269 @@
+#body{
+	overflow: auto;
+}
+form{
+	margin: 0px;
+}
+/*p,label,button{
+	color: white;
+	font-family: agency fb;
+}*/
+#subject{
+/*  font-family: 'Open Sans', sans-serif;*/
+	font-size: 35px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  color: #fff;
+  background-color: #0e3c54;
+  padding: 2%;
+  text-align: center;
+  margin: 3%;
+}
+#subject>span{
+  border: 2px solid #1abc9c;
+  padding: 1% 3%;
+}
+
+.postHeader>img{
+	margin: 3px 6px;
+	height: 35px;
+	width: 35px;
+	float: left;
+}
+.postHeader>.name{
+	font-size: 100%;
+	color: #fff;
+	margin: 13px 6px;
+	float: left;
+}
+.postHeader>#date{
+	font-size: 100%;
+	color: #fff;
+	float: right;
+	margin: 13px 10px;
+	/*margin: -3% 0 0 80%;*/
+}
+.postHeader{
+	width: 100%;
+	height: 43px; 
+	background-color: #0e3c54;
+	overflow: hidden;
+}
+
+
+
+#fileContent{
+	float: left;
+	width: 65px;
+}
+#fileContent>a>.fa{
+	margin: 10px 5px;
+	color: #0e3c54;
+}
+#fileContent>a>.fa:hover{
+	color: #1abc9c;
+}
+
+.postContent{
+	width: 100%;
+	margin: auto;
+}
+
+.postContent>label, .submitBtn{
+	margin: 0px 0px 5px 20px;
+	float: left;
+	border: 0;
+	padding: 1%;
+	color: #0e3c54;
+	background-color: #1abc9c;
+	font-size: 16px;
+	border-radius: 4px;
+	font-weight: bold;
+}
+.postContent>input, #submit{
+	display: none;
+}
+.postContent>label:hover{
+	background-color: #ffd025;
+}
+#normalForm{
+	width: 99%;
+	height: 105px;
+	background-color: #ecf4f0;
+	border:none;
+	outline: none;
+}
+#normalForm>textarea:focus{
+	outline-color: #ffd025; 
+}
+.postFooter{
+	background-color: #0e3c54;  
+	height: 33px;
+}
+.postFooter>input{
+	visibility: hidden;
+}
+#upload:hover{
+	background-color: #ffd025;
+}
+
+
+#postBut{float:right;}
+#upoad{float:left;}
+
+#postBut, #upload{
+	border:0;
+	color: #0e3c54;
+	background-color: #fff;
+	font-size: 16px;
+	font-weight: bold;
+	padding: 2px;
+	border-radius: 2px;
+	margin: 5px 10px;
+	width: 50px;
+}
+
+#filename{
+	margin: 5px;
+	color: white;
+}
+
+#postBut:hover{
+	background-color: #ffd025;
+}
+.postHeader>button{
+	border:0;
+	color: #553344;
+	background-color: #FFFFFF;  
+}
+.postHeader>button:active{
+	background-color: #b3c3d3;
+}
+#eventForm>input, #activityForm>input:focus{
+	outline-color: #ffd025; 
+}
+#eventForm, #activityForm{
+	color: #0e3c54;
+	font-family: agency fb;
+	font-size: 120%;
+	height: auto;
+	padding: 15px 35px;
+}
+#activityForm>input, #activityForm>select, #activityForm>textarea, #eventForm>input{
+	border: none;
+    margin: 3px;
+    color: #0e3c54;
+    border-color: #0e3c54;
+    float: right;
+    height: auto;
+    width: calc(100% - 80px);
+}
+/*#eventForm>input{
+	border: none;
+	margin: 1.2% 0 -1% 1%;
+	color: #0e3c54;
+	border-color: #ee77aa;
+}*/
+
+#buttonChoices>button{
+	font-family: 'Arial', sans-serif;
+	border: none;
+	background-color: #1abc9c;
+	height: 25px;
+	padding: auto;
+	color: #0e3c54;
+	font-family: 'Arial', sans-serif;
+	border-radius: 2px;
+	margin-bottom: 2px;
+}
+#buttonChoices>button:hover{
+	background-color: #ffd025;
+	outline: none;
+}
+#buttonChoices{
+	float: right;
+	margin: 9px;
+}
+#buttonChoices>button:focus{
+	outline: none;
+	background-color:#ffd025; 
+}
+
+
+.postsBody{
+	height: 160px;
+	background-color: #ecf4f0;
+	margin: auto;
+    margin-bottom: 40px;
+    width: 60%;
+}
+
+textarea {
+    resize: none;
+}
+
+
+
+.postContainer{
+    min-height:100px;
+    overflow: auto;
+    width:60%;
+    border:2px solid #0e3c54;
+    margin: auto;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+
+
+.activityName{
+	font-size: 18px;
+	font-weight: bold;
+	width: 90%;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.19);
+}
+
+
+.activityDescription{
+	text-align: right;
+	font-size:12px;
+	color: rgba(0, 0, 0, 0.6);
+	width: 90%;
+}
+
+.activityDeadline{
+	font-size:15px;
+	color: red;
+	float: right;
+}
+
+.activityFile{
+	text-decoration: none;
+	text-align: left;
+	font-size: 15px;
+	color: #0e3c54;
+	width: 50%;
+	float: left;
+}
+
+.postContent>div{
+	width: 90%;
+	margin: auto;	
+}
+
+.postBody{
+	display:inline-block; 
+	min-height: 70px;
+	width:100%;
+	padding-bottom: 15px;
+	/*border-bottom: 1px solid #0e3c54;*/
+	margin-bottom: 5px;
+}
+
+@media only screen and (max-width: 1024px){
+    
+    .postContainer{
+		width: 80%;
+	}
+
+}

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGradeReqTable extends Migration
+class CreatePostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateGradeReqTable extends Migration
      */
     public function up()
     {
-        Schema::create('gradeReq', function (Blueprint $table) {
-           $table->increments('id');
-            $table->string('name', 50);
-            $table->integer('percentage');
+        Schema::create('posts', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('classID');
-            $table->integer('profID');
+            $table->integer('author'); //studentNum or profNum
+            $table->text('content');
+            $table->string('file')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateGradeReqTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gradeReq');
+        Schema::dropIfExists('posts');
     }
 }

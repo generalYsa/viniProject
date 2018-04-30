@@ -10,3 +10,4 @@ class Student extends Model
 protected $table = 'student';
 }
 
+	
