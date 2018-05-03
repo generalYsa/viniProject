@@ -13,13 +13,21 @@
 						<th>Name</th>
 						<th>Student Number</th>
 						<th></th>
-					</tr>					
+					</tr>
+					@if(count($studentlists)>0)
+					@foreach($studentlists as $studentlist)			
 					<tr>
-						<td>Shaira Abancio</td>
-						<td>2015-10558</td>
+						<td>{{ $studentlist->name}}</td>
+						<td>{{ $studentlist->IDnum}}</td>
 						<td><button>Drop&nbsp;X</button></td>
-					</tr>					
+					</tr>
+					@endforeach
+					@else()	
 					<tr>
+						NO STUDENTS YET
+					</tr>
+					@endif				
+					<!-- <tr>
 						<td>Alyssa Lavilla</td>
 						<td>2015-xxxxx</td>	
 						<td><button>Drop&nbsp;X</button></td>				
@@ -33,9 +41,11 @@
 						<td>Kent Rio</td>	
 						<td>2015-xxxxx</td>	
 						<td><button>Drop&nbsp;X</button></td>			
-					</tr>					
+					</tr>				 -->
 				</table>
 			</div>
 		<!-- STUDENT LIST -->
 	</div>
 <!-- /BODY / RIGHT SIDE PANEL -->
+
+<script type="text/javascript" src="studentListAjax.js"></script>
