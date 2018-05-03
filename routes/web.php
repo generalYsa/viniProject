@@ -11,11 +11,20 @@
 |
 */
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4bca629748fe9c4fa91c05109746079820a8ba76
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/home', 'HomeController@index')->name('home');
+    // Route::get('/home', 'HomeController@index')->name('home');
+    Route::resource('/home', 'HomeController');
 	Route::resource('/chat', 'ChatController');
+	// Route::get('/chat', 'ChatController@theClass');
+	Route::post('/update', 'HomeController@update');
+	Route::post('/store', 'HomeController@store');
+	Route::post('/getID/{id}', 'HomeController@getID');
 	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 	Route::get('/studySets', function () {
@@ -70,16 +79,21 @@ Route::group(['middleware' => ['auth']], function() {
 	});
 	
 
-	Route::get('/timeline', function() {
-		return view('timeline');
-	});
+	// Route::get('/timeline', function() {
+	// 	return view('timeline');
+	// });
 	
 		// Route::get('/welcome', function() {
 		// 	return view('layouts.app');
 		// });
 
 	Route::get('/chat/getSentMessage', 'ChatController@index');
-	});
+
+	Route::post('/timeline/savePost', 'TimelineController@savePost');
+	Route::post('/timeline/saveEvent', 'TimelineController@saveEvent');
+	Route::post('/timeline/saveActivity', 'TimelineController@saveActivity');
+	Route::resource('/timeline', 'TimelineController');
+});
 
 Route::get('/chat/getSentMessage', 'ChatController@getSentMessage');
 Route::get('/', '\App\Http\Controllers\Auth\LoginController@showLoginForm');

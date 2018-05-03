@@ -46,7 +46,7 @@
                             <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">                          
                             <a id="editPic" href="/editPicture">Edit Picture</a> 
                             <div class="info"> 
-								<!-- BEFORE: Auth::user()->'name' and <!-- BEFORE: Auth::user()->'IDnum'-->-->
+								<!-- BEFORE: Auth::user()->'name' and BEFORE: Auth::user()->'IDnum'-->
                                 <p>{{ Auth::user()['name'] }}</p>
                                 <p>{{ Auth::user()['IDnum'] }}</p>
                             </div>
@@ -66,23 +66,21 @@
                                     <div id="classDropDown">
                                         <ul id="subjectID">
                                             <div>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                                
+                                                @if(count($classes) > 0)
+                                                    @foreach($classes as $class)
+                                                        <li class="hvr-underline-from-center">
+                                                            <a href="/calendar{{ $class->id }}">{{ $class->name }}</a>
+                                                            <a href="#editClass" class="modal-open"><i class="fa fa-wrench fa-xs" onclick="editClass(this)"></i></a>
+                                                        </li>                                                
+                                                    @endforeach                                               
+                                                @else
+                                                    <li>No Class</li>
+                                                @endif
                                             </div>                                             
-                                            <li id="newClass"><a href="#modal" class="modal-open">+ Add Class</a></li>
-                                                                             
+                                            <li id="newClass"><a href="#addClass" class="modal-open">+ Add Class</a></li>                                                                             
                                         </ul>
+                                        <ul id="workID">                                        
+                                        @if (Auth::user()->userType=='s')
                                         <!-- [NOTE] this should be editied according to the type of user-->
                                         <ul id="workID">
                                         
@@ -92,8 +90,7 @@
                                             <li class="hvr-underline-from-center"><a href="#">Study Set</a></li>
                                         @elseif (Auth::user()['userType'] =='t')
                                             <li class="hvr-underline-from-center"><a href="#">Record Grades</a></li>
-                                            <li class="hvr-underline-from-center"><a href="/studentList">Students</a></li> 
-                                             
+                                            <li class="hvr-underline-from-center"><a href="/studentList">Students</a></li>                                              
                                         @endif                                           
                                         </ul>                           
                                     </div>
@@ -203,36 +200,69 @@
 
 
         <!-- BODY / RIGHT SIDE PANEL -->
-          <!--   <div id="modalBody"> -->
-                <!-- ADD CLASS MODAL -->
-                <div class="modalBody" id="modal">
+            @if (Auth::user()->userType=='s')
+                <!-- STUDENT ADD CLASS MODAL -->
+                <div class="modalBody" id="addClass">
                     <div class="addModal_content">
                         <a href="#" class="closeModal">&times;</a>
                         <h2 class="addModalHeading">Add Class</h2>
                         <form action="#">
-                            <input class = "modalInput" placeholder="Enter Class Name" type="text" name="className"><br><br>
-                            <p>Code: dhu1ia</p>
+                            <input class="modalInput" placeholder="Enter Class Code" type="text" name="classCode"><br><br>
                             <button class="submit" type="submit" value="Submit">Submit</button>
                         </form>
                     </div>
                 </div>
-                <!-- ADD CLASS MODAL -->
+                <!-- /STUDENT ADD CLASS MODAL -->
 
-                <!-- DROP CLASS MODAL -->
-                <div class="modalBody" id="unmodal">
+                <!-- STUDENT DROP CLASS MODAL -->
+                <div class="modalBody" id="editClass">
                     <div class="editModal_content">
                         <a href="#" class="closeModal">&times;</a>
-                        <h2 class="editModalHeading2">Edit Class</h2>
-                        <form action="#">
-                            <input class = "modalInput" placeholder="Edit Class Name" type="text" value="Class Name" name="className"><br><br>
-                            <button class="drop" type="submit">Drop</button>
-                            <button class="cancel" type="reset">Cancel</button>
-                            <button class="save" type="submit">Save</button>
-                        </form>                     
+                        <h2 class="addModalHeading">Are you sure you want to remove class?</h2>
+                        <form action="#">                           
+                            <button class="yes" type="submit" value="Submit">YES</button>
+                            <button class="no" type="submit" value="Submit">NO</button>
+                        </form>
                     </div>
                 </div>
-                <!-- DROP CLASS MODAL -->
-            <!-- </div> -->
+                <!-- /STUDENT DROP CLASS MODAL -->
+            @elseif (Auth::user()->userType=='t')
+                <!-- PROF ADD CLASS MODAL -->
+                <div class="modalBody" id="addClass">
+                    <div class="addModal_content">
+                        <a href="#" class="closeModal">&times;</a>
+                        <h2 class="addModalHeading">Add Class</h2>
+                        <form method="POST" action="/store">
+                            {{ csrf_field() }}
+                            <input class="modalInput" placeholder="Enter Class Name" type="text" name="className">
+                            <input class="modalInput" placeholder="Enter Class Code" type="text" name="classCode">
+                            <!-- <p>Code: dhu1ia</p> -->
+                            <button class="submit" type="submit" value="Submit">Submit</button>
+                        </form>
+                    </div>
+                </div>
+                <!-- /PROF ADD CLASS MODAL -->
+                <!-- PROF DROP CLASS MODAL -->
+                <div class="modalBody" id="editClass">
+                <div class="editModal_content">
+                    <a href="#" class="closeModal">&times;</a>
+                    <h2 class="editModalHeading2">Edit Class</h2>
+                    <form method="POST" action="/update"><!-- action="{{ '/classes/'.$item->name.'/edit' }}"> -->
+                        {{ method_field('PUT') }}
+                        {{ csrf_field() }}
+                        <input class = "modalInput" placeholder="Edit Class Name" type="text" name="className"><br><br>
+                        <!-- <input type="hidden" name="className" value="name"> -->
+                        <!-- <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"> -->
+                        <!-- <button class="drop" type="submit">Drop</button> -->
+                        <button class="cancel" type="reset">Cancel</button>
+                        <button class="save" type="submit">Save</button>
+                    </form>                     
+                </div>
+                </div>
+                <!-- /PROF DROP CLASS MODAL -->
+
+               
+            @endif
         <!-- BODY / RIGHT SIDE PANEL -->
     </body>
     <script src= "{{asset('js/main.js')}}" ></script>

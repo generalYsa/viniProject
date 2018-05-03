@@ -12,214 +12,47 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <!-- <link href="https://fonts.googleapis.com/css?family=Ubuntu|Bree+Serif" rel="stylesheet"> -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <style id="9368fab6-245f-4dd9-9165-46df9b970f71">.linkifyplus img { max-width: 90%; }</style>
+		
+		<style id="9368fab6-245f-4dd9-9165-46df9b970f71">.linkifyplus img { max-width: 90%; }</style>
 	</head>
-    <body>
-        <!-- NAVIGATION BAR -->
-            <nav>
-                <div>
-                    <i class="fa fa-bars fa-lg" onclick="toggleSidebar()"></i>
-                </div>
-                <a href="#"><img src="images\logogray2.png"></a>
-
-                <!-- NOTIFICATION BUTTON -->
-                <i class="fa fa-bell fa-lg fa_icons" onclick="toggleNotif()"></i>
-
-                <!-- TO DO BUTTON -->
-                <i class="fa fa-check-square fa_icons" onclick="toggleToDo()" aria-hidden="true"></i>
-            </nav>
-        <!-- /NAVIGATION BAR -->
-
-        <!-- SIDEBAR NAVIGATION -->
-            <div id="sidebar">
-                    <!-- USER INFO -->
-                        <div class="user">
-                            <i class="fa fa-sign-out"></i>      
-                            <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">  
-                            <a href="editPicture.html">Edit Picture</a> 
-                            <div class="info">                  
-                                <p>Teacher Ganda</p>
-                                <p>20xx-xxxxx</p>
-                            </div>
-                        </div>
-                    <!-- USER INFO -->
-                    <!-- NAVIGATION -->
-                        <div class="details">
-                            <ul>
-                                <!-- CALENDAR BUTTON -->
-                                <li class="hvr-underline-from-center"><a href="#">Calendar</a></li>
-                                <!-- CLASSES BUTTON -->
-                                <li id="theClasses" class="hvr-underline-from-center"><i id="plus_icon" class="fa fa-plus"></i><a href="#">Classes</a><i id="ellipsis_icon" class="fa fa-ellipsis-h"></i>
-                                    <div id="chenes" style="display: none;">
-                                        <ul id="subjectID">
-                                            <div>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 129</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            <li class="hvr-underline-from-center"><a href="#">CMSC 126</a><a href="#unmodal" class="modal-open"><i class="fa fa-wrench fa-xs"></i></a></li>
-                                            </div>
-                                            <li id="newClass"><a href="#modal" class="modal-open">+ Add Class</a></li>                                      
-                                        </ul>
-                                        <!-- [NOTE] this should be editied according to the type of user-->
-                                        <ul id="workID">
-                                            <li class="hvr-underline-from-center"><a href="#">Record Grades</a></li>
-                                            <li class="hvr-underline-from-center"><a href="student_list.html">Students</a></li>
-                                        </ul>                           
-                                    </div>
-                                </li>
-                                <!-- <div id="student_space"> -->
-                                <li class="hvr-underline-from-center"><a href="#">Messages</a></li>
-                            </ul>
-                        </div>
-                    <!-- NAVIGATION -->
-            </div>
-        <!-- /SIDEBAR NAVIAGTION -->
-
-        <!-- NOTIFICATION BAR -->
-            <div id="notifBar" class="navDrpDwn">               
-                <!-- INDIVIDUAL NOTIF -->
-                    <a href=""> <!-- LINK TO POST -->
-                        <input value="true" id="isRead" type="hidden">
-                        <div class="notif">
-                            <!-- IMAGE -->
-                                <div class="avatar">
-                                    <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">
-                                </div>
-                            <!-- DESCRIPTION -->
-                                <div class="description"> 
-                                    Kemerlin posted an event in CMSC 129.
-                                </div>
-                            <!-- DATE -->
-                                <div class="date">
-                                    5 hours ago
-                                </div>
-                        </div>
-                    </a>
-                <!-- /INDIVIDUAL NOTIF -->
-
-                <!-- NOTIF IF NOTF HAS BEEN OPENED -->
-                    <a href=""> <!-- LINK TO POST -->
-                        <input value="true" id="isRead" type="hidden">
-                        <div class="notif" style="filter: grayscale(80%)">
-                            <!-- IMAGE -->
-                                <div class="avatar">
-                                    <img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">
-                                </div>
-                            <!-- DESCRIPTION -->
-                                <div class="description"> 
-                                    Kemerlin Chemerutskineshy posted an event in CMSC 129.
-                                </div>
-                            <!-- DATE -->
-                                <div class="date">
-                                    5 hours ago
-                                </div>
-                        </div>
-                    </a>
-                <!-- /NOTIF IF NOTF HAS BEEN OPENED -->
-            </div>
-        <!-- NOTIFICATION BAR -->
-
-        <!-- TO DO BAR -->
-            <div id="toDoBar" class="navDrpDwn">                
-                <!-- INDIVIDUAL NOTIF -->
-                    <a href=""> <!-- LINK TO POST -->
-                        <input value="true" id="isRead" type="hidden">
-                        <div class="notif">
-                            <!-- IMAGE -->
-                                <i class="fa fa-check-circle fa-4x" aria-hidden="true"></i>
-                            <!-- DESCRIPTION -->
-                                <div class="deadline">
-                                    DUE TOMMORROW
-                                </div>
-
-                                <div class="title"> 
-                                    Lab 3: Kemerlin
-                                </div>
-
-                                <div class="subject">
-                                    CMSC 124
-                                </div>
-
-                        </div>
-                    </a>
-                <!-- /INDIVIDUAL NOTIF -->
-
-                <a href=""> <!-- LINK TO POST -->
-                        <input value="true" id="isRead" type="hidden">
-                        <div class="notif">
-                            <!-- IMAGE -->
-                                <i class="fa fa-check-circle fa-4x" aria-hidden="true" style="color: #33cccc"></i>
-                            
-                            <!-- DESCRIPTION -->
-                                
-                                <div class="deadline">
-                                    DUE Feb 13, 2018
-                                </div>
-
-
-                                <div class="title"> 
-                                    Lab 76: Pak Ganern Ganern
-                                </div>
-
-                                <div class="subject">
-                                    CMSC 124
-                                </div>
-
-                        </div>
-                    </a>
-            </div>
-        <!-- TO DO BAR -->
+	@extends('layouts.app')
 		<div id = "body">
-			<!-- RECORD FORM -->
-			<form>	
-				<div id = "formContainer">
-					<!-- RECORD FORM IDENTIFIER -->
-					<div>
-						<div class = "LabelAndFieldContainer" id = "initialDetails">
-							<div class = "FieldNameContainer" id = "activityName">
-								<label> Activity Name </label>
+			<!-- RECORD FORM IDENTIFIER -->
+			<div>
+				<div class = "LabelAndFieldContainer" id = "initialDetails">
+					<div id = "header">
+					
+						<div class="dropdown">
+							<button onclick="myFunction()" class="dropbtn" id = "activityName"> Choose an activity </button>
+							<div id="myDropdown" class="dropdown-content">
+								<a onclick = "selectOption(0)">Link 1</a>
+								<a onclick = "selectOption(1)">Link 2</a>
+								<a onclick = "selectOption(2)">Link 3</a>
 							</div>
-							<div class = "FieldValueContainer" id = "activityValue">
-								<select>
-									<option value = "0"> </option>
-									<option value = "1"> Assignment #1 </option>
-									<option value = "2"> Assignment #2 </option>
-									<option value = "3"> Quiz #1 </option>
-									<option value = "4"> Assignment #3 </option>
-									<option value = "5"> Quiz #2 </option>
-									<option value = "6"> Assignment #4 </option>
-									<option value = "7"> Long Exam #1 </option>
-								</select>
-								<button id = "addActivityButton"> + </button>
-							</div>
-							
-							<div class = "FieldNameContainer" id = "maxScore">
-								<label> Max Score </label>
-							</div>
-							<div class = "FieldValueContainer" id = "maxScoreValue">
-								<input name = "maxScore"  type = "number" max = "1000"> </<input>
-							</div>
-							
-							<div class = "RequirementType">
-								<input type = "button" value = "Assignment" id = "selected" disabled> </input>
-								<input type = "button" value = "Quiz" disabled> </input>
-								<input type = "button" value = "Long Exam" disabled> </input>
-								<input type = "button" value = "Final Exam" disabled> </input>
-								<input type = "button" value = "Lab Activity" disabled> </input>
-								<input type = "button" value = "Problem Set" disabled> </input>
-							</div>
-							
-						</div>
+						</div> 
+						
+						<input name = "maxScore" type = "number" max = "1000" placeholder = "Max Score" required> </input>
+						<button id = "addActivityButton" onclick = ""> + </button>
 					</div>
-					<!-- RECORD FORM IDENTIFIER -->
+					
+					<div class = "RequirementType">
+						<label> Filter </label>
+						<button onclick = "switchFilter(0)" id = "All"> All </button>
+						<button onclick = "switchFilter(1)" id = "Assignment" id = "selected"> Assignment </button>
+						<button onclick = "switchFilter(2)" id = "Quiz"> Quiz </button>
+						<button onclick = "switchFilter(3)" id = "LongExam"> Long Exam </button>
+						<button onclick = "switchFilter(4)" id = "FinalExam"> Final Exam </button>
+						<button onclick = "switchFilter(5)" id = "LabActivity"> Lab Activity </button>
+						<button onclick = "switchFilter(6)" id = "ProblemSet"> Problem Set </button>
+					</div>
+					
+				</div>
+			</div>
+			<!-- RECORD FORM IDENTIFIER -->
+			
+			<!-- RECORD FORM -->
+			<form method = "POST" action = {{ view('recordForm') }}>	
+				<div id = "formContainer">
 					
 					<!-- RECORD FORM FIELD HEADER -->
 					<div class = "LabelAndFieldContainer" id = "recordHeader">
@@ -228,6 +61,9 @@
 						</div>
 						<div class = "HeaderLabelContainer" id = "grade">
 							<label> Score </label>
+						</div>
+						<div class = "HeaderLabelContainer" id = "files">
+							<label> Files </label>
 						</div>
 					</div>
 					<!-- RECORD FORM FIELD HEADER -->
@@ -240,6 +76,9 @@
 						<div class = "FieldValueContainer">
 							<input name = "score[]" type = "number" min = "0" max = "1000"> </<input>
 						</div>
+						<div class = "FieldValueContainer">
+							<a href="#"> View Submission </a>
+						</div>
 					</div>
 					
 					<div class = "LabelAndFieldContainer Record">
@@ -249,6 +88,9 @@
 						<div class = "FieldValueContainer">
 							<input name = "score[]" type = "number" min = "0" max = "1000"> </<input>
 						</div>
+						<div class = "FieldValueContainer">
+							<a href="#"> View Submission </a>
+						</div>
 					</div>
 					
 					<div class = "LabelAndFieldContainer Record">
@@ -257,6 +99,9 @@
 						</div>
 						<div class = "FieldValueContainer">
 							<input name = "score[]" type = "number" min = "0" max = "1000"> </<input>
+						</div>
+						<div class = "FieldValueContainer">
+							<a> No Files Submitted </a>
 						</div>
 					</div>
 					<!-- RECORD FORM BODY -->
@@ -274,5 +119,6 @@
 		</div>
     
     <script src="http://localhost:8000/js/main.js"></script>
+	<script src="http://localhost:8000/js/recordForm.js"> </script>
 
 </body></html>

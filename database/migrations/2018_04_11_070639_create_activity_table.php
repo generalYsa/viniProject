@@ -16,11 +16,12 @@ class CreateActivityTable extends Migration
         Schema::create('activity', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 100);
-            $table->dateTime('date');
+            $table->text('description')->nullable();
             $table->integer('score');
             $table->integer('classID');
+            $table->integer('author')->nullable(); //null if it was not posted
             $table->integer('gradeReqID');
-            $table->dateTime('deadline');
+            $table->date('deadline')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
