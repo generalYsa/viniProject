@@ -81,7 +81,8 @@
                                         </ul>
                                         <ul id="workID">                                        
                                         @if (Auth::user()->userType=='s')
-                                        <!-- [NOTE] this should be editied according to the type of user-->
+                                        <!-- [NOTE] this should be edited according to the type of user-->
+										@endif
                                         <ul id="workID">
                                         
 										<!-- BEFORE: Auth::user()->'userType'-->
@@ -244,26 +245,24 @@
                 <!-- /PROF ADD CLASS MODAL -->
                 <!-- PROF DROP CLASS MODAL -->
                 <div class="modalBody" id="editClass">
-                <div class="editModal_content">
-                    <a href="#" class="closeModal">&times;</a>
-                    <h2 class="editModalHeading2">Edit Class</h2>
-                    <form method="POST" action="/update"><!-- action="{{ '/classes/'.$item->name.'/edit' }}"> -->
-                        {{ method_field('PUT') }}
-                        {{ csrf_field() }}
-                        <input class = "modalInput" placeholder="Edit Class Name" type="text" name="className"><br><br>
-                        <!-- <input type="hidden" name="className" value="name"> -->
-                        <!-- <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"> -->
-                        <!-- <button class="drop" type="submit">Drop</button> -->
-                        <button class="cancel" type="reset">Cancel</button>
-                        <button class="save" type="submit">Save</button>
-                    </form>                     
+					<div class="editModal_content">
+						<a href="#" class="closeModal">&times;</a>
+						<h2 class="editModalHeading2">Edit Class</h2>
+						<form method="POST" action="/update"><!-- action="{{ '/classes/'.$item->name.'/edit' }}"> -->
+							{{ method_field('PUT') }}
+							{{ csrf_field() }}
+							<input class = "modalInput" placeholder="Edit Class Name" type="text" name="className"><br><br>
+							<!-- <input type="hidden" name="className" value="name"> -->
+							<!-- <input type="hidden" name="user_id" value="{{ Auth::user()->id }}"> -->
+							<!-- <button class="drop" type="submit">Drop</button> -->
+							<button class="cancel" type="reset">Cancel</button>
+							<button class="save" type="submit">Save</button>
+						</form>                     
+					</div>
                 </div>
-                </div>
-                <!-- /PROF DROP CLASS MODAL -->
-
-               
+                <!-- /PROF DROP CLASS MODAL --> 
             @endif
         <!-- BODY / RIGHT SIDE PANEL -->
     </body>
-    <script src= "{{asset('js/main.js')}}" ></script>
+    <script src="{{asset('js/main.js')}}" ></script>
 </html>
