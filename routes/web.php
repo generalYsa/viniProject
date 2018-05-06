@@ -11,10 +11,13 @@
 |
 */
 
+/*
 <<<<<<< HEAD
 =======
 
 >>>>>>> 4bca629748fe9c4fa91c05109746079820a8ba76
+*/
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
