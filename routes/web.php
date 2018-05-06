@@ -78,7 +78,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::resource('/timeline', 'TimelineController');
 	
 	Route::get('/calendar', '\App\Http\Controller\CalendarController@display');
-	Route::get('/studentList/{id}','\App\Http\Controllers\StudentListController@show');
+	Route::get('/studentList','\App\Http\Controllers\StudentListController@show');
 	Route::get('/recordForm', '\App\Http\Controllers\RecordFormsController@display');
 	Route::get('/requirements', '\App\Http\Controllers\RequirementsController@display');
 });
