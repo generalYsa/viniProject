@@ -28,7 +28,7 @@ class HomeController extends Controller
         $profNum = (Auth::user()->id);
         $code = $request->input('classCode');
 
-        $class = array('name'=>$name, 'profNum'=>$profNum, 'code'=>$code);
+        $class = array('name'=>$name, 'profID'=>$profNum, 'code'=>$code);
 
         DB::table('class')->insert($class); 
 
