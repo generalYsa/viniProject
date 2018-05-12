@@ -32,7 +32,7 @@ Route::group(['middleware' => ['auth']], function() {
 
 	Route::get('/studySets', function () {
 	    return view('studySets');
-	});=
+	});
 
 	// Route::get('/studentList', function() {
 	// 	return view('studentList');
@@ -60,8 +60,6 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/toDo', function() {
 		return view('toDo');
 	});
-	
-
 
 	// CHAT
 	Route::get('/getSentMessage', 'ChatMsgController@getSentMessage');
