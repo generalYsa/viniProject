@@ -109,9 +109,9 @@ form{
 
 
 #postBut{float:right;}
-#upoad{float:left;}
+#upload{float:left;}
 
-#postBut, #upload{
+.postBtns{
 	border:0;
 	color: #0e3c54;
 	background-color: #fff;
@@ -120,7 +120,6 @@ form{
 	padding: 2px;
 	border-radius: 2px;
 	margin: 5px 10px;
-	width: 50px;
 }
 
 #filename{

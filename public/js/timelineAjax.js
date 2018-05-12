@@ -1,8 +1,16 @@
 $(document).ready(function(){  
+    retrieveData();
+
+
 
     $("#postBut").click(function (e) {
 
         e.preventDefault(); 
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+            }
+        })
         console.log( $("#fileUp").val());
 
         // initializing values for ajax
@@ -52,11 +60,7 @@ $(document).ready(function(){
 
 
         // ajax
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                }
-            })
+            
 
             $.ajax({
 
@@ -78,10 +82,37 @@ $(document).ready(function(){
                     alert('PLEASE FILL IN ALL KEMERLIN');
                 }
             });
-        // $('#message').val("");
-
-        
+        // $('#message').val("");        
     });
+
+
+    // get latest post
+        function getLatestPost(){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                }
+            })
+
+            $.ajax({
+
+                type: 'GET',
+                url: '/timeline/getLatestPost' ,
+                data:   { 
+                            classID: $('#classID').val(),
+                            latestDate: $('.postDate:first').val(),
+                        },
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                            
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            });
+        }
+    // -----
 
     //function for displaying selected file
         $('input[type="file"]').change(function(){
@@ -90,5 +121,9 @@ $(document).ready(function(){
             console.log($('input[type=file]').val().replace(/C:\\fakepath\\/i, ''));
         })
 
+    function retrieveData(){
 
+        getLatestPost();
+        setTimeout(retrieveData, 20000);
+    }
 });

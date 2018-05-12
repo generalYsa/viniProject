@@ -83,11 +83,11 @@
 								<input id= 'authorID' type="hidden" value= {{ Auth::id() }}>
 								<input id="type" type="hidden" value="post"> 
 								
-								<input id="fileUp" type="file" style="display:none; margin:5px 5px">
-								<label for="fileUp" id="upload">Upload</label>
+								
+								<label  id="upload" class="postBtns">Upload</label>
 								<label id="filename"></label>
 								
-								<button id="postBut">Post</button>
+								<button id="postBut" class="postBtns">Post</button>
 							</form>
 						<!-- </div> -->
 					</div>
@@ -98,11 +98,14 @@
 
 		<div id="timelineBody">
 			<!-- POSTS -->
+
+				
 				@forelse($timelineFeed as $post)
 					<div class="postContainer">
 						<div class="postHeader">
 							<img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">
 							<p class="name">{{ $post->authorTable->name }}</p>
+							<input type='hidden' class="postDate" value="{{ $post->updated_at }}">
 							<p id="date">{{ $post->updated_at->format('M d, Y') }}</p>
 						</div>
 
