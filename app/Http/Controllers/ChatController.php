@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Chat;
 use App\Student;
 use App\Messages;
+use App\Classes;
 use Auth;
 use DB;
 use Response;
@@ -116,6 +117,13 @@ class ChatController extends Controller
         //
     }
 
+<<<<<<< HEAD
+    // public function theClass()
+    // {
+    //     $classes = Classes::GetClasses(Auth::user()->id);
+    //     return view('chat', compact('classes'));
+    // }
+=======
 
 
     public function getSentMessage(){
@@ -128,4 +136,5 @@ class ChatController extends Controller
         //     'created_at' => $sent->created_at->diffForHumans(),
         // ]);
     }
+>>>>>>> 23e05b0cddc6d09cd20c1e31e7fd802b3b40751a
 }
