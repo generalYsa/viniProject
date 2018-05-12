@@ -24,9 +24,16 @@ class ChatController extends Controller
     {
         // $user = Auth::id();
         $user = Auth::id();
-        $chat= Chat::GetChatMate();
-        $id = $chat->first()->id;
-        $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
+        $chat= Messages::GetChatMates();
+
+        if($chat->count() > 0){
+            $id = $chat->first()->chatMate;
+            $messages = Messages::GetMessages($id);
+        }else{
+            $id = null;
+            $messages = Messages::GetMessages(null);
+        }
+        
         return view('/chat', compact('chat', 'messages', 'id'));
 
     }
@@ -70,8 +77,8 @@ class ChatController extends Controller
     public function show($id)
     {
         $user = Auth::id();
-        $chat= Chat::GetChatMate();
-        $messages = Messages::where('chatID', $id)->orderBy('created_at','desc')->get();
+        $chat= Messages::GetChatMates();
+        $messages = Messages::GetMessages($id);
         return view('chat', compact('messages', 'chat', 'id'));
     }
 
@@ -112,8 +119,10 @@ class ChatController extends Controller
 
 
     public function getSentMessage(){
-        $sent =  Messages::GetSentMessage();
-        return Response::json($sent);
+        // return json_encode("Helooooo");
+        
+        return Messages::GetSentMessage();
+
         // return json([
         //     'message' => $sent->message,
         //     'created_at' => $sent->created_at->diffForHumans(),

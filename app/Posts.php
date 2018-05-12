@@ -26,4 +26,13 @@ class Posts extends Model
 							->where('classID', $id)
 							->get()->sortByDesc('updated_at');;
 	}	
+
+	// this returns all Events under Class with id $id
+	// public function scopeGetLatestPost($query, $classID, $date){	
+	// 	return Posts::select('id', 'content', 'updated_at', 'author')
+	// 						->where('classID', $classID)
+	// 						->where('updated_at', '>', $date)
+	// 						->orderBy('created_at','desc')->limit('1')
+	// 						->get();
+	// }	
 }
