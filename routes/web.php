@@ -70,23 +70,21 @@ Route::group(['middleware' => ['auth']], function() {
 	});
 	
 
-	// Route::get('/timeline', function() {
-	// 	return view('timeline');
-	// });
-	
-		// Route::get('/welcome', function() {
-		// 	return view('layouts.app');
-		// });
 
-	Route::get('/chat/getSentMessage', 'ChatController@index');
+	// CHAT
+	Route::get('/getSentMessage', 'ChatMsgController@getSentMessage');
+	Route::get('/getSearchChatmate', 'ChatMsgController@getSearchChatmate');
+	Route::get('/getMessages', 'ChatMsgController@getMessages');
 
+	// TIMELINE
+	Route::get('/timeline/getLatestPost', 'TimelineController@getLatestPost');
 	Route::post('/timeline/savePost', 'TimelineController@savePost');
 	Route::post('/timeline/saveEvent', 'TimelineController@saveEvent');
 	Route::post('/timeline/saveActivity', 'TimelineController@saveActivity');
 	Route::resource('/timeline', 'TimelineController');
 });
 
-Route::get('/chat/getSentMessage', 'ChatController@getSentMessage');
+
 Route::get('/', '\App\Http\Controllers\Auth\LoginController@showLoginForm');
 Route::post('login', '\App\Http\Controllers\Auth\LoginController@login');
 
