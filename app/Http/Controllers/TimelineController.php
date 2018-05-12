@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Auth;
 use App\Posts;
 use App\Events;
 use App\Activity;
 
 class TimelineController  extends Controller
 {
+
+    
     /**
      * Display a listing of the resource.
      *
@@ -17,10 +19,8 @@ class TimelineController  extends Controller
      */
     public function index()
     {
-        $activities = Activity::GetActivity(1); 
-        $events = Events::GetEvents(1);
-        $posts = Posts::GetPosts(1);
-        $timelineFeed = $activities->merge($events)->merge($posts)->sortByDesc('updated_at');
+        
+        $timelineFeed = TimelineController::getTimelineFeed(1);
 
         return view('timeline', compact('timelineFeed'));
     }
@@ -105,4 +105,22 @@ class TimelineController  extends Controller
     public function saveActivity(Request $request){
         return Activity::create($request->all());
     }
+
+
+    // for inserting Activity in DB
+    public function getLatestPost(Request $request){
+         return TimelineController::getTimelineFeed($request->classID)
+                                    ->where('author', '!=', Auth::id())
+                                    ->where('updated_at', '>', $request->latestDate);
+
+    }
+
+    public function getTimelineFeed($classID){
+        $activities = Activity::GetActivity($classID);
+        $events = Events::GetEvents($classID);
+        $posts = Posts::GetPosts($classID);
+        return $activities->merge($events)->merge($posts)->sortByDesc('updated_at');
+
+    }
+    
 }
