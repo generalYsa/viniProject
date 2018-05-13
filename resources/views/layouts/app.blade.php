@@ -68,10 +68,18 @@
                                             <div>
                                                 @if(count($classes) > 0)
                                                     @foreach($classes as $class)
-                                                        <li class="hvr-underline-from-center">
-                                                            <a href="/calendar{{ $class->id }}">{{ $class->name }}</a>
-                                                            <a href="#editClass" class="modal-open"><i class="fa fa-wrench fa-xs" onclick="editClass(this)"></i></a>
-                                                        </li>                                                
+
+                                                        <!-- LINKS FOR CLASSES -->
+                                                            <form method='POST' ACTION='/timeline'>
+                                                                @csrf
+                                                                <li class="hvr-underline-from-center">
+                                                                    <input type='hidden' name='classID' value='{{ $class->id }}'> 
+                                                                    <input type='hidden' name='className' value='{{ $class->name }}'> 
+                                                                    <button class='ClassBtn'>{{ $class->name }}</button>
+                                                                    <a href="#editClass" class="modal-open"><i class="fa fa-wrench fa-xs" onclick="editClass(this)"></i></a>
+                                                                </li>
+                                                            </form>  
+                                                        <!-- LINKS FOR CLASSES  -->
                                                     @endforeach                                               
                                                 @else
                                                     <li>No Class</li>
@@ -248,7 +256,7 @@
 					<div class="editModal_content">
 						<a href="#" class="closeModal">&times;</a>
 						<h2 class="editModalHeading2">Edit Class</h2>
-						<form method="POST" action="/update"><!-- action="{{ '/classes/'.$item->name.'/edit' }}"> -->
+						<form method="POST" action="/update">
 							{{ method_field('PUT') }}
 							{{ csrf_field() }}
 							<input class = "modalInput" placeholder="Edit Class Name" type="text" name="className"><br><br>

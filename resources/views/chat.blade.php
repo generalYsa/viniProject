@@ -112,7 +112,7 @@
 							<!-- HEADING ON THE RIGHT -->
 			    			<div class="message" id="conversation">
 			    				@include('chat.messages') 
-			    				</div>
+			    			</div>
 
 			    			<!-- SEND -->
 							  	<div class="reply">

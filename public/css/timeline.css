@@ -215,28 +215,34 @@ textarea {
 
 
 
-.activityName{
+.postTitle{
 	font-size: 18px;
 	font-weight: bold;
 	width: 90%;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.19);
+	white-space: pre;
 }
 
 
-.activityDescription{
+.postDescription{
 	text-align: right;
 	font-size:12px;
 	color: rgba(0, 0, 0, 0.6);
 	width: 90%;
 }
 
-.activityDeadline{
+.postDescription, .postTitle{
+	white-space: pre-wrap;
+    overflow-wrap: break-word;
+}
+
+.postDeadline{
 	font-size:15px;
 	color: red;
 	float: right;
 }
 
-.activityFile{
+.postFile{
 	text-decoration: none;
 	text-align: left;
 	font-size: 15px;
@@ -259,6 +265,22 @@ textarea {
 	margin-bottom: 5px;
 }
 
+#newContent{
+	top: 13mm;
+	width: 150px;
+	height: 16px;
+	border: 1px solid red;
+	position: fixed;
+	left: 57%;
+	background-color: red;
+	text-align: center;
+	color: white;
+	padding: 3px;
+	border-radius: 5px;
+
+	visibility: hidden;
+}
+
 @media only screen and (max-width: 1024px){
     
     .postContainer{
@@ -266,3 +288,15 @@ textarea {
 	}
 
 }
+
+
+@media only screen and (max-width: 765px){
+    
+    #newContent{
+    	margin: auto;
+    	left: 0;
+    	right: 0;
+    }
+
+}
+
