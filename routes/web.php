@@ -38,9 +38,7 @@ Route::group(['middleware' => ['auth']], function() {
 	    return view('editStudySet');
 	});
 
-	Route::get('/timeline', function() {
-		return view('timeline');
-	});
+
 	Route::get('/toDo', function() {
 		return view('toDo');
 	});
@@ -51,11 +49,13 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/getMessages', 'ChatMsgController@getMessages');
 
 	// TIMELINE
+	Route::post('/timeline', 'TimelineController@index');
 	Route::get('/timeline/getLatestPost', 'TimelineController@getLatestPost');
 	Route::post('/timeline/savePost', 'TimelineController@savePost');
 	Route::post('/timeline/saveEvent', 'TimelineController@saveEvent');
 	Route::post('/timeline/saveActivity', 'TimelineController@saveActivity');
-	Route::resource('/timeline', 'TimelineController');
+	Route::get('/timeline/appendLatestPosts', 'TimelineController@appendLatestPosts');
+	// Route::resource('/timeline', 'TimelineController');
 	
 	Route::get('/calendar', '\App\Http\Controller\CalendarController@display');
 	Route::get('/studentList','\App\Http\Controllers\StudentListController@show');

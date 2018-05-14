@@ -6,8 +6,12 @@
 @extends('layouts.app') 
 
 <div id="body">
+	<a href="#timeline" id="newContent" > NEW CONTENT </a>
 	<div id="timeline">
-		<div id="subject"><span>CMSC 129</span></div>
+		
+		
+
+		<div id="subject"><span>{{ $className }}</span></div>
 		
 		<!-- CREATE POST -->
 			<div class="postContainer">
@@ -37,7 +41,7 @@
 						<!--POST -->
 							<form>
 								<div id="normalContent">
-										<textarea id="normalForm" placeholder="Write something..." required></textarea>
+										<textarea id="normalForm" placeholder="Write something..." required ng-trim="false"></textarea>
 								</div>
 							</form>
 						<!-- POST -->
@@ -79,7 +83,7 @@
 					<div class="postFooter">
 						<!-- <div class="fileUpload"> -->
 							<form>
-								<input id= 'classID' type="hidden" value="1">
+								<input id= 'classID' type="hidden" value= {{ $classID }}>
 								<input id= 'authorID' type="hidden" value= {{ Auth::id() }}>
 								<input id="type" type="hidden" value="post"> 
 								
@@ -96,65 +100,13 @@
 			</div>
 		<!-- CREATE POST -->
 
-		<div id="timelineBody">
-			<!-- POSTS -->
-
-				
-				@forelse($timelineFeed as $post)
-					<div class="postContainer">
-						<div class="postHeader">
-							<img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">
-							<p class="name">{{ $post->authorTable->name }}</p>
-							<input type='hidden' class="postDate" value="{{ $post->updated_at }}">
-							<p id="date">{{ $post->updated_at->format('M d, Y') }}</p>
-						</div>
-
-						<div class="postBody">
-							
-							<!-- <div id="fileContent">
-								<a href="files/rants.pdf" download="RANTS">
-									<i class="fa fa-file fa-4x"></i>
-								</a>
-							</div> -->
-
-							<!-- POST CONTENT -->
-								<div class="postContent">
-									<br>
-
-									<!-- Title/Post -->
-										<div class="activityName">{{ $post->name }}</div>
-									
-									<!-- Description -->
-										<div class="activityDescription">{{ $post->description }}</div>
-									
-
-									<div style="margin-top: 5px;">
-										<!-- FILE -->
-										<a class="activityFile" href="files/rants.pdf" ><i class="fa fa fa-download"></i> Filename.pdf</a>
-
-										<!-- DEADLINE / DATE -->
-										@if($post->type == 'event' || $post->type == 'activity' )
-											<?php $toPrint = $post->type == 'event' ? 'Date' : 'Deadline'; ?>
-											@if($post->date != '')
-												<div class="activityDeadline"> {{ $toPrint }} : {{date_create($post->updated_at)->format('F d, Y') }}</div>
-											@else
-												<div class="activityDeadline">	No Deadline </div>
-											@endif
-										@endif
-									</div>
-								</div>
-							
-						</div>
-						<!-- SUBMIT BUTTON -->
-							@if($post->type == 'activity')
-								<label for="submit" class="submitBtn">Submit</label>
-								<input type="file" id="submit" value="Submit">
-							@endif
-					</div>
-				@empty
-				@endforelse
-			<!-- POSTS -->
-		</div>
+		<!-- TIMELINE BODY -->
+			<div id="timelineBody">
+				<!-- POSTS -->
+					@include('timeline.timelineFeed')
+				<!-- POSTS -->
+			</div>
+		<!-- TIMELINE BODY -->
 		
 	</div>
 </div>

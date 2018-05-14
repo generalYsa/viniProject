@@ -200,12 +200,22 @@ li a{
 	padding: 3%;
 }
 
-#subjectID li a, #workID li a{
+#subjectID li a, #workID li a {
 	font-size: 100%;
 	padding: 2%;
 	color: #01705c;
 	/*border-bottom: 5px solid #01705c;*/
 }
+
+#subjectID button {
+     background:none!important;
+     color: #01705c;
+     border:none; 
+     padding:0!important;
+     font: inherit;
+     cursor: pointer;
+}
+
 
 .hvr-underline-from-center>a{
 	text-decoration: none;

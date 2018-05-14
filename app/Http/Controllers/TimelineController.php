@@ -7,107 +7,51 @@ use Auth;
 use App\Posts;
 use App\Events;
 use App\Activity;
+use App\Classes;
+
 
 class TimelineController  extends Controller
 {
 
     
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+    // for index
+    public function index(Request $request)
     {
+
+        $className = $request->className;
+        $classID = $request->classID;
+        $classes = Classes::GetClasses(Auth::user()->id);
+        $timelineFeed = TimelineController::getTimelineFeed($classID);
         
-        $timelineFeed = TimelineController::getTimelineFeed(1);
-
-        return view('timeline', compact('timelineFeed'));
+        return view('timeline.timeline', compact('timelineFeed', 'classes', 'className', 'classID'));
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 
     // for inserting Posts in DB
     public function savePost(Request $request){
-        return Posts::create($request->all());
+        $post = Posts::create($request->all());
+        $post['name'] = $post['content'];
+        unset($post['content']);
+        
+        return TimelineController::postToAppend($post, 'post');
     }
 
     // for inserting Posts in DB
     public function saveEvent(Request $request){
-        return Events::create($request->all());
+        $event = Events::create($request->all());
+        return TimelineController::postToAppend($event, 'event');
     }
 
     // for inserting Activity in DB
     public function saveActivity(Request $request){
-        return Activity::create($request->all());
+        $activity = Activity::create($request->all());
+        $activity['date'] = $activity['deadline'];
+        unset($activity['deadline']);
+        return TimelineController::postToAppend($activity, 'activity');
     }
 
 
-    // for inserting Activity in DB
+    // for getting latest post in DB
     public function getLatestPost(Request $request){
          return TimelineController::getTimelineFeed($request->classID)
                                     ->where('author', '!=', Auth::id())
@@ -115,12 +59,29 @@ class TimelineController  extends Controller
 
     }
 
+    // returns HTML of posts to append
+    public function appendLatestPosts(Request $request){
+        $timelineFeed = TimelineController::getLatestPost($request);
+        return view('timeline.timelineFeed', compact('timelineFeed'));
+
+    }
+
+
+    // return all contents of Timeline
     public function getTimelineFeed($classID){
         $activities = Activity::GetActivity($classID);
         $events = Events::GetEvents($classID);
         $posts = Posts::GetPosts($classID);
         return $activities->merge($events)->merge($posts)->sortByDesc('updated_at');
 
+    }
+
+
+    // returns the HTML code of the post to append (post of the current user)
+    public function postToAppend($data, $postType){
+        $data['type'] = $postType;
+        $post = $data;
+        return view('timeline.individualPost', compact('post'));
     }
     
 }
