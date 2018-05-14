@@ -95,7 +95,7 @@
                                         
 										<!-- BEFORE: Auth::user()->'userType'-->
                                         @if (Auth::user()['userType'] =='s')
-                                            <li class="hvr-underline-from-center"><a href="#">Grades</a></li>
+                                            <li class="hvr-underline-from-center"><a href=" {{ route('calendar') }}">Grades</a></li>
                                             <li class="hvr-underline-from-center"><a href="#">Study Set</a></li>
                                         @elseif (Auth::user()['userType'] =='t')
                                             <li class="hvr-underline-from-center"><a href="#">Record Grades</a></li>
