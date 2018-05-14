@@ -1,19 +1,5 @@
 "use strict"
 
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function switchFilter(mode) {
-	alert("You pressed me! " + mode);
-	
-	document.getElementById("myDropdown").classList.toggle("show");
-}
-
-function selectOption(mode) {
-	document.getElementById("activityName").textContent = mode;
-}
-
 window.onclick = function(event) {
 	if (!event.target.matches('.dropbtn')) {
 
@@ -29,4 +15,22 @@ window.onclick = function(event) {
 			}
 		}
 	}
-} 
+}
+
+$(document).ready(function() {
+	$(".dropdownButton").click(function(event) {
+		$(".dropbtn").text(event.target.text);
+	});
+	
+	$("#activityName").click(function() {
+		$("#myDropdown").addClass("show");
+	});
+	
+	$(".RequirementType > button").click(function() {
+		var contentPanelId = $(this).attr("id");
+		$(".RequirementType > button").removeClass("Selected");
+		$("#" + contentPanelId).addClass("Selected");
+	});
+	
+	$("#r0").addClass("Selected");
+});
