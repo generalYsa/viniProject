@@ -51,7 +51,7 @@
 			<!-- RECORD FORM IDENTIFIER -->
 			
 			<!-- RECORD FORM -->
-			<form method = "POST" action = {{ view('recordForm') }}>	
+			<form method = "POST">	
 				<div id = "formContainer">
 					
 					<!-- RECORD FORM FIELD HEADER -->
