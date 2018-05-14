@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-<<<<<<< HEAD
 use DB;
 
 class Studentlist extends Model
@@ -16,14 +15,8 @@ class Studentlist extends Model
     }
     protected $table = 'studentlist';
     public $timestamps = false;
-=======
-
-class StudentList extends Model
-{
-    protected $table = 'studentlist';
 	
-    protected $fillable = [
+	protected $fillable = [
         'classID', 'studentNum', 'status',
     ];
->>>>>>> 4bca629748fe9c4fa91c05109746079820a8ba76
 }

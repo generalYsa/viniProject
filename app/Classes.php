@@ -16,6 +16,6 @@ class Classes extends Model
     }
 
 	protected $fillable = ['name', 'profID', 'code'];
-    protected $table = 'class';
+    protected $table = 'classes';
     public $timestamps = false;
 }

@@ -14,13 +14,13 @@ class StudentListTableSeeder extends Seeder
     {
         StudentList::create([
             'classID'  => '1',
-            'studentNumber' => '201500001',
+            'userID' => '201500001',
             'status'  => 'Active',
         ]);
 		
         StudentList::create([
             'classID'  => '1',
-            'studentNumber' => '201500002',
+            'userID' => '201500002',
             'status'  => 'Active',
         ]);
     }
