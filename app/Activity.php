@@ -33,7 +33,7 @@ class Activity extends Model
 
 	// returns all Activty under Class with id $id
 	public function scopeGetActivity($query, $id){
-		return Activity::	select('id', 'name', 'author', 'description', 'deadline as date', 'updated_at',  DB::raw('"activity" as type')/*, author*/)
+		return Activity::	select('id', 'name', 'author', 'score', 'description', 'deadline as date', 'updated_at',  DB::raw('"activity" as type')/*, author*/)
 							->where('classID', $id)
 							->get()->sortByDesc('updated_at');
 	}
