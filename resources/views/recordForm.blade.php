@@ -28,9 +28,14 @@
 							<label id = "activityScore"> 5 </label>
 							
 							<div id="myDropdown" class="dropdown-content">
-								<a class = "dropdownButton" id = "1">Link 1</a>
-								<a class = "dropdownButton" id = "2">Link 2</a>
-								<a class = "dropdownButton" id = "3">Link 3</a>
+								@forelse($activities as $activity)
+									<a class = "dropdownButton" name = "{{$activity->score}}" id = "{{ $activity->id }}"> {{ $activity->name }} </a>
+								@empty
+									<a class = "noAct" id = "none"> No activities yet. </a>
+								@endforelse
+									
+								<!-- <a class = "dropdownButton" id = "2">Link 2</a> -->
+								<!-- <a class = "dropdownButton" id = "3">Link 3</a> -->
 							</div>
 							
 						</div> 

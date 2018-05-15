@@ -8,8 +8,8 @@ use App\Classes;
 
 class RecordForm extends Model
 {
-	public function display()
+	public function defaultLink()
 	{
-		return 'recordForm';
+		return '/recordForm';
 	}
 }

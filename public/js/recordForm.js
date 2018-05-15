@@ -20,6 +20,7 @@ window.onclick = function(event) {
 $(document).ready(function() {
 	$(".dropdownButton").click(function(event) {
 		$(".dropbtn").text(event.target.text);
+		$("#activityScore").text(event.target.name);
 	});
 	
 	$("#activityName").click(function() {
@@ -31,6 +32,8 @@ $(document).ready(function() {
 		$(".RequirementType > button").removeClass("Selected");
 		$("#" + contentPanelId).addClass("Selected");
 	});
+	
+	$()
 	
 	$("#r0").addClass("Selected");
 });
