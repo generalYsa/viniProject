@@ -329,6 +329,7 @@ class ComposerStaticInit648f5f8a0b63253e0a41b09c5bde7bea
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\CalendarController' => __DIR__ . '/../..' . '/app/Http/Controllers/CalendarController.php',
         'App\\Http\\Controllers\\ChatController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChatController.php',
+        'App\\Http\\Controllers\\ChatMsgController' => __DIR__ . '/../..' . '/app/Http/Controllers/ChatMsgController.php',
         'App\\Http\\Controllers\\ClassesController' => __DIR__ . '/../..' . '/app/Http/Controllers/ClassesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
