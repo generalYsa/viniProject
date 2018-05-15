@@ -57,9 +57,12 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/timeline/appendLatestPosts', 'TimelineController@appendLatestPosts');
 	// Route::resource('/timeline', 'TimelineController');
 	
-	Route::get('/calendar', '\App\Http\Controller\CalendarController@display');
+	Route::get('/calendar', '\App\Http\Controllers\CalendarController@display');
 	Route::get('/studentList','\App\Http\Controllers\StudentListController@show');
-	Route::get('/recordForm', '\App\Http\Controllers\RecordFormsController@display');
+	
+	// Route::get('/recordForm', '\App\Http\Controllers\RecordFormsController@display');
+	Route::get('/recordForm/{classID}', '\App\Http\Controllers\RecordFormsController@display');
+	
 	Route::get('/requirements', '\App\Http\Controllers\RequirementsController@display');
 });
 
