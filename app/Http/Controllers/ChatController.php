@@ -26,6 +26,7 @@ class ChatController extends Controller
         // $user = Auth::id();
         $user = Auth::id();
         $chat= Messages::GetChatMates();
+        $classes = Classes::GetClasses(Auth::user()->id);
 
         if($chat->count() > 0){
             $id = $chat->first()->chatMate;
@@ -35,7 +36,7 @@ class ChatController extends Controller
             $messages = Messages::GetMessages(null);
         }
         
-        return view('/chat', compact('chat', 'messages', 'id'));
+        return view('/chat', compact('chat', 'messages', 'id', 'classes'));
 
     }
 
@@ -117,24 +118,5 @@ class ChatController extends Controller
         //
     }
 
-<<<<<<< HEAD
-    // public function theClass()
-    // {
-    //     $classes = Classes::GetClasses(Auth::user()->id);
-    //     return view('chat', compact('classes'));
-    // }
-=======
 
-
-    public function getSentMessage(){
-        // return json_encode("Helooooo");
-        
-        return Messages::GetSentMessage();
-
-        // return json([
-        //     'message' => $sent->message,
-        //     'created_at' => $sent->created_at->diffForHumans(),
-        // ]);
-    }
->>>>>>> 23e05b0cddc6d09cd20c1e31e7fd802b3b40751a
 }
