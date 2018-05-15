@@ -269,7 +269,10 @@ li#newClass>a:hover{
   right: 0;
 }
 
-
+#classlistForm{
+	height: auto;
+	margin: 0;
+}
 
 
 #body, #modalBody{ 

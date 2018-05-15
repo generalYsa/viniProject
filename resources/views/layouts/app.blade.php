@@ -60,7 +60,7 @@
                                 <!-- CLASSES BUTTON -->
                                 <li id="theClasses" class="hvr-underline-from-center">
                                         <i id="plus_icon" class="fa fa-plus" onclick="toggleSubject()"></i>
-                                        <a href="#">Classes</a>
+                                        <a href="#">{{ $className or 'Classes' }}</a>
                                         <i id="ellipsis_icon" class="fa fa-ellipsis-h" onclick="toggleWork()"></i>
 
                                     <div id="classDropDown">
@@ -70,7 +70,7 @@
                                                     @foreach($classes as $class)
 
                                                         <!-- LINKS FOR CLASSES -->
-                                                            <form method='POST' ACTION='/timeline'>
+                                                            <form method='POST' ACTION='/timeline' id='classlistForm'>
                                                                 @csrf
                                                                 <li class="hvr-underline-from-center">
                                                                     <input type='hidden' name='classID' value='{{ $class->id }}'> 
@@ -157,53 +157,37 @@
         <!-- NOTIFICATION BAR -->
 
         <!-- TO DO BAR -->
-            <div id="toDoBar" class="navDrpDwn">                
-                <!-- INDIVIDUAL NOTIF -->
-                    <a href=""> <!-- LINK TO POST -->
-                        <input type="hidden" value="true" id="isRead">
-                        <div class="notif">
-                            <!-- IMAGE -->
-                                <i class="fa fa-check-circle fa-4x" aria-hidden="true" ></i>
-                            <!-- DESCRIPTION -->
-                                <div class="deadline">
-                                    DUE TOMMORROW
-                                </div>
+            <div id="toDoBar" class="navDrpDwn">   
+                @foreach($toDos as $toDo)             
+                    <!-- INDIVIDUAL NOTIF -->
+                        <a href=""> <!-- LINK TO POST -->
+                            <input type="hidden" value="true" id="isRead">
+                            <div class="notif">
+                                <!-- IMAGE -->
+                                    @if($toDo->isDone == 0)
+                                        <i class="fa fa-check-circle fa-4x" aria-hidden="true" ></i>
+                                    @else
+                                        <i class="fa fa-check-circle fa-4x" aria-hidden="true" style="color: #33cccc"></i>
+                                    @endif
+                                <!-- DESCRIPTION -->
+                                    <div class="deadline">
+                                        DUE {{ date_create($toDo->activityTable['deadline'] )->format('F d, Y')}}
+                                    </div>
 
-                                <div class="title"> 
-                                    Lab 3: Kemerlin
-                                </div>
+                                    <div class="title"> 
+                                        {{ $toDo->activityTable['name'] }}
+                                    </div>
 
-                                <div class="subject">
-                                    CMSC 124
-                                </div>
+                                    <div class="subject">
+                                        {{ $toDo->activityClass($toDo->activityTable['classID'])}}
+                                    </div>
 
-                        </div>
-                    </a>
-                <!-- /INDIVIDUAL NOTIF -->
+                            </div>
+                        </a>
+                     <!-- /INDIVIDUAL NOTIF -->
+                @endforeach
+               
 
-                <a href=""> <!-- LINK TO POST -->
-                        <input type="hidden" value="true" id="isRead">
-                        <div class="notif">
-                            <!-- IMAGE -->
-                                <i class="fa fa-check-circle fa-4x" aria-hidden="true" style="color: #33cccc"></i>
-                            
-                            <!-- DESCRIPTION -->
-                                
-                                <div class="deadline">
-                                    DUE Feb 13, 2018
-                                </div>
-
-
-                                <div class="title"> 
-                                    Lab 76: Pak Ganern Ganern
-                                </div>
-
-                                <div class="subject">
-                                    CMSC 124
-                                </div>
-
-                        </div>
-                    </a>
             </div>
         <!-- TO DO BAR -->
 
