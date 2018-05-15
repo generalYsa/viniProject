@@ -13,7 +13,6 @@ class SubmissionTableSeeder extends Seeder
     public function run()
     {
         Submission::create([
-			'id' => '',
 			'activityID' => '1',
 			'studentID' => '201510558',
 			'score' => '5',
@@ -21,7 +20,6 @@ class SubmissionTableSeeder extends Seeder
 		]);
 		
 		Submission::create([
-			'id' => '',
 			'activityID' => '1',
 			'studentID' => '201510559',
 			'score' => '5',

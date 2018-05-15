@@ -43,6 +43,7 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\RecordForm' => $baseDir . '/app/RecordForm.php',
     'App\\Student' => $baseDir . '/app/Student.php',
     'App\\StudentList' => $baseDir . '/app/StudentList.php',
     'App\\Studentlist' => $baseDir . '/app/StudentList.php',

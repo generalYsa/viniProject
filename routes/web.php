@@ -42,8 +42,6 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/toDo', function() {
 		return view('toDo');
 	});
-	
-
 
 	// CHAT
 	Route::get('/getSentMessage', 'ChatMsgController@getSentMessage');

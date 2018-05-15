@@ -23,27 +23,29 @@
 					<div id = "header">
 					
 						<div class="dropdown">
-							<button onclick="myFunction()" class="dropbtn" id = "activityName"> Choose an activity </button>
+							<button class="dropbtn" id = "activityName"> Choose an activity </button>
+							
+							<label id = "activityScore"> 5 </label>
+							
 							<div id="myDropdown" class="dropdown-content">
-								<a onclick = "selectOption(0)">Link 1</a>
-								<a onclick = "selectOption(1)">Link 2</a>
-								<a onclick = "selectOption(2)">Link 3</a>
+								<a class = "dropdownButton" id = "1">Link 1</a>
+								<a class = "dropdownButton" id = "2">Link 2</a>
+								<a class = "dropdownButton" id = "3">Link 3</a>
 							</div>
+							
 						</div> 
 						
-						<input name = "maxScore" type = "number" max = "1000" placeholder = "Max Score" required> </input>
-						<button id = "addActivityButton" onclick = ""> + </button>
 					</div>
 					
 					<div class = "RequirementType">
 						<label> Filter </label>
-						<button onclick = "switchFilter(0)" id = "All"> All </button>
-						<button onclick = "switchFilter(1)" id = "Assignment" id = "selected"> Assignment </button>
-						<button onclick = "switchFilter(2)" id = "Quiz"> Quiz </button>
-						<button onclick = "switchFilter(3)" id = "LongExam"> Long Exam </button>
-						<button onclick = "switchFilter(4)" id = "FinalExam"> Final Exam </button>
-						<button onclick = "switchFilter(5)" id = "LabActivity"> Lab Activity </button>
-						<button onclick = "switchFilter(6)" id = "ProblemSet"> Problem Set </button>
+						<button id = "r0"> All </button>
+						<button id = "r1"> Assignment </button>
+						<button id = "r2"> Quiz </button>
+						<button id = "r3"> Long Exam </button>
+						<button id = "r4"> Final Exam </button>
+						<button id = "r5"> Lab Activity </button>
+						<button id = "r6"> Problem Set </button>
 					</div>
 					
 				</div>
@@ -51,7 +53,7 @@
 			<!-- RECORD FORM IDENTIFIER -->
 			
 			<!-- RECORD FORM -->
-			<form method = "POST" action = {{ view('recordForm') }}>	
+			<form method = "POST">	
 				<div id = "formContainer">
 					
 					<!-- RECORD FORM FIELD HEADER -->

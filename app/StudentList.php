@@ -8,6 +8,10 @@ use DB;
 
 class Studentlist extends Model
 {
+    protected $fillable = [
+        'classID', 'studentNum', 'status',
+    ];
+
     public function scopeGetStudentlist($query, $id){
         return DB::table('users')
         	   ->join('studentlist','users.id','=','studentlist.userID')
@@ -20,5 +24,4 @@ class Studentlist extends Model
     }
     protected $table = 'studentlist';
     public $timestamps = false;
-
 }

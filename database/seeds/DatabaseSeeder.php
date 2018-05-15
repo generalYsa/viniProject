@@ -13,14 +13,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Eloquent::unguard();
-        $this->call(
-			ActivityTableSeeder::class,
-			FileTableSeeder::class,
-			GradeReqTableSeeder::class,
-			StudentListTableSeeder::class,
-			SubmissionTableSeeder::class,
-			ClassesTableSeeder::class,
-            UsersTableSeeder::class
-        );
+        $this->call(ActivityTableSeeder::class);
+		$this->call(FileTableSeeder::class);
+		$this->call(GradeReqTableSeeder::class);
+		$this->call(StudentListTableSeeder::class);
+		$this->call(SubmissionTableSeeder::class);
+		$this->call(ClassesTableSeeder::class);
+		$this->call(UsersTableSeeder::class);
     }
 }

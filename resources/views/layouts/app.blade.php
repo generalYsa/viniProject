@@ -95,7 +95,7 @@
                                         
 										<!-- BEFORE: Auth::user()->'userType'-->
                                         @if (Auth::user()['userType'] =='s')
-                                            <li class="hvr-underline-from-center"><a href="#">Grades</a></li>
+                                            <li class="hvr-underline-from-center"><a href="">Grades</a></li>
                                             <li class="hvr-underline-from-center"><a href="#">Study Set</a></li>
                                         @elseif (Auth::user()['userType'] =='t')
                                             <li class="hvr-underline-from-center"><a href="#">Record Grades</a></li>
@@ -156,41 +156,7 @@
             </div>
         <!-- NOTIFICATION BAR -->
 
-        <!-- TO DO BAR -->
-            <div id="toDoBar" class="navDrpDwn">   
-                @foreach($toDos as $toDo)             
-                    <!-- INDIVIDUAL NOTIF -->
-                        <a href=""> <!-- LINK TO POST -->
-                            <input type="hidden" value="true" id="isRead">
-                            <div class="notif">
-                                <!-- IMAGE -->
-                                    @if($toDo->isDone == 0)
-                                        <i class="fa fa-check-circle fa-4x" aria-hidden="true" ></i>
-                                    @else
-                                        <i class="fa fa-check-circle fa-4x" aria-hidden="true" style="color: #33cccc"></i>
-                                    @endif
-                                <!-- DESCRIPTION -->
-                                    <div class="deadline">
-                                        DUE {{ date_create($toDo->activityTable['deadline'] )->format('F d, Y')}}
-                                    </div>
-
-                                    <div class="title"> 
-                                        {{ $toDo->activityTable['name'] }}
-                                    </div>
-
-                                    <div class="subject">
-                                        {{ $toDo->activityClass($toDo->activityTable['classID'])}}
-                                    </div>
-
-                            </div>
-                        </a>
-                     <!-- /INDIVIDUAL NOTIF -->
-                @endforeach
-               
-
-            </div>
-        <!-- TO DO BAR -->
-
+      
 
         <!-- BODY / RIGHT SIDE PANEL -->
             @if (Auth::user()->userType=='s')

@@ -20,6 +20,7 @@ class userActivity extends Model
 	public function activityClass($classID){	
 		$name = Classes::select('name')->where('id', $classID)->get();
 		return $name[0]['name'];
+
 	}
 
 	public function scopeInsertNewActivity($query, $studentList){
