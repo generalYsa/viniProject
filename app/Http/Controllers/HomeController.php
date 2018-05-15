@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;    
 use App\Classes;
+use App\userActivity;
 use Auth;
 use DB;
 
@@ -37,8 +38,9 @@ class HomeController extends Controller
 
     public function index()
     {
+        $toDos = userActivity::GetStudentActivity(Auth::user()->id);
         $classes = Classes::GetClasses(Auth::user()->id);
-        return view('home', compact('classes'));
+        return view('home', compact('classes', 'toDos'));
     }
 
     public function getID(){
