@@ -20,7 +20,7 @@
                 <div >
                     <i class="fa fa-bars fa-lg" onclick="toggleSidebar()" class="active"></i>
                 </div>
-                <a href="#"><img src="images\logogray2.png"></a>
+                <a href="#"><img src="\images\logogray2.png"></a>
 
                 <!-- NOTIFICATION BUTTON -->
                 <i class="fa fa-bell fa-lg fa_icons" onclick="toggleNotif()" class="active"></i>
@@ -56,7 +56,7 @@
                         <div class="details">
                             <ul>
                                 <!-- CALENDAR BUTTON -->
-                                <li class="hvr-underline-from-center"><a href="#">Calendar</a></li>
+                                <li class="hvr-underline-from-center"><a href="/calendar">Calendar</a></li>
                                 <!-- CLASSES BUTTON -->
                                 <li id="theClasses" class="hvr-underline-from-center">
                                         <i id="plus_icon" class="fa fa-plus" onclick="toggleSubject()"></i>
