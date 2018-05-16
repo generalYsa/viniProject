@@ -18,7 +18,7 @@ class CreateUserActivityTable extends Migration
             $table->integer('userID');
             $table->integer('activityID');
             $table->integer('score')->default(0);
-            $table->boolean('isPost');
+            $table->boolean('isPost')->default(0);
             $table->boolean('viewed')->default(false);
             $table->boolean('isDone')->default(false);
             $table->timestamps();
