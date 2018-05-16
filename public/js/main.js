@@ -13,15 +13,7 @@ function toggleNotif(){
 		}
 }
 
-function toggleToDo(){
-	document.getElementById("toDoBar").classList.toggle('active');
-	
-	// if notifBar is visible, it will be hidden
-		var notifBar = document.getElementById("notifBar");
-		if(window.getComputedStyle(notifBar, null).getPropertyValue("visibility") == "visible"){
-			notifBar.classList.toggle('active')
-		}
-}
+
 
 
 

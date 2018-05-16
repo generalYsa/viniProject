@@ -11,7 +11,7 @@ class Posts extends Model
     protected $fillable = ['classID', 'author', 'content', /*'file'*/];
 
 	// this specifies that author is an ID of table User
-	public function authorTable(){	
+	public function authorClass(){	
 		return $this->belongsTo('App\User', 'author');
 	}
 

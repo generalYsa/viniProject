@@ -10,7 +10,7 @@ class Events extends Model
     protected $fillable = ['classID', 'author', 'name', 'description', 'date'];
 
 	// this specifies that author is an ID of table User
-	public function authorTable(){	
+	public function authorClass(){	
 		return $this->belongsTo('App\User', 'author');
 	}
 

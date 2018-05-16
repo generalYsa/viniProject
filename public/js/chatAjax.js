@@ -148,7 +148,8 @@ $(document).ready(function(){
 
 });
 
-    
+
+// get the messages between current user, and clicked chatmate  
 function getMessages(chatmate){
         // set up of chatmates sidebar -----
             if(chatSideBar != null){

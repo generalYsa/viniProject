@@ -8,6 +8,7 @@ use App\Posts;
 use App\Events;
 use App\Activity;
 use App\Classes;
+use App\userActivity;
 
 
 class TimelineController  extends Controller
@@ -22,8 +23,9 @@ class TimelineController  extends Controller
         $classID = $request->classID;
         $classes = Classes::GetClasses(Auth::user()->id);
         $timelineFeed = TimelineController::getTimelineFeed($classID);
+        $toDos = userActivity::GetStudentActivity(Auth::user()->id);
         
-        return view('timeline.timeline', compact('timelineFeed', 'classes', 'className', 'classID'));
+        return view('timeline.timeline', compact('timelineFeed', 'classes', 'className', 'classID', 'toDos'));
     }
     
 
@@ -47,6 +49,7 @@ class TimelineController  extends Controller
         $activity = Activity::create($request->all());
         $activity['date'] = $activity['deadline'];
         unset($activity['deadline']);
+        userActivity::SavePostActivity($request->classID, $activity['id']);
         return TimelineController::postToAppend($activity, 'activity');
     }
 

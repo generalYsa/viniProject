@@ -1,6 +1,6 @@
 <?php
 
-
+use App\userActivity;
 
 Auth::routes();
 
@@ -43,6 +43,8 @@ Route::group(['middleware' => ['auth']], function() {
 		return view('toDo');
 	});
 
+
+
 	// CHAT
 	Route::get('/getSentMessage', 'ChatMsgController@getSentMessage');
 	Route::get('/getSearchChatmate', 'ChatMsgController@getSearchChatmate');
@@ -56,10 +58,14 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::post('/timeline/saveActivity', 'TimelineController@saveActivity');
 	Route::get('/timeline/appendLatestPosts', 'TimelineController@appendLatestPosts');
 	// Route::resource('/timeline', 'TimelineController');
+
+	//toDoStudents
+	Route::get('/toDo/setView', 'userActivityController@setViewed');
+	Route::get('/toDo/getLastUserActivity', 'userActivityController@getLastUserActivity');
 	
 	Route::get('/calendar', '\App\Http\Controllers\CalendarController@display');
 	Route::get('/studentList','\App\Http\Controllers\StudentListController@show');
-	
+
 	// Route::get('/recordForm', '\App\Http\Controllers\RecordFormsController@display');
 	Route::get('/recordForm/{classID}/{id}', '\App\Http\Controllers\RecordFormsController@display');
 	

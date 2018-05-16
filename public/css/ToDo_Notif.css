@@ -44,12 +44,18 @@
 	margin: auto;
 	width: 97%;
 	height: 75px;
-	background-color:  #2a677c;
 	border-top: 2px solid white;
 	border-radius: 7px;
 	font-family: 'Arial', sans-serif;
+	background-color:  #2a677c
 	/*-webkit-filter: grayscale(80%);  Safari 6.0 - 9.0 */
     /*filter: grayscale(80%);*/
+}
+
+
+
+.viewed{
+	background-color: #1b3f4b;
 }
 
 .notif > .description{
