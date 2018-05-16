@@ -11,6 +11,13 @@ class Studentlist extends Model
     protected $fillable = [
         'classID', 'studentNum', 'status',
     ];
+	
+    public function scopeGetStudentlist($query, $id){
+        return DB::table('users')
+        	   ->join('studentlist','users.id','=','studentlist.userID')
+               ->select('users.name','users.IDnum')
+               ->get();
+    }
 
     public function scopeGetStudents($query, $classID){
     	return Studentlist::select('studentNum')->where('classID', $classID)->get();

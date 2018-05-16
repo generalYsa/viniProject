@@ -26,7 +26,7 @@
 						<div class="dropdown">
 							<button class="dropbtn" id = "activityName" name = "{{$classID}}"> Choose an activity </button>
 							
-							<label id = "activityScore"> 5 </label>
+							<label id = "activityScore"> 0 </label>
 							
 							<div id="myDropdown" class="dropdown-content">
 								@forelse($activities as $activity)
@@ -42,18 +42,6 @@
 						</div> 
 						
 					</div>
-					
-					<div class = "RequirementType">
-						<label> Filter </label>
-						<button id = "r0"> All </button>
-						<button id = "r1"> Assignment </button>
-						<button id = "r2"> Quiz </button>
-						<button id = "r3"> Long Exam </button>
-						<button id = "r4"> Final Exam </button>
-						<button id = "r5"> Lab Activity </button>
-						<button id = "r6"> Problem Set </button>
-					</div>
-					
 				</div>
 			</div>
 			<!-- RECORD FORM IDENTIFIER -->
@@ -77,9 +65,10 @@
 					<!-- RECORD FORM FIELD HEADER -->
 					
 					<!-- RECORD FORM BODY --> <!-- Names and Grades of Students --> <!-- PHP could be used to loop. -->
+					@forelse($students as $student)
 					<div class = "LabelAndFieldContainer Record">
 						<div class = "FieldNameContainer">
-							<label> Kent Rio </label>
+							<label> {{ $student->userClass->name }} </label>
 						</div>
 						<div class = "FieldValueContainer">
 							<input name = "score[]" type = "number" min = "0" max = "1000"> </<input>
@@ -88,30 +77,19 @@
 							<a href="#"> View Submission </a>
 						</div>
 					</div>
-					
+					@empty
 					<div class = "LabelAndFieldContainer Record">
 						<div class = "FieldNameContainer">
-							<label> Kent Rio </label>
+							<label> No students enrolled </label>
 						</div>
 						<div class = "FieldValueContainer">
 							<input name = "score[]" type = "number" min = "0" max = "1000"> </<input>
 						</div>
 						<div class = "FieldValueContainer">
-							<a href="#"> View Submission </a>
+							<a href="#"> </a>
 						</div>
 					</div>
-					
-					<div class = "LabelAndFieldContainer Record">
-						<div class = "FieldNameContainer">
-							<label> Kent Rio </label>
-						</div>
-						<div class = "FieldValueContainer">
-							<input name = "score[]" type = "number" min = "0" max = "1000"> </<input>
-						</div>
-						<div class = "FieldValueContainer">
-							<a> No Files Submitted </a>
-						</div>
-					</div>
+					@endforelse
 					<!-- RECORD FORM BODY -->
 					
 					<!-- RECORD FORM BUTTONS / RECORD FORM CONTROL PANEL -->
