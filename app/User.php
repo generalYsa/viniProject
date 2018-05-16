@@ -30,4 +30,11 @@ class User extends Authenticatable
     // public function chatMates(){    
     //         return $this->belongsTo('App\User', 'chatMate');
     //     }
+	
+	public function scopeGetName($query, $userID)
+	{
+		return $query->select('name')
+					->where('id',$userID)
+					->get();
+	}
 }

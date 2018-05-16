@@ -31,10 +31,11 @@ class Activity extends Model
 	// 	return $this->belongsTo('App\User', 'author');
 	// }
 
-	// returns all Activty under Class with id $id
-	public function scopeGetActivity($query, $id){
+	// returns all Activty under Class with id $id and $reqID
+	public function scopeGetActivity($query, $id, $reqID){
 		return Activity::	select('id', 'name', 'author', 'score', 'description', 'deadline as date', 'updated_at',  DB::raw('"activity" as type')/*, author*/)
 							->where('classID', $id)
+							->where('gradeReqID', $reqID)
 							->get()->sortByDesc('updated_at');
 	}
 

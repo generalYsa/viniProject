@@ -61,9 +61,10 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/studentList','\App\Http\Controllers\StudentListController@show');
 	
 	// Route::get('/recordForm', '\App\Http\Controllers\RecordFormsController@display');
-	Route::get('/recordForm/{classID}', '\App\Http\Controllers\RecordFormsController@display');
+	Route::get('/recordForm/{classID}/{id}', '\App\Http\Controllers\RecordFormsController@display');
 	
-	Route::get('/requirements', '\App\Http\Controllers\RequirementsController@display');
+	Route::get('/requirements/{classID}', 'RequirementsController@display');
+	Route::post('/recordForm/activity', 'RequirementsController@updateStudents');
 });
 
 

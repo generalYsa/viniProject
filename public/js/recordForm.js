@@ -16,11 +16,37 @@ window.onclick = function(event) {
 		}
 	}
 }
-
+ function ajaxSetup(){
+        $.ajaxSetup({
+            headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+        })
+    }
 $(document).ready(function() {
 	$(".dropdownButton").click(function(event) {
 		$(".dropbtn").text(event.target.text);
 		$("#activityScore").text(event.target.name);
+		
+		
+		var activityID = event.target.id;
+		var classID = $("#activityName").name;
+		console.log("I changed! " + activityID);
+		ajaxSetup();
+		$.ajax({
+
+			type: 'POST',
+			url: '/recordForm/activity',
+			data: {id:activityID, classID:classID},
+			dataType: 'json',
+			success: function (data) {
+				console.log(data);
+				
+			},
+			error: function (data) {
+				console.log(data);
+			}
+		});
+
+		
 	});
 	
 	$("#activityName").click(function() {

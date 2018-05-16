@@ -1,6 +1,7 @@
 <html>
 	<head>
         <meta charset="utf-8"><!-- character encoding -->
+		<meta name="_token" content="{!! csrf_token() !!}" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="http://localhost:8000/css/sideBar.css" rel="stylesheet">
         <link href="http://localhost:8000/css/ToDo_Notif.css" rel="stylesheet">
@@ -23,7 +24,7 @@
 					<div id = "header">
 					
 						<div class="dropdown">
-							<button class="dropbtn" id = "activityName"> Choose an activity </button>
+							<button class="dropbtn" id = "activityName" name = "{{$classID}}"> Choose an activity </button>
 							
 							<label id = "activityScore"> 5 </label>
 							

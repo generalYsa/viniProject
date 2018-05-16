@@ -60,7 +60,7 @@
                                 <!-- CLASSES BUTTON -->
                                 <li id="theClasses" class="hvr-underline-from-center">
                                         <i id="plus_icon" class="fa fa-plus" onclick="toggleSubject()"></i>
-                                        <a href="#">Classes</a>
+                                        <a href="#">{{ $className or 'Classes' }}</a>
                                         <i id="ellipsis_icon" class="fa fa-ellipsis-h" onclick="toggleWork()"></i>
 
                                     <div id="classDropDown">
@@ -70,7 +70,7 @@
                                                     @foreach($classes as $class)
 
                                                         <!-- LINKS FOR CLASSES -->
-                                                            <form method='POST' ACTION='/timeline'>
+                                                            <form method='POST' ACTION='/timeline' id='classlistForm'>
                                                                 @csrf
                                                                 <li class="hvr-underline-from-center">
                                                                     <input type='hidden' name='classID' value='{{ $class->id }}'> 
@@ -95,7 +95,7 @@
                                         
 										<!-- BEFORE: Auth::user()->'userType'-->
                                         @if (Auth::user()['userType'] =='s')
-                                            <li class="hvr-underline-from-center"><a href=" {{ route('calendar') }}">Grades</a></li>
+                                            <li class="hvr-underline-from-center"><a href="">Grades</a></li>
                                             <li class="hvr-underline-from-center"><a href="#">Study Set</a></li>
                                         @elseif (Auth::user()['userType'] =='t')
                                             <li class="hvr-underline-from-center"><a href="#">Record Grades</a></li>
@@ -156,57 +156,7 @@
             </div>
         <!-- NOTIFICATION BAR -->
 
-        <!-- TO DO BAR -->
-            <div id="toDoBar" class="navDrpDwn">                
-                <!-- INDIVIDUAL NOTIF -->
-                    <a href=""> <!-- LINK TO POST -->
-                        <input type="hidden" value="true" id="isRead">
-                        <div class="notif">
-                            <!-- IMAGE -->
-                                <i class="fa fa-check-circle fa-4x" aria-hidden="true" ></i>
-                            <!-- DESCRIPTION -->
-                                <div class="deadline">
-                                    DUE TOMMORROW
-                                </div>
-
-                                <div class="title"> 
-                                    Lab 3: Kemerlin
-                                </div>
-
-                                <div class="subject">
-                                    CMSC 124
-                                </div>
-
-                        </div>
-                    </a>
-                <!-- /INDIVIDUAL NOTIF -->
-
-                <a href=""> <!-- LINK TO POST -->
-                        <input type="hidden" value="true" id="isRead">
-                        <div class="notif">
-                            <!-- IMAGE -->
-                                <i class="fa fa-check-circle fa-4x" aria-hidden="true" style="color: #33cccc"></i>
-                            
-                            <!-- DESCRIPTION -->
-                                
-                                <div class="deadline">
-                                    DUE Feb 13, 2018
-                                </div>
-
-
-                                <div class="title"> 
-                                    Lab 76: Pak Ganern Ganern
-                                </div>
-
-                                <div class="subject">
-                                    CMSC 124
-                                </div>
-
-                        </div>
-                    </a>
-            </div>
-        <!-- TO DO BAR -->
-
+      
 
         <!-- BODY / RIGHT SIDE PANEL -->
             @if (Auth::user()->userType=='s')
