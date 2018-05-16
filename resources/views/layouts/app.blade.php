@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta name="_token" content="{!! csrf_token() !!}" />
         <meta charset="utf-8"><!-- character encoding -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="{{ asset('css/sideBar.css') }}"  rel="stylesheet">
@@ -24,9 +25,11 @@
 
                 <!-- NOTIFICATION BUTTON -->
                 <i class="fa fa-bell fa-lg fa_icons" onclick="toggleNotif()" class="active"></i>
+                <span class="notifCircle" id="notifCircle"></span>
 
                 <!-- TO DO BUTTON -->
-                <i class="fa fa-check-square fa_icons" onclick="toggleToDo()" aria-hidden="true"></i>
+                <i class="fa fa-check-square fa_icons" id="toDoBtn" aria-hidden="true"></i>
+                <span class="notifCircle" id="toDoCircle"></span>
             </nav>
         <!-- /NAVIGATION BAR -->
 
@@ -156,7 +159,12 @@
             </div>
         <!-- NOTIFICATION BAR -->
 
-      
+        <!-- TO DO BAR -->
+            <div id="toDoBar" class="navDrpDwn">   
+                @include('layouts.toDo');               
+            </div>
+        <!-- TO DO BAR -->
+
 
         <!-- BODY / RIGHT SIDE PANEL -->
             @if (Auth::user()->userType=='s')
@@ -223,4 +231,5 @@
         <!-- BODY / RIGHT SIDE PANEL -->
     </body>
     <script src="{{asset('js/main.js')}}" ></script>
+    <script src="{{asset('js/toDoAjax.js')}}" ></script>
 </html>
