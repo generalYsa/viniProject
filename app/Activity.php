@@ -12,17 +12,17 @@ class Activity extends Model
 
 
 	// this specifies that classID is an ID of table Class
-	public function classIDTable(){	
-		return $this->belongsTo('App\Class', 'classID');
+	public function classModel(){	
+		return $this->belongsTo('App\Classes', 'classID');
 	}
 
 	// this specifies that gradeReq is an ID of gradeReq Class
-	public function gradeReqTable(){	
+	public function gradeReqModel(){	
 		return $this->belongsTo('App\GradeReq', 'gradeReq');
 	}
 
 	// this specifies that author is an ID of User Class
-	public function authorTable(){	
+	public function authorClass(){	
 		return $this->belongsTo('App\User', 'author');
 	}
 
