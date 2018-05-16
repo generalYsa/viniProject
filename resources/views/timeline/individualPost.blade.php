@@ -1,7 +1,7 @@
 <div class="postContainer">
 	<div class="postHeader">
 		<img src="https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-teacher-312a499a08079a12-512x512.png">
-		<p class="name">{{ $post->authorTable->name }}</p>
+		<p class="name">{{ $post->authorClass->name }}</p>
 		<input type='hidden' class="postDate" value="{{ $post->updated_at }}">
 		<p id="date">{{ $post->updated_at->format('M d, Y') }}</p>
 	</div>
