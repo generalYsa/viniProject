@@ -29,15 +29,15 @@
 							@foreach($gradeReq->GetTheActivity($gradeReq->id) as $userActivity).
 									<li id="gradeReqActsDetails">{{$userActivity->name}}
 										<span class='totalScore'>{{$userActivity->score}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span>/</span>
-										<span class='studScore'>{{ $gradeReq->GetActScore($userActivity->id)->score}}</span>
-										
+										<span class='studScore'>{{ $gradeReq->GetActScore($userActivity->id)->score}}</span>										
 									</li>
 							@endforeach		
 						</ul>
+						
 					</li>					
 				@endforeach
 				 
-                <li><em>TOTAL</em><span><em id='grandTotal'>100%</em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+                <li><em>TOTAL</em><span><em id='grandTotal'>100</em>%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
 			</ul>
 			<!-- GRADE REQUIREMENTS -->
 		</div>		
