@@ -23,8 +23,6 @@ function toggleToDo(){
 		}
 }
 
-
-
 function toggleClass(){
 	document.getElementById("classDropDown").classList.toggle('active');
 }
@@ -52,7 +50,50 @@ function toggleWork(){
 	document.getElementById("workID").classList.toggle('active');
 }
 
+$("#viewGrades").hide();
+function viewGrades(linkClicked){
+	if($("#viewGrades").hide()){
+		$("#viewGrades").show();
+	}
+}
 
+// function toggleGradeReq(linkClicked){
+// 	if($("#gradeReqActs").hide()){
+// 		$("#viewGrades").show();
+// 	}
+// }
+
+// FOR TEACHER
+
+
+function profEditModal(linkClicked){
+	var parent = $(linkClicked).parent();
+	var classID =  parent.children('.classID').val();
+	var className =  parent.children('.className_').val();
+	$("#classEdit").val(className);
+	$("#classEditID").val(classID);
+	$("#editClassForm").attr("action", "/home/" + classID);
+}
+
+function deleteClass(linkClicked){
+	var parent = $(linkClicked).parent();
+	var classID =  parent.children('.classID').val();
+	$("#delClassID").val(classID);
+	$("#delClass").attr("action", "/home/" + classID);
+}
+
+// FOR TEACHER
+
+// FOR STUDENT
+
+function dropModal(linkClicked){
+	var parent = $(linkClicked).parent();
+	var classID =  parent.children('.classID').val();
+	$("#dropClassID").val(classID);
+	$("#dropClass").attr("action", "/home/" + classID);
+}
+
+// FOR STUDENT
 
 // function toggleSubject(){
 // 	document.getElementById("classDropDown").classList.toggle('active');
