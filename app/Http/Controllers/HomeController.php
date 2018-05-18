@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;    
 use App\Classes;
+use App\StudentList;
 use Auth;
 use DB;
 
@@ -20,37 +21,82 @@ class HomeController extends Controller
     }
 
     function store(Request $request){
-        $this->validate($request, [
-            'className'=>'required',
-            'classCode'=> 'required|max:5',
-        ]);
-        $name = $request->input('className');
-        $profNum = (Auth::user()->id);
-        $code = $request->input('classCode');
+        if(Auth::user()->userType=='t'){
+            $this->validate($request, [
+                'className'=>'required',
+                'classCode'=> 'required|max:5',
+            ]);
+            $name = $request->input('className');            
+            $code = $request->input('classCode');
+            $exists = DB::table('class')->where('code', $code)->first();
 
-        $class = array('name'=>$name, 'profID'=>$profNum, 'code'=>$code);
+            if(!$exists){
+                $profNum = (Auth::user()->id);
+                $class = array('name'=>$name, 'profNum'=>$profNum, 'code'=>$code);
 
-        DB::table('class')->insert($class); 
+                DB::table('class')->insert($class); 
 
-        return redirect()->back();
+                return redirect()->back();
+            }
+        }else{
+            $this->validate($request, [
+                'classCode'=> 'required|max:5',
+            ]);
+
+            $classCode = $request->classCode;
+            $exists = DB::table('class')->where('code', $classCode)->first();
+
+            if($exists){
+                $codeDetails = Classes::GetClassID($classCode); 
+                $classID = $codeDetails[0]['id'];
+                $studentNum = (Auth::user()['id']);
+                $status = ('active');
+
+                $list = array('classID'=>$classID, 'studentNum'=>$studentNum, 'status'=>$status);
+                DB::table('studentlist')->insert($list); 
+
+                return redirect()->back();
+            }
+        }
     }
+            
 
     public function index()
     {
-        $classes = Classes::GetClasses(Auth::user()->id);
+        $id = Auth::user()->id;
+        if(Auth::user()->userType=='t'){
+            $classes = Classes::GetClasses($id);
+        }else{
+            $classes = DB::table('class')
+                            ->join('studentlist', 'class.id', '=', 'studentlist.classID')
+                            ->select('class.*')
+                            ->where([
+                                    ['studentlist.studentNum', '=', $id],
+                                    ['studentlist.status', '=', 'active']
+                                    ])
+                            ->get();
+        }
         return view('home', compact('classes'));
-    }
-
-    public function getID(){
-        $theID = Classes::GetClasses($classes->$id);
-        return $theID;
     }
 
     public function update(Request $request, $id)
     {
-        // $item = Classes::findOrFail($id);
-        $item = Classes::SelectClass($classes->id); //ang row ka selected class?
-        $item->update($request->input('className'));
-        return redirect('/classes/'.$item->name);
+        if(Auth::user()->userType=='t'){
+            $theClass = Classes::find($id); //ang row ka selected class?
+            $theClass->name = $request->className;
+            $theClass->save();
+            return redirect()->back();
+        }else{
+             $theClass = StudentList::GetTheClass($id);
+             $theClass->status = 'dropped';
+             $theClass->save();
+             return redirect()->back();
+        }
+    }
+
+    public function destroy($id){
+        $delClass = Classes::findOrFail($id);
+        $delClass->delete();
+        return redirect()->back();
     }
 }
