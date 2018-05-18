@@ -9,9 +9,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::resource('/home', 'HomeController');
 	Route::resource('/chat', 'ChatController');
 	// Route::get('/chat', 'ChatController@theClass');
-	Route::post('/update', 'HomeController@update');
-	Route::post('/store', 'HomeController@store');
-	Route::post('/getID/{id}', 'HomeController@getID');
+	// Route::post('/update', 'HomeController@update');
+	// Route::post('/store', 'HomeController@store');
+	// Route::post('/getID/{id}', 'HomeController@getID');
 	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 	Route::get('/studySets', function () {
@@ -42,6 +42,9 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/toDo', function() {
 		return view('toDo');
 	});
+
+	Route::resource('/viewGrades', 'ViewGradesController');
+
 
 	// CHAT
 	Route::get('/getSentMessage', 'ChatMsgController@getSentMessage');
