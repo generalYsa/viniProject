@@ -70,7 +70,7 @@ Route::group(['middleware' => ['auth']], function() {
 	Route::get('/recordForm/{classID}/{id}', '\App\Http\Controllers\RecordFormsController@display');
 	
 	Route::get('/requirements/{classID}', 'RequirementsController@display');
-	Route::post('/recordForm/activity', 'RequirementsController@updateStudents');
+	Route::get('/recordForm/getRecords', 'RecordFormsController@getStudentForm');
 });
 
 

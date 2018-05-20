@@ -16,37 +16,36 @@ window.onclick = function(event) {
 		}
 	}
 }
- function ajaxSetup(){
-        $.ajaxSetup({
-            headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
-        })
-    }
-$(document).ready(function() {
+
+$(document).ready(function() {	
+	$.ajaxSetup({
+			headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+	})
+	
 	$(".dropdownButton").click(function(event) {
 		$(".dropbtn").text(event.target.text);
 		$("#activityScore").text(event.target.name);
 		
-		
 		var activityID = event.target.id;
 		var classID = $("#activityName").name;
-		console.log("I changed! " + activityID);
-		ajaxSetup();
+		console.log(activityID)
 		$.ajax({
 
-			type: 'POST',
-			url: '/recordForm/activity',
-			data: {id:activityID, classID:classID},
-			dataType: 'json',
+			type: 'GET',
+			url: '/recordForm/getRecords',
+			data: {id:activityID},
+			dataType: 'HTML',
 			success: function (data) {
-				console.log(data);
-				
+				$('#recordStudents').empty();
+				$('#recordStudents').append(data);
 			},
 			error: function (data) {
 				console.log(data);
 			}
 		});
-
 		
+		$(".LabelAndFieldContainer").removeClass("Hidden").removeClass("Text-Center");
+		$(".FieldNameContainer").text("");
 	});
 	
 	$("#activityName").click(function() {

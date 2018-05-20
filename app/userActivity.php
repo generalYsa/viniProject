@@ -13,13 +13,18 @@ class userActivity extends Model
      protected $table = 'userActivity';
 
      public function userClass(){	
-		return $this->belongsTo('App\User', 'studentNum');
+		return $this->belongsTo('App\User', 'userID');
 	}
 
 	public function activityClass(){	
 		return $this->belongsTo('App\Activity', 'activityID');
 	}
 
+	// Get records of all students in a particular activity
+	public function scopeGetActivities($query, $activityID)
+	{
+		return userActivity::where('activityID',$activityID)->get();
+	}
 
 	// save a set of userActivity of users in a specific Class
 	public function scopeSavePostActivity($query, $classID, $activityID){

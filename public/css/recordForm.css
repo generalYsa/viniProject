@@ -178,4 +178,11 @@
 /* Dropdown */
 
 /* Dropdown Button */
+
+.Hidden {
+	display: none;
+}
  
+.Text-Center {
+	text-align: center;
+}

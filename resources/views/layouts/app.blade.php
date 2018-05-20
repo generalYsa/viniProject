@@ -161,7 +161,7 @@
 
         <!-- TO DO BAR -->
             <div id="toDoBar" class="navDrpDwn">   
-                @include('layouts.toDo');               
+               
             </div>
         <!-- TO DO BAR -->
 
