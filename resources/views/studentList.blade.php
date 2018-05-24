@@ -15,7 +15,7 @@
 						<th></th>
 					</tr>
 					@if(count($studentlists)>0)
-					@foreach($studentlists as $studentlist)			
+					@foreach($studentlists as $studentlist)		
 					<tr>
 						<td>{{ $studentlist->name}}</td>
 						<td>{{ $studentlist->IDnum}}</td>

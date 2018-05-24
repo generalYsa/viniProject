@@ -1,9 +1,10 @@
 <?php
-
+ 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\StudentList;
+use App\Classes;
 use Auth;
 use DB;
 
@@ -14,10 +15,28 @@ class StudentListController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+ public function index()
     {
-        //
+        $id = Auth::user()->id;
+        if(Auth::user()->userType=='t'){
+            $classes = Classes::GetClasses($id);
+        }else{
+            $classes = DB::table('class')
+                            ->join('studentlist', 'class.id', '=', 'studentlist.classID')
+                            ->select('class.*')
+                            ->where([
+                                    ['studentlist.studentNum', '=', $id],
+                                    ['studentlist.status', '=', 'active']
+                                    ])
+                            ->get();
+        }
+        $studentlists = StudentList::GetStudentList(Auth::user()->id);
+       // echo "<pre>";
+       // print_r($studentlists);
+        return view('studentList', compact('studentlists, classes'));
+        // return view('home', compact('classes'));
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -51,8 +70,8 @@ class StudentListController extends Controller
        $studentlists = StudentList::GetStudentList(Auth::user()->id);
        // echo "<pre>";
        // print_r($studentlists);
-       // return view('studentList', compact('studentlists'));
-       return $studentlists;
+       return view('studentList', compact('studentlists'));
+       // return $studentlists;
     }
 
     /**

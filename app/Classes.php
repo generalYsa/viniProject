@@ -8,7 +8,7 @@ class Classes extends Model
 {
 
 	public function scopeGetClasses($query, $id){
-    	return Classes::where('profNum', $id)->get();
+    	return Classes::where('profID', $id)->get();
     }
 
     public function scopeSelectClass($query, $id){

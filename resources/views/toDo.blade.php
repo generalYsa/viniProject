@@ -11,7 +11,7 @@
 			    <a href="#">CMSC 124</a>
 			    <a href="#">ENG 10</a>
 			    <a href="#">BIO 1</a>
-			    <a href="#">AWRA 123</a>
+			    <a href="#">AWRA 123</a> 
 			    <a href="#">ART 100</a>
 			  </div>
 		</div>

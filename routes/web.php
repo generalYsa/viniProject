@@ -14,9 +14,10 @@ Route::group(['middleware' => ['auth']], function() {
 	// Route::post('/getID/{id}', 'HomeController@getID');
 	Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
-	Route::get('/studySets', function () {
-	    return view('studySets');
-	});
+	// Route::get('/studySets', function () {
+	//     return view('studySets');
+	// });
+	Route::get('/studentList/{id}', 'StudentListController@show');
 
 	// Route::get('/studentList', function() {
 	// 	return view('studentList');
@@ -26,17 +27,17 @@ Route::group(['middleware' => ['auth']], function() {
 		return view('editPicture');
 	});
 
-	Route::get('/learnStudySet', function () {
-		return view('learnStudySet');
-	});
+	// Route::get('/learnStudySet', function () {
+	// 	return view('learnStudySet');
+	// });
 
-	Route::get('/playStudySet', function () {
-	    return view('playStudySet');
-	});
+	// Route::get('/playStudySet', function () {
+	//     return view('playStudySet');
+	// });
 
-	Route::get('/editStudySet', function () {
-	    return view('editStudySet');
-	});
+	// Route::get('/editStudySet', function () {
+	//     return view('editStudySet');
+	// });
 
 
 	Route::get('/toDo', function() {
