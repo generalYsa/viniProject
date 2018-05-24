@@ -20,7 +20,7 @@
                 <div >
                     <i class="fa fa-bars fa-lg" onclick="toggleSidebar()" class="active"></i>
                 </div>
-                <a href="#"><img src="images\logogray2.png"></a>
+                <a href="#"><img src="\images\logogray2.png"></a>
 
                 <!-- NOTIFICATION BUTTON -->
                 <i class="fa fa-bell fa-lg fa_icons" onclick="toggleNotif()" class="active"></i>
@@ -56,7 +56,7 @@
                         <div class="details">
                             <ul>
                                 <!-- CALENDAR BUTTON -->
-                                <li class="hvr-underline-from-center"><a href="#">Calendar</a></li>
+                                <li class="hvr-underline-from-center"><a href="/calendar">Calendar</a></li>
                                 <!-- CLASSES BUTTON -->
                                 <li id="theClasses" class="hvr-underline-from-center">
                                         <i id="plus_icon" class="fa fa-plus" onclick="toggleSubject()"></i>
@@ -89,14 +89,25 @@
                                         </ul>
                                         <ul id="workID">                                        
                                         
-                                        
-										<!-- BEFORE: Auth::user()->'userType'-->
-                                        @if (Auth::user()['userType'] =='s')                                           
-                                            <li class="hvr-underline-from-center"><a href="#">Study Set</a></li>
-                                        @elseif (Auth::user()['userType'] =='t')
-                                            <li class="hvr-underline-from-center"><a href="/viewGrades">Record Grades</a></li>
-                                            <li class="hvr-underline-from-center"><a href="/studentList">Students</a></li>                                              
-                                        @endif                                           
+                            
+        										<!-- BEFORE: Auth::user()->'userType'-->
+                                                @if (Auth::user()['userType'] =='s')                                           
+                                                    <li class="hvr-underline-from-center"><a href="#">Study Set</a></li>
+                                                @elseif (Auth::user()['userType'] =='t')
+                                                    <li class="hvr-underline-from-center"><a href="/viewGrades">Record Grades</a></li>
+
+
+                                                    <li class="hvr-underline-from-center">
+                                                        <form method="POST" action="/studentList">
+                                                            @csrf
+                                                            <input type="hidden" name="classID" value="1"> <!-- edit this to classID -->
+                                                            <button type="submit" class="ClassBtn">Students</button>
+                                                        </form>
+
+                                                    </li>
+
+                                                @endif          
+                                                                             
                                         </ul>                           
                                     </div>
                                 </li>
@@ -155,6 +166,12 @@
         <!-- NOTIFICATION BAR -->
 
 
+        <!-- TO DO BAR -->
+            <div id="toDoBar" class="navDrpDwn">   
+               
+            </div>
+        <!-- TO DO BAR -->
+        
         <!-- BODY / RIGHT SIDE PANEL -->
             @if (Auth::user()->userType=='s')
                 <!-- STUDENT ADD CLASS MODAL -->

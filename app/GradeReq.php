@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+<<<<<<< HEAD
 use App\Activity;
 use App\GradeReq;
 use App\userActivity;
 use DB;
+=======
+use App\Classes;
+>>>>>>> e2b04198676fae6ba833238c5f1175dab6794428
 use Auth;
 
 class GradeReq extends Model
@@ -33,5 +37,13 @@ class GradeReq extends Model
 
     protected $table = 'gradeReq';
    
+<<<<<<< HEAD
 	protected $fillable = ['name', 'percentage', 'classID', 'profID', 'remember_token', 'created_at', 'updated_at'];
+=======
+	protected $fillable = ['classID', 'author', 'name', 'description', 'date'];
+	
+	public function scopeGetGradeReqs($query, $classID){
+    	return GradeReq::where('classID', $classID)->get();
+    }
+>>>>>>> e2b04198676fae6ba833238c5f1175dab6794428
 }

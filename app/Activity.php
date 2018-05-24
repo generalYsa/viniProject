@@ -30,12 +30,24 @@ class Activity extends Model
 		return $this->belongsTo('App\User', 'author');
 	}
 
+
 	// returns all Activty under Class with id $id
 	public function scopeGetActivity($query, $id){
-		return Activity::	select('id', 'name', 'author', 'description', 'deadline as date', 'updated_at',  DB::raw('"activity" as type')/*, author*/)
-							->where('classID', $id)
-							->get()->sortByDesc('updated_at');
+		return Activity::	select('id', 'name', 'author', 'description', 'deadline as date', 'updated_at',  DB::raw('"activity" as type')/*, author*/);
 	}
+	// this specifies that author is an ID of gradeReq Class
+	// public function author(){	
+	// 	return $this->belongsTo('App\User', 'author');
+	// }
+
+	// returns all Activty under Class with id $id and $reqID
+	
+// public function scopeGetActivity($query, $id, $reqID){
+// 	return Activity::	select('id', 'name', 'author', 'score', 'description', 'deadline as date', 'updated_at',  DB::raw('"activity" as type')/*, author*/)
+// 						->where('classID', $id)
+// 						->where('gradeReqID', $reqID)
+// 						->get()->sortByDesc('updated_at');
+// }
 
 	//get rows activities of current class
 	// public function scopeGetTheActivity($query, $id){ 

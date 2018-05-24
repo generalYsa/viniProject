@@ -10,6 +10,6 @@ class Calendar extends Model
 {
     public function display()
 	{
-		return 'calendar';
+		return '/calendar';
 	}
 }

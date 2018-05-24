@@ -17,9 +17,35 @@ window.onclick = function(event) {
 	}
 }
 
-$(document).ready(function() {
+$(document).ready(function() {	
+	$.ajaxSetup({
+			headers: {'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content') }
+	})
+	
 	$(".dropdownButton").click(function(event) {
 		$(".dropbtn").text(event.target.text);
+		$("#activityScore").text(event.target.name);
+		
+		var activityID = event.target.id;
+		var classID = $("#activityName").name;
+		console.log(activityID)
+		$.ajax({
+
+			type: 'GET',
+			url: '/recordForm/getRecords',
+			data: {id:activityID},
+			dataType: 'HTML',
+			success: function (data) {
+				$('#recordStudents').empty();
+				$('#recordStudents').append(data);
+			},
+			error: function (data) {
+				console.log(data);
+			}
+		});
+		
+		$(".LabelAndFieldContainer").removeClass("Hidden").removeClass("Text-Center");
+		$(".FieldNameContainer").text("");
 	});
 	
 	$("#activityName").click(function() {
@@ -31,6 +57,8 @@ $(document).ready(function() {
 		$(".RequirementType > button").removeClass("Selected");
 		$("#" + contentPanelId).addClass("Selected");
 	});
+	
+	$()
 	
 	$("#r0").addClass("Selected");
 });

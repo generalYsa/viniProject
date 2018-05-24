@@ -10,14 +10,16 @@ use App\Classes;
 class Studentlist extends Model
 {
     protected $fillable = [
-        'classID', 'studentNum', 'status',
+        'classID', 'userID', 'status',
     ];
 
-    public function scopeGetStudentlist($query, $id){
-        return DB::table('users')
-        	   ->join('studentlist','users.id','=','studentlist.userID')
-               ->select('users.name','users.IDnum')
-               ->get();
+
+	public function student(){	
+		return $this->belongsTo('App\User', 'userID');
+	}
+
+    public function scopeGetStudentlist($query, $classID){
+        return StudentList::where('classID', $classID)->get();
     }
 
 
@@ -32,6 +34,11 @@ class Studentlist extends Model
     public function scopeGetStudents($query, $classID){
     	return Studentlist::select('studentNum')->where('classID', $classID)->get();
     }
+
+    public function scopeGetStudId($query, $id){
+    	return Studentlist::where('id', $id)->first();
+    }
+
 
     protected $table = 'studentlist';
     public $timestamps = false;

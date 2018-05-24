@@ -93,6 +93,13 @@ function dropModal(linkClicked){
 	$("#dropClass").attr("action", "/home/" + classID);
 }
 
+
+
+
+
+
+
+
 // FOR STUDENT
 
 // function toggleSubject(){

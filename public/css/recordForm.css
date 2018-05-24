@@ -50,7 +50,7 @@
     padding: 12px;
     border: none;
     cursor: pointer;
-	width: 90%;
+	width: 85%;
 	display: inline-block;
 	margin-left: 0px;
 }
@@ -178,4 +178,11 @@
 /* Dropdown */
 
 /* Dropdown Button */
+
+.Hidden {
+	display: none;
+}
  
+.Text-Center {
+	text-align: center;
+}

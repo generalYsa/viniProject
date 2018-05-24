@@ -17,23 +17,21 @@ class StudentListController extends Controller
      */
  public function index()
     {
-        $id = Auth::user()->id;
-        if(Auth::user()->userType=='t'){
-            $classes = Classes::GetClasses($id);
-        }else{
-            $classes = DB::table('class')
-                            ->join('studentlist', 'class.id', '=', 'studentlist.classID')
-                            ->select('class.*')
-                            ->where([
-                                    ['studentlist.studentNum', '=', $id],
-                                    ['studentlist.status', '=', 'active']
-                                    ])
-                            ->get();
-        }
-        $studentlists = StudentList::GetStudentList(Auth::user()->id);
-       // echo "<pre>";
-       // print_r($studentlists);
-        return view('studentList', compact('studentlists, classes'));
+        // $id = Auth::user()->id;
+        // if(Auth::user()->userType=='t'){
+        //     $classes = Classes::GetClasses($id);
+        // }else{
+        //     $classes = DB::table('class')
+        //                     ->join('studentlist', 'class.id', '=', 'studentlist.classID')
+        //                     ->select('class.*')
+        //                     ->where([
+        //                             ['studentlist.studentNum', '=', $id],
+        //                             ['studentlist.status', '=', 'active']
+        //                             ])
+        //                     ->get();
+        // }
+        // $studentlists = StudentList::GetStudentList(Auth::user()->id);
+        // return view('studentList', compact('studentlists','classes'));
         // return view('home', compact('classes'));
     }
 
@@ -65,13 +63,26 @@ class StudentListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-       $studentlists = StudentList::GetStudentList(Auth::user()->id);
-       // echo "<pre>";
-       // print_r($studentlists);
-       return view('studentList', compact('studentlists'));
-       // return $studentlists;
+       // $studentlists = StudentList::GetStudentList(Auth::user()->id);
+       // return view('studentList', compact('studentlists'));
+  
+       $id = Auth::user()->id;
+        if(Auth::user()->userType=='t'){
+            $classes = Classes::GetClasses($id);
+        }else{
+            $classes = DB::table('class')
+                            ->join('studentlist', 'class.id', '=', 'studentlist.classID')
+                            ->select('class.*')
+                            ->where([
+                                    ['studentlist.studentNum', '=', $id],
+                                    ['studentlist.status', '=', 'active']
+                                    ])
+                            ->get();
+        }
+        $studentlists = StudentList::GetStudentList($request->classID);
+        return view('studentList', compact('studentlists','classes'));
     }
 
     /**
@@ -80,9 +91,12 @@ class StudentListController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function drop(Request $request)
     {
-        //
+        $student = StudentList::GetStudID($request->id);
+        $student->status = $request->status;
+        $student->save();
+        return $student;
     }
 
     /**
